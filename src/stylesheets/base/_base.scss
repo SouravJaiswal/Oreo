@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  position: relative;
+}
+
+ol,
+ul,
+dl {
+  margin: 0;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+
+  @include respond(tab-land) {
+    // width < 1200?
+    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+  }
+
+  @include respond(tab-port) {
+    // width < 900?
+    font-size: 50%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(mini-phone) {
+    // width < 400?
+    font-size: 37.5%; //1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden !important;
+  -webkit-font-smoothing: antialiased;
+  color: $color-grey-dark-3;
+
+  font-family: $default-font-regular;
+  font-size: 1.6rem;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+textarea {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  overflow: auto;
+  resize: vertical;
+}
+
+a {
+  text-decoration: none;
+  color: $color-grey-dark-3;
+}
+
+p {
+  margin: 0;
+}

@@ -1,0 +1,9 @@
+.img {
+  &--medium {
+    width: 16rem;
+    height: 16rem;
+  }
+  &--circle {
+    border-radius: 50%;
+  }
+}

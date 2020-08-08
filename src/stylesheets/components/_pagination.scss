@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  margin: 10px 0;
+  &__items {
+    @include border-light();
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
+}

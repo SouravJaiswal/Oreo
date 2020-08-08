@@ -1,0 +1,13 @@
+.editor {
+  &__main {
+    @include border-light();
+    min-height: 30rem;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+
+  &__toolbar {
+    @include border-light();
+    border-radius: 4px;
+  }
+}

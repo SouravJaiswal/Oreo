@@ -1,0 +1,43 @@
+.transfer {
+  display: flex;
+
+  justify-content: space-between;
+  @include border-light();
+  padding: 1rem;
+  margin: 1rem 0;
+
+  &__total,
+  &__selected {
+    flex-basis: 48%;
+  }
+
+  &__actions {
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    button:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__table {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    table {
+      table-layout: fixed;
+      justify-self: stretch;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+  }
+
+  &__no-data {
+    height: 100%;
+    text-align: center;
+  }
+}

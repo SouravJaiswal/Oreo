@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400&display=swap');
+
+.heading {
+  color: $color-grey-dark-3;
+  font-family: $default-font-heading;
+
+  //text-transform: uppercase;
+  &--primary {
+    font-size: 2.8rem;
+    font-weight: 700;
+
+    line-height: 1.1;
+  }
+
+  &--sub {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  &--secondary {
+    color: $color-grey-dark-3;
+    font-size: 2rem;
+    //font-weight: 700;
+    line-height: 1;
+    @include respond(tab-port) {
+      //font-size: 5.24rem;
+    }
+  }
+
+  &--tertiary {
+    color: $color-grey-dark-3;
+    font-size: 1.6rem;
+    @include respond(tab-port) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.top-sub-heading {
+  text-transform: uppercase;
+  color: $color-grey-dark-2;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+
+  @include respond(tab-port) {
+    font-size: 1.6rem;
+  }
+}
+
+.underline {
+  &:after {
+    content: '';
+    height: 4px;
+    display: block;
+    position: absolute;
+    background-color: $color-tertiary-light;
+    width: 4rem;
+    margin-top: 1.5rem;
+    border-radius: 10rem;
+  }
+
+  &--center:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &--small:after {
+    margin-top: 4px;
+    width: 3rem;
+    height: 3px;
+  }
+}
