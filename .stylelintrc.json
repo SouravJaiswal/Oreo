@@ -1,0 +1,6 @@
+{
+  "extends": "stylelint-config-get-off-my-lawn",
+  "rules": {
+    "indentation": 2
+  }
+}

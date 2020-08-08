@@ -1,0 +1,26 @@
+.heading {
+  font-family: $default-font-heading;
+  line-height: 1.62;
+
+  &--jumbo {
+    font-size: 11.1rem;
+  }
+
+  &--primary {
+    font-size: 6.8rem;
+  }
+
+  &--secondary {
+    font-size: 4.2rem;
+  }
+
+  &--tertiary {
+    font-size: 2.6rem;
+  }
+}
+
+.paragraph {
+  font-family: $default-font-regular;
+  line-height: 2;
+  width: 70rem;
+}

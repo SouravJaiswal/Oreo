@@ -1,0 +1,52 @@
+.button {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: $default-font-regular;
+  font-size: 1.6rem;
+  height: 4.8rem;
+  justify-content: center;
+  line-height: 1.62;
+  padding: 0 4rem;
+  transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  width: fit-content;
+
+  &--default {
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &--danger {
+    background-color: $color-tertiary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-tertiary-dark;
+    }
+  }
+
+  &--success {
+    background-color: $color-secondary;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-secondary-dark;
+    }
+  }
+}

@@ -11,10 +11,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "stylelint": "npx stylelint '**/*.{css,scss,sass}",
     "lint": "eslint . --ext .json --ext .js",
     "prettier": "prettier --write \"**/*.{html,js,md,yml}\""
   },
@@ -44,6 +45,8 @@
     "lint-staged": "^10.2.11",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-get-off-my-lawn": "^2.0.0",
     "typescript": "^3.9.7"
   },
   "husky": {

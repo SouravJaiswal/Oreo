@@ -1,10 +1,9 @@
 .btn {
   //To center the text
+  align-items: center;
   display: inline-flex;
   justify-content: center;
-  align-items: center;
   width: fit-content;
-
   touch-action: manipulation;
   height: 3.2rem;
   padding: 0 1.5rem;
