@@ -7,15 +7,18 @@
   display: inline-flex;
   font-family: $default-font-regular;
   font-size: 1.6rem;
+  font-weight: 500;
   height: 4.8rem;
   justify-content: center;
   line-height: 1.62;
   padding: 0 4rem;
   transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
   width: fit-content;
+  outline: none;
 
   &--default {
-    border: 1px solid $color-primary;
+    background: $color-primary-light;
+    color: $color-primary;
 
     &:hover {
       background-color: $color-primary;
@@ -47,6 +50,35 @@
 
     &:hover {
       background-color: $color-secondary-dark;
+    }
+  }
+
+  &--grey {
+    background-color: $color-grey-light-2;
+    color: $color-grey-dark-3;
+
+    &:hover {
+      background-color: $color-grey-light-3;
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: $color-grey-dark-3;
+    flex-direction: column;
+
+    &::after {
+      background: $color-grey-dark-3;
+      content: ' ';
+      height: 2px;
+      opacity: 0;
+      width: 100%;
+
+      @include transition-slow();
+    }
+
+    &:hover::after {
+      opacity: 1;
     }
   }
 }

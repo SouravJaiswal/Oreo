@@ -210,6 +210,8 @@ export default () => {
             <Button state="primary">Primary</Button>
             <Button state="danger">Danger</Button>
             <Button state="success">Success</Button>
+            <Button state="grey">Grey</Button>
+            <Button state="text">Read More</Button>
           </div>
         </Col>
       </Row>
