@@ -1,5 +1,6 @@
 .heading {
   font-family: $default-font-heading;
+  font-weight: 700;
   line-height: 1.62;
 
   &--jumbo {
@@ -17,10 +18,19 @@
   &--tertiary {
     font-size: 2.6rem;
   }
+
+  &--regular {
+    font-size: 2rem;
+  }
 }
 
 .paragraph {
   font-family: $default-font-regular;
+  font-size: 1.6rem;
   line-height: 2;
-  width: 70rem;
+  max-width: 70rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }

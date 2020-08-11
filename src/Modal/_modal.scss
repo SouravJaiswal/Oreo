@@ -1,0 +1,75 @@
+.modal {
+  //Default configs
+  background: rgba($color-black, 0.85);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  z-index: 9999;
+
+  &__ui {
+    background: $color-white;
+    width: 50vw;
+    max-height: 80vh;
+    overflow: hidden;
+    min-height: 20vh;
+    border-radius: 4px;
+    transform: scale(0);
+  }
+
+  //Modal State
+  &--open {
+    visibility: initial;
+  }
+
+  &--open &__ui {
+    transform: scale(1);
+  }
+
+  //Modal Element customization
+  &__heading {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid $color-grey-light-1;
+  }
+
+  &__main {
+    border-bottom: 1px solid $color-grey-light-1;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 1.5rem 2rem;
+  }
+
+  &__footer {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    background: $color-grey-light-4;
+
+    & > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+
+  //Small Modal customization
+  &--small &__ui {
+    max-height: 24rem;
+    overflow-y: auto;
+    width: 50rem;
+  }
+
+  &--small &__main {
+    max-height: 10rem;
+    overflow-y: auto;
+    padding: 2rem;
+  }
+
+  //Empty Modal customization
+  &--empty &__main {
+    padding: 0;
+  }
+}

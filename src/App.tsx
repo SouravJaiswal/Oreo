@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HeadingJumbo, H1, H2, H3, Paragraph } from './Typography/index';
 import { UList, OList, Li } from './List/index';
 import { Row, Col } from './Grid';
 import './main.scss';
 import { Button } from './Button';
+import { Modal } from 'Modal';
 
 export default () => {
+  let [modal, setModal] = useState(false);
+  let [emptyModal, setEmptyModal] = useState(false);
+  let [smallModal, setSmallModal] = useState(false);
+
   return (
     <div className="app">
       <div className="app__hero u-margin-bottom-large">
@@ -215,7 +220,89 @@ export default () => {
           </div>
         </Col>
       </Row>
-      <div className="app__modal u-margin-bottom-large"></div>
+      <Row className="app__modal u-margin-bottom-large">
+        <Col span={1} total={1}>
+          <H2 className="u-margin-bottom-medium">
+            <span className="app__index">#5</span> Modal
+          </H2>
+          <div className="app__demo app__buttons">
+            <Button state="grey" onClick={() => setModal(true)}>
+              Open modal
+            </Button>
+            <Modal
+              collapsed={modal}
+              onClose={() => setModal(false)}
+              heading="This is a popup!"
+              action={
+                <>
+                  <Button state="success" onClick={() => setModal(false)}>
+                    Ok
+                  </Button>
+                </>
+              }>
+              <Paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+              <Paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+              <Paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+            </Modal>
+            <Button state="grey" onClick={() => setEmptyModal(true)}>
+              Empty Modal
+            </Button>
+            <Modal
+              collapsed={emptyModal}
+              className="sign-up"
+              onClose={() => setEmptyModal(false)}
+              type="empty">
+              <Paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+              <Paragraph>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+            </Modal>
+            <Button state="grey" onClick={() => setSmallModal(true)}>
+              Small Modal
+            </Button>
+            <Modal
+              collapsed={smallModal}
+              heading="Delete you account?"
+              action={
+                <>
+                  <Button state="grey" onClick={() => setSmallModal(false)}>
+                    No
+                  </Button>
+                  <Button state="danger" onClick={() => setSmallModal(false)}>
+                    Yes
+                  </Button>
+                </>
+              }
+              onClose={() => setSmallModal(false)}
+              type="small">
+              <Paragraph>Are you sure?</Paragraph>
+            </Modal>
+          </div>
+        </Col>
+      </Row>
       <div className="app__msg u-margin-bottom-large"></div>
       <div className="app__form u-margin-bottom-large"></div>
       <div className="app__loading u-margin-bottom-large"></div>

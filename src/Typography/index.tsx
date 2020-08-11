@@ -38,9 +38,20 @@ export const H3 = (props: {
   className?: string;
 }) => {
   return (
-    <h2 {...props} className={`heading heading--tertiary ${props.className}`}>
+    <h3 {...props} className={`heading heading--tertiary ${props.className}`}>
       {props.children}
-    </h2>
+    </h3>
+  );
+};
+
+export const H4 = (props: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <h4 {...props} className={`heading heading--regular ${props.className}`}>
+      {props.children}
+    </h4>
   );
 };
 
