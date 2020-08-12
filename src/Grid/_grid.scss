@@ -4,6 +4,7 @@
   max-width: $grid-width;
   position: relative;
   width: 100%;
+  flex-wrap: wrap;
 
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;

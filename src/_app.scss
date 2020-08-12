@@ -59,12 +59,4 @@
       display: block;
     }
   }
-
-  &__input {
-    .app__demo {
-      & > *:not(:last-child) {
-        margin-right: 2rem;
-      }
-    }
-  }
 }
