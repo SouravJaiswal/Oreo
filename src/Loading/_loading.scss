@@ -1,59 +1,63 @@
 .loading {
   display: inline-flex;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  border: 0.3rem solid $color-grey-light-3;
-  border-top-color: $color-grey-dark-3;
-  animation: 0.8s spin infinite linear;
 
-  &--light {
-    border: 0.3rem solid $color-grey-dark-3;
-    border-top-color: $color-grey-light-3;
+  // Default
+  &--default {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 0.3rem solid $color-grey-light-3;
+    border-top-color: $color-grey-dark-3;
+    animation: 0.8s spin infinite linear;
+
+    &--light {
+      border: 0.3rem solid $color-grey-dark-3;
+      border-top-color: transparent;
+    }
+  }
+
+  // Modern
+  &--modern {
+    svg {
+      width: 3rem;
+      height: 3rem;
+      fill: $color-grey-dark-3;
+    }
+
+    &--light {
+      svg {
+        fill: $color-grey-light-3;
+      }
+    }
+  }
+
+  // Line
+  &--line {
+    justify-content: center;
+
+    div {
+      width: 1rem;
+      height: 1rem;
+      margin: 0.3rem;
+      margin-top: 2rem;
+      background: $color-grey-dark-3;
+      border-radius: 50%;
+      animation: 0.9s bounce infinite alternate;
+
+      &:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+    }
   }
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-.loading--modern {
-  display: inline-flex;
-  svg {
-    width: 3rem;
-    height: 3rem;
-    fill: $color-grey-dark-3;
-  }
-
-  &--light {
-    svg {
-      fill: $color-grey-light-3;
-    }
-  }
-}
-
-.loading--line {
-  display: inline-flex;
-  justify-content: center;
-
-  div {
-    width: 1rem;
-    height: 1rem;
-    margin: 0.3rem;
-    margin-top: 2rem;
-    background: $color-grey-dark-3;
-    border-radius: 50%;
-    animation: 0.9s bounce infinite alternate;
-
-    &:nth-child(2) {
-      animation-delay: 0.3s;
-    }
-
-    &:nth-child(3) {
-      animation-delay: 0.6s;
-    }
   }
 }
 

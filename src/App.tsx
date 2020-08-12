@@ -312,7 +312,7 @@ export default () => {
           </H2>
           <div className="app__demo app__loading">
             <Loading />
-            <Loading type="light" />
+            <Loading shade="light" />
             <Loading type="modern" />
             <Loading type="line" />
           </div>

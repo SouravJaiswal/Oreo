@@ -13,13 +13,16 @@ export const Loading = (props: LoadingProps) => {
     case 'line':
       return <Line {...props} />;
     default:
-      return <div className={`loading loading--${props.type}`}></div>;
+      return (
+        <div
+          className={`loading loading--default loading--default--${props.shade}`}></div>
+      );
   }
 };
 
 const Modern = (props: any) => {
   return (
-    <div className={`loading--modern loading--modern--${props.shade}`}>
+    <div className={`loading loading--modern loading--modern--${props.shade}`}>
       <svg
         version="1.1"
         id="L7"
@@ -76,7 +79,7 @@ L82,35.7z">
 
 const Line = (props: any) => {
   return (
-    <div className="loading--line">
+    <div className="loading loading--line">
       <div></div>
       <div></div>
       <div></div>
