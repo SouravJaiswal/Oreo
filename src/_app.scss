@@ -30,7 +30,7 @@
 
   &__index {
     left: 0;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
     position: absolute;
     top: 0;
     transform: translateX(-100%);
@@ -38,5 +38,25 @@
 
   & > *:not(.app__hero) {
     width: 100rem;
+  }
+
+  &__modal {
+    & > button:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+
+  &__dimmer-demo {
+    & > * {
+      display: block;
+    }
   }
 }

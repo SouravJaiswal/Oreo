@@ -5,6 +5,8 @@ import { Row, Col } from './Grid';
 import './main.scss';
 import { Button } from './Button';
 import { Modal } from 'Modal';
+import { Loading } from 'Loading';
+import { Dimmer } from 'Dimmer';
 
 export default () => {
   let [modal, setModal] = useState(false);
@@ -225,7 +227,7 @@ export default () => {
           <H2 className="u-margin-bottom-medium">
             <span className="app__index">#5</span> Modal
           </H2>
-          <div className="app__demo app__buttons">
+          <div className="app__demo app__modal">
             <Button state="grey" onClick={() => setModal(true)}>
               Open modal
             </Button>
@@ -303,13 +305,59 @@ export default () => {
           </div>
         </Col>
       </Row>
-      <div className="app__msg u-margin-bottom-large"></div>
+      <Row className="app__loading u-margin-bottom-large">
+        <Col span={1} total={1}>
+          <H2 className="u-margin-bottom-medium">
+            <span className="app__index">#6</span> Loading
+          </H2>
+          <div className="app__demo app__loading">
+            <Loading />
+            <Loading type="light" />
+            <Loading type="modern" />
+            <Loading type="line" />
+          </div>
+        </Col>
+      </Row>
+      <Row className="app__dimmer u-margin-bottom-large">
+        <Col span={1} total={1}>
+          <H2 className="u-margin-bottom-medium">
+            <span className="app__index">#7</span> Dimmer
+          </H2>
+          <div className="app__demo app__dimmer-demo">
+            <Dimmer loading={<Loading type="modern" shade="light" />}>
+              <H1>This is a heading!</H1>
+              <Paragraph className="u-margin-bottom-medium">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+              <H2>This is a heading!</H2>
+              <Paragraph className="u-margin-bottom-medium">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+            </Dimmer>
+            <Dimmer loading={<Loading />}>
+              <H1>This is a heading!</H1>
+              <Paragraph className="u-margin-bottom-medium">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
+                aspernatur nobis nisi voluptas molestias quaerat consectetur
+                dignissimos ipsam nostrum quibusdam maxime consequatur amet!
+                Libero magni tempore distinctio quaerat magnam molestias!
+              </Paragraph>
+            </Dimmer>
+          </div>
+        </Col>
+      </Row>
       <div className="app__form u-margin-bottom-large"></div>
-      <div className="app__loading u-margin-bottom-large"></div>
       <div className="app__nav u-margin-bottom-large"></div>
       <div className="app__card u-margin-bottom-large"></div>
       <div className="app__chart u-margin-bottom-large"></div>
       <div className="app__img u-margin-bottom-large"></div>
+      <div className="app__msg u-margin-bottom-large"></div>
     </div>
   );
 };

@@ -1,0 +1,17 @@
+.dimmer {
+  position: relative;
+
+  &__bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 9;
+  }
+
+  &__loading {
+    @include absCenter();
+
+    z-index: 10;
+  }
+}
