@@ -59,4 +59,19 @@
       display: block;
     }
   }
+
+  &__para {
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  &__card__heading {
+    width: 70rem;
+    margin: 0 auto;
+  }
+
+  &__card--full {
+    margin: 2rem 0;
+    padding: 5rem;
+  }
 }

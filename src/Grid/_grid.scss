@@ -12,6 +12,7 @@
 }
 
 .col {
+  align-items: stretch;
   &:not(:last-child) {
     margin-right: $gutter-horizontal;
   }

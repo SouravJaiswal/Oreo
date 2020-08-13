@@ -272,9 +272,9 @@ const Radio = (props: Input) => {
 
 const File = (props: Input) => {
   let [errMsg, setErrMsg]: [Array<string>, Function] = useState([]);
-  const { name, initialValue, rules, accept, label, value } = props;
+  const { name, rules, accept, label, value } = props;
   let fileReader: FileReader = new FileReader();
-  let [imageBlob, setImageBlob]: [any, Function] = useState(initialValue);
+  let [imageBlob, setImageBlob]: [any, Function] = useState(value);
   let [image, setImage]: [any, Function] = useState({});
   let fileInputElement = useRef<HTMLInputElement>(null);
 
@@ -386,7 +386,7 @@ const checkErrors = (
   let errors = [];
   // Handle all rules
   for (let i = 0; i < rules.length; i++) {
-    const { limiter, errMsg, type, min, max, fileType, maxSize } = rules[i];
+    const { limiter, errMsg, type, min, max, maxSize } = rules[i];
     switch (type) {
       case 'required':
         if (typeof value === 'string' && value.length === 0) {

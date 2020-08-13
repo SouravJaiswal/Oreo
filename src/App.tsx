@@ -8,6 +8,7 @@ import { Modal } from 'Modal';
 import { Loading } from 'Loading';
 import { Dimmer } from 'Dimmer';
 import { Input } from 'Input';
+import { Card } from 'Card';
 
 export default () => {
   let [modal, setModal] = useState(false);
@@ -559,8 +560,85 @@ export default () => {
           </div>
         </Col>
       </Row>
+      <Row className="app__card u-margin-bottom-large">
+        <Col span={1} total={1}>
+          <H2 className="u-margin-bottom-medium">
+            <span className="app__index">#9</span> Card
+          </H2>
+          <Row>
+            <Col span={1} total={3}>
+              <Card type="border">
+                <H3 className=" u-margin-bottom-small">Batman Begins!</H3>
+                <Paragraph>
+                  No guns, no killing. I'll be standing where l belong. Between
+                  you and the peopIe of Gotham. My anger outweights my guilt.
+                  Bats frighten me. It's time my enemies shared my dread. I'm
+                  not wearing hockey pads.
+                </Paragraph>
+              </Card>
+            </Col>
+            <Col span={1} total={3}>
+              <Card type="border">
+                <H3 className=" u-margin-bottom-small">The Dark Knight</H3>
+                <Paragraph>
+                  Well, you see... I'm buying this hotel and setting some new
+                  rules about the pool area. Accomplice? I'm gonna tell them the
+                  whole thing was your idea. Well, you see... I'm buying this
+                  hotel and setting some new rules about the pool area.
+                </Paragraph>
+              </Card>
+            </Col>
+            <Col span={1} total={3}>
+              <Card type="border">
+                <H3 className=" u-margin-bottom-small">
+                  The Dark Knight Returns
+                </H3>
+                <Paragraph>
+                  Someone like you. Someone who'll rattle the cages. I seek the
+                  means to fight injustice. To turn fear against those who prey
+                  on the fearful. I'll be standing where l belong. Between you
+                  and the peopIe of Gotham.
+                </Paragraph>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={1} total={1}>
+              <Card type="shadow" className="app__card--full">
+                <H2 className="app__card__heading u-margin-bottom-medium u-center-text">
+                  I'm Batman I seek the means to fight injustice.
+                </H2>
+                <div className="app__para">
+                  <Paragraph>
+                    I seek the means to fight injustice. To turn fear against
+                    those who prey on the fearful.
+                  </Paragraph>
+                  <Paragraph>
+                    It's not who I am underneath but what I do that defines me.
+                    I will go back to Gotham and I will fight men Iike this but
+                    I will not become an executioner. My anger outweights my
+                    guilt. It's not who I am underneath but what I do that
+                    defines me.
+                  </Paragraph>
+                  <Paragraph>
+                    My anger outweights my guilt. I'm not wearing hockey pads.
+                    The first time I stole so that I wouldn't starve, yes. I
+                    lost many assumptions about the simple nature of right and
+                    wrong. And when I traveled I learned the fear before a crime
+                    and the thrill of success. But I never became one of them.
+                  </Paragraph>
+                  <Paragraph>
+                    It was a dog. It was a big dog. I'm not wearing hockey pads.
+                    I will go back to Gotham and I will fight men Iike this but
+                    I will not become an executioner.
+                  </Paragraph>
+                </div>
+              </Card>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
       <div className="app__nav u-margin-bottom-large"></div>
-      <div className="app__card u-margin-bottom-large"></div>
       <div className="app__chart u-margin-bottom-large"></div>
       <div className="app__img u-margin-bottom-large"></div>
       <div className="app__msg u-margin-bottom-large"></div>
