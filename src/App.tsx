@@ -9,6 +9,7 @@ import { Loading } from 'Loading';
 import { Dimmer } from 'Dimmer';
 import { Input } from 'Input';
 import { Card } from 'Card';
+import { Nav, NavMenu, NavActions, NavSideBar } from 'Nav';
 
 export default () => {
   let [modal, setModal] = useState(false);
@@ -22,6 +23,42 @@ export default () => {
   let [city, setCity] = useState(['chennai']);
   let [image, setImage] = useState('');
   let [answer, setAnswer] = useState(['chennai']);
+  let [collapsed, setCollapsed] = useState(false);
+
+  let menu = [
+    <>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M21 13v10h-6v-6h-6v6h-6v-10h-3l12-12 12 12h-3zm-1-5.907v-5.093h-3v2.093l3 3z" />
+        </svg>
+      </span>{' '}
+      <span>Home</span>
+    </>,
+    <>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M1.004 5.998l10.996-5.998 10.99 6.06-10.985 5.86-11.001-5.922zm11.996 7.675v10.327l10-5.362v-10.326l-10 5.361zm-2 0l-10-5.411v10.376l10 5.362v-10.327z" />
+        </svg>
+      </span>
+      <span>Products</span>
+    </>,
+    <>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 7.001c0 3.865-3.134 7-7 7s-7-3.135-7-7c0-3.867 3.134-7.001 7-7.001s7 3.134 7 7.001zm-1.598 7.18c-1.506 1.137-3.374 1.82-5.402 1.82-2.03 0-3.899-.685-5.407-1.822-4.072 1.793-6.593 7.376-6.593 9.821h24c0-2.423-2.6-8.006-6.598-9.819z" />
+        </svg>
+      </span>
+      <span>About</span>
+    </>,
+    <>
+      <span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z" />
+        </svg>
+      </span>
+      <span>Contact</span>
+    </>,
+  ];
 
   return (
     <div className="app">
@@ -638,7 +675,46 @@ export default () => {
           </Row>
         </Col>
       </Row>
-      <div className="app__nav u-margin-bottom-large"></div>
+      <Row className="app__nav u-margin-bottom-large">
+        <Col span={1} total={1}>
+          <H2 className="u-margin-bottom-medium">
+            <span className="app__index">#10</span> Navigation
+          </H2>
+          <Nav
+            className="u-margin-bottom-small"
+            logo={<div className="app__logo"></div>}>
+            <NavMenu>
+              <Button state="text">Home</Button>
+              <Button state="text">Products</Button>
+              <Button state="text">About</Button>
+              <Button state="text">Contact</Button>
+              <Button state="primary">Register</Button>
+            </NavMenu>
+          </Nav>
+          <Nav
+            type={'center'}
+            logo={<div className="app__logo"></div>}
+            className="u-margin-bottom-small">
+            <NavMenu>
+              <Button state="text">Home</Button>
+              <Button state="text">Products</Button>
+              <Button state="text">About</Button>
+              <Button state="text">Contact</Button>
+            </NavMenu>
+            <NavActions>
+              <Button state="text">Sign in</Button>
+              <Button state="primary">Sign up</Button>
+            </NavActions>
+          </Nav>
+          <Button
+            className="u-margin-bottom-small"
+            state="primary"
+            onClick={() => setCollapsed(!collapsed)}>
+            Toggle Sidebar
+          </Button>
+          <NavSideBar menu={menu} collapsed={collapsed} />
+        </Col>
+      </Row>
       <div className="app__chart u-margin-bottom-large"></div>
       <div className="app__img u-margin-bottom-large"></div>
       <div className="app__msg u-margin-bottom-large"></div>

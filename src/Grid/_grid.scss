@@ -4,6 +4,7 @@
   max-width: $grid-width;
   position: relative;
   width: 100%;
+  max-height: fit-content;
   flex-wrap: wrap;
 
   &:not(:last-child) {
