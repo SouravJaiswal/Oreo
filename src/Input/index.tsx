@@ -33,6 +33,7 @@ interface Input {
   options?: Array<Options>;
   initialValue?: string;
   accept?: string;
+  full?: boolean;
 }
 
 export const Input = (props: Input) => {
@@ -162,7 +163,7 @@ const Text = (props: Input) => {
 };
 
 const Radio = (props: Input) => {
-  const { label, name, className, type, options, value }: Input = props;
+  const { label, name, className, type, options, value, full }: Input = props;
 
   let onCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {
@@ -191,33 +192,44 @@ const Radio = (props: Input) => {
     return props.onChange(value);
   };
 
+  let fullWidthContainer = !!full ? 'radio__container--full' : '';
+
+  let fullWidthMain = !!full ? 'radio__main--full' : '';
+
+  let fullWidthGroup = !!full ? 'radio__group--full' : '';
+
   // If icon is provided, show the icon
   if (type === 'checkbox') {
     return (
-      <div className="radio__group">
-        <div className="radio__main">
+      <div className={`radio__group ${fullWidthGroup}`}>
+        <div className={`radio__main ${fullWidthMain}`}>
           {!!options
-            ? options.map((opt: Options) => (
-                <div className="radio__container" key={opt.value}>
-                  <input
-                    className={`radio__input ${className}`}
-                    type="checkbox"
-                    id={opt.value}
-                    name={name}
-                    value={opt.value}
-                    checked={
-                      Array.isArray(value) && value.indexOf(opt.value) >= 0
-                    }
-                    onChange={onCheckboxChange}
-                  />
-                  <label className="radio__label" htmlFor={opt.value}>
-                    {opt.label}
-                  </label>
-                </div>
-              ))
+            ? options.map((opt: Options) => {
+                const id = opt.value + Math.random() * 10;
+                return (
+                  <div
+                    className={`radio__container ${fullWidthContainer}`}
+                    key={opt.value}>
+                    <input
+                      className={`radio__input ${className}`}
+                      type="checkbox"
+                      id={id}
+                      name={name}
+                      value={opt.value}
+                      checked={
+                        Array.isArray(value) && value.indexOf(opt.value) >= 0
+                      }
+                      onChange={onCheckboxChange}
+                    />
+                    <label className="radio__label" htmlFor={id}>
+                      {opt.label}
+                    </label>
+                  </div>
+                );
+              })
             : ''}
         </div>
-        <span className="input__label">{label}</span>
+        {!full ? <span className="input__label">{label}</span> : ''}
       </div>
     );
   }

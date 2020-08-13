@@ -20,6 +20,7 @@ export default () => {
   let [radio, setRadio] = useState('male');
   let [city, setCity] = useState(['chennai']);
   let [image, setImage] = useState('');
+  let [answer, setAnswer] = useState(['chennai']);
 
   return (
     <div className="app">
@@ -527,6 +528,32 @@ export default () => {
                     },
                   ]}
                 />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={1} total={1}>
+                <Col span={1} total={3}>
+                  <Input
+                    type="checkbox"
+                    value={answer}
+                    onChange={setAnswer}
+                    name="answer"
+                    label="City"
+                    full={true}
+                    options={[
+                      {
+                        label:
+                          'Exam Lounge is an incremental learning platform that will help to develop and enhance the cognitive and logical reasoning skills.',
+                        value: 'bangalore',
+                      },
+                      {
+                        label:
+                          'In the month on January, Suresh spend 55% of his monthly salary on bills and rent. Out of the remaining salary, he invested 50% in PPF and the remaining he deposited in the bank. He deposited Rs. 21,600 in the bank. What was his salary?',
+                        value: 'chennai',
+                      },
+                    ]}
+                  />
+                </Col>
               </Col>
             </Row>
           </div>
