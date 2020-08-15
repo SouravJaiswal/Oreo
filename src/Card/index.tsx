@@ -2,7 +2,8 @@ import React from 'react';
 
 export const Card = (props: {
   children: React.ReactNode;
-  type: string;
+  /** Border,  */
+  type: 'border' | 'shadow' | 'default';
   className?: string;
 }) => {
   return (

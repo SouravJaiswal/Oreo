@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, useRef } from 'react';
-import { Button } from 'Button';
+import { Button } from 'Button/Button';
 
 // All the interfaces
 interface Rules {

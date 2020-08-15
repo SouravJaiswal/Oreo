@@ -76,11 +76,13 @@
   }
 
   &__logo {
-    height: 4rem;
+    height: 3.2rem;
     width: 15rem;
     background: $color-grey-light-3;
   }
 
-  &__menu--side {
+  &__sidebar {
+    height: 60rem;
+    display: flex;
   }
 }
