@@ -1,4 +1,5 @@
 import React from 'react';
+import './button.scss';
 
 export const Button = (props: {
   children: React.ReactNode;
