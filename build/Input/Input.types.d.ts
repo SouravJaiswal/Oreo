@@ -17,7 +17,7 @@ export interface InputProps {
     value: string | number | Array<string>;
     label: string;
     placeholder?: string;
-    onChange: Function;
+    onChange: (params: onChangeParams) => void;
     min?: number;
     max?: number;
     type: string;
@@ -30,3 +30,8 @@ export interface InputProps {
     accept?: string;
     full?: boolean;
 }
+interface onChangeParams {
+    value: string | Array<string> | File;
+    isValid: boolean;
+}
+export {};

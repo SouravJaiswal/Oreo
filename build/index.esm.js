@@ -569,13 +569,13 @@ var File = function (props) {
       if (!checkErrors(files[0], setErrMsg, rules)) {
         fileReader.readAsDataURL(files[0]);
         setImage(files[0]);
-        return props.onChange(files[0]);
+        return props.onChange({ value: files[0], isValid: !!errMsg.length });
       }
     }
   };
   // Clear the image from blob and from the parent
   var clearImage = function () {
-    props.onChange("");
+    props.onChange({ value: "", isValid: !!errMsg.length });
     setImageBlob("");
     setErrMsg([]);
     // Clear the value of the input element
@@ -716,7 +716,7 @@ var Text = function (props) {
     checkErrors(value, setErrMsg, rules);
     // Touched state
     setTouched(true);
-    return props.onChange(value);
+    return props.onChange({ value: value, isValid: !!errMsg.length });
   };
   // If touched and error show the error border, else success border
   var showErrState = touched
@@ -803,18 +803,22 @@ var Radio = function (props) {
     if (!Array.isArray(props.value)) return;
     // Either add or remove the clicked element
     if (props.value.indexOf(value) < 0) {
-      return props.onChange(__spreadArrays(props.value, [value]));
+      return props.onChange({
+        value: __spreadArrays(props.value, [value]),
+        isValid: true,
+      });
     } else {
-      return props.onChange(
-        props.value.filter(function (v) {
+      return props.onChange({
+        value: props.value.filter(function (v) {
           return v !== value;
-        })
-      );
+        }),
+        isValid: true,
+      });
     }
   };
   var onRadioChange = function (e) {
     var value = e.target.value;
-    return props.onChange(value);
+    return props.onChange({ value: value, isValid: true });
   };
   var fullWidthContainer = !!full ? "radio__container--full" : "";
   var fullWidthMain = !!full ? "radio__main--full" : "";
