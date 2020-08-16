@@ -6,7 +6,16 @@ export default {
 };
 
 export const Default = () => <Button state="default">Default</Button>;
-export const Primary = () => <Button state="primary">Primary</Button>;
+export const Primary = () => {
+  return (
+    <>
+      <Button state="primary" disabled>
+        Primary
+      </Button>
+      <Button state="primary">Primary</Button>
+    </>
+  );
+};
 export const Danger = () => <Button state="danger">Danger</Button>;
 export const Success = () => <Button state="success">Success</Button>;
 export const Grey = () => <Button state="grey">Grey</Button>;

@@ -3,6 +3,7 @@ import './button.scss';
 
 export const Button = (props: {
   children: React.ReactNode;
+  disabled?: boolean;
   className?: string;
   /**
   state could be 'default', 'primary', 

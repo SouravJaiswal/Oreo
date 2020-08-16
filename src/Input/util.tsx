@@ -18,7 +18,7 @@ export const checkErrors = (
     switch (type) {
       case 'required':
         if (typeof value === 'string' && value.length === 0) {
-          errors.push(errMsg);
+          return errors.push(errMsg);
         }
         break;
       case 'min':
@@ -29,7 +29,7 @@ export const checkErrors = (
         )
           break;
         if (parseInt(value) < min) {
-          errors.push(errMsg);
+          return errors.push(errMsg);
         }
         break;
       case 'max':
@@ -40,7 +40,7 @@ export const checkErrors = (
         )
           break;
         if (parseInt(value) > max) {
-          errors.push(errMsg);
+          return errors.push(errMsg);
         }
         break;
       case 'regex':
@@ -48,13 +48,13 @@ export const checkErrors = (
         let regex = new RegExp(limiter);
 
         if (!regex.test(value)) {
-          errors.push(errMsg);
+          return errors.push(errMsg);
         }
         break;
       case 'maxSize':
         if (!maxSize || typeof value === 'string') return;
         if (value.size / 1024 > maxSize) {
-          errors.push(errMsg);
+          return errors.push(errMsg);
         }
         break;
       case 'fileType':

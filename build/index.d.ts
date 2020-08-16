@@ -4,6 +4,6 @@ export { Nav, NavActions, NavMenu, Sidebar, Menu, MenuItem } from './Nav';
 export { Modal } from './Modal';
 export { Loading } from './Loading';
 export { OList, UList, Li } from './List';
-export { Input } from './Input';
+export { Input, ErrMsg } from './Input';
 export { Col, Row } from './Grid';
 export { Card } from './Card';
