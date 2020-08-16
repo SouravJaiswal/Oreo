@@ -1,3 +1,5 @@
+import './nav.scss';
+
 export { Nav } from './Nav';
 export { NavActions } from './NavActions';
 export { NavMenu } from './NavMenu';

@@ -1,3 +1,5 @@
+import './loading.scss';
+
 import React from 'react';
 
 interface LoadingProps {

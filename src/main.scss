@@ -1,15 +1,8 @@
-//Components
-@import 'Grid/grid';
-@import 'Typography/typography';
-@import 'List/list';
-@import 'Button/button';
-@import 'Modal/modal';
-@import 'Loading/loading';
-@import 'Dimmer/dimmer';
-@import 'Input/input';
-@import 'Card/card';
-@import 'Nav/nav';
-@import 'Dashboard/dashboard';
+//Utils
+@import './utils/variables';
+@import './utils/mixins';
 
-//Main page
-@import 'app.scss';
+//Base
+@import './base/base';
+@import './base/utilities';
+@import './base/animations';

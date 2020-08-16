@@ -1,5 +1,5 @@
 import React from 'react';
-import { H4 } from 'Typography';
+import { H4 } from '../Typography';
 
 interface ModalProps {
   children: React.ReactNode;
