@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState, useRef } from 'react';
 import { ErrMsg } from './ErrMsg';
 import { Button } from '../Button/Button';
 import { InputProps } from './Input.types';
+import { checkErrors } from './util';
 
 // 1. Need to upload the image - Done
 // 2. Handle upload image - Done

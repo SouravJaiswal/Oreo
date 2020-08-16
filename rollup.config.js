@@ -27,5 +27,22 @@ export default {
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss(),
+    copy({
+      targets: [
+        {
+          src: "src/base",
+          dest: "build",
+        },
+        {
+          src: "src/utils",
+          dest: "build",
+        },
+        {
+          src: "src/main.scss",
+          dest: "build",
+          rename: "main.scss",
+        },
+      ],
+    }),
   ],
 };

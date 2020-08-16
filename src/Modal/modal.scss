@@ -1,3 +1,5 @@
+@import '../main.scss';
+
 .modal {
   //Default configs
   background: rgba($color-black, 0.85);
@@ -71,5 +73,14 @@
   //Empty Modal customization
   &--empty &__main {
     padding: 0;
+    border: none;
+    height: 100%;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  &--empty &__ui {
+    width: fit-content;
+    max-height: fit-content;
   }
 }

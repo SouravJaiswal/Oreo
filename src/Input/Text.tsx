@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useState, useRef } from 'react';
 import { InputProps } from './Input.types';
 import { ErrMsg } from './ErrMsg';
+import { checkErrors } from './util';
 /*
   Usage:
 

@@ -14,7 +14,7 @@ import './main.scss';
 export default () => {
   let [modal, setModal] = useState(false);
   let [emptyModal, setEmptyModal] = useState(false);
-  let [smallModal, setSmallModal] = useState(false);
+
   let [username, setUsername] = useState('');
   let [email, setEmail] = useState('');
   let [password, setPassword] = useState('');
@@ -328,26 +328,6 @@ export default () => {
                 dignissimos ipsam nostrum quibusdam maxime consequatur amet!
                 Libero magni tempore distinctio quaerat magnam molestias!
               </Paragraph>
-            </Modal>
-            <Button state="grey" onClick={() => setSmallModal(true)}>
-              Small Modal
-            </Button>
-            <Modal
-              collapsed={smallModal}
-              heading="Delete you account?"
-              action={
-                <>
-                  <Button state="grey" onClick={() => setSmallModal(false)}>
-                    No
-                  </Button>
-                  <Button state="danger" onClick={() => setSmallModal(false)}>
-                    Yes
-                  </Button>
-                </>
-              }
-              onClose={() => setSmallModal(false)}
-              type="small">
-              <Paragraph>Are you sure?</Paragraph>
             </Modal>
           </div>
         </Col>

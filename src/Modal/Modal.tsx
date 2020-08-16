@@ -1,16 +1,6 @@
 import React from 'react';
 import { H4 } from '../Typography';
-
-interface ModalProps {
-  children: React.ReactNode;
-  className?: string;
-  wrapperClassName?: string;
-  collapsed: boolean;
-  heading?: string;
-  action?: React.ReactNode;
-  onClose: Function;
-  type?: string;
-}
+import { ModalProps } from './Modal.types';
 
 export const Modal = (props: ModalProps) => {
   // Handle empty className
@@ -51,7 +41,6 @@ const ModalDefault = (props: ModalProps) => {
 
   return (
     <div
-      {...props}
       className={`modal ${open} ${props.wrapperClassName}`}
       onClick={onClickMain}>
       <div className={`modal__ui ${props.className}`} onClick={onClickUi}>
@@ -82,7 +71,6 @@ const ModalEmpty = (props: ModalProps) => {
 
   return (
     <div
-      {...props}
       className={`modal modal--empty ${open} ${props.wrapperClassName}`}
       onClick={onClickMain}>
       <div className={`modal__ui ${props.className}`} onClick={onClickUi}>
