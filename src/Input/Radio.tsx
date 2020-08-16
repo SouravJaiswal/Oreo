@@ -21,13 +21,14 @@ export const Radio = (props: InputProps) => {
 
     // Either add or remove the clicked element
     if (props.value.indexOf(value) < 0) {
-      return props.onChange([...props.value, value]);
+      return props.onChange({ value: [...props.value, value], isValid: true });
     } else {
-      return props.onChange(
-        props.value.filter((v) => {
+      return props.onChange({
+        value: props.value.filter((v) => {
           return v !== value;
-        })
-      );
+        }),
+        isValid: true,
+      });
     }
   };
 
@@ -36,7 +37,7 @@ export const Radio = (props: InputProps) => {
       target: { value },
     } = e;
 
-    return props.onChange(value);
+    return props.onChange({ value, isValid: true });
   };
 
   let fullWidthContainer = !!full ? 'radio__container--full' : '';

@@ -43,14 +43,14 @@ export const File = (props: InputProps) => {
       if (!checkErrors(files[0], setErrMsg, rules)) {
         fileReader.readAsDataURL(files[0]);
         setImage(files[0]);
-        return props.onChange(files[0]);
+        return props.onChange({ value: files[0], isValid: !!errMsg.length });
       }
     }
   };
 
   // Clear the image from blob and from the parent
   const clearImage = () => {
-    props.onChange('');
+    props.onChange({ value: '', isValid: !!errMsg.length });
     setImageBlob('');
     setErrMsg([]);
 

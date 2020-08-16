@@ -41,6 +41,7 @@ import { checkErrors } from './util';
   />
 
 */
+
 export const Text = (props: InputProps) => {
   let [errMsg, setErrMsg]: [Array<string>, Function] = useState([]);
   let [touched, setTouched]: [boolean, Function] = useState(false);
@@ -57,7 +58,7 @@ export const Text = (props: InputProps) => {
     // Touched state
     setTouched(true);
 
-    return props.onChange(value);
+    return props.onChange({ value, isValid: !!errMsg.length });
   };
 
   // If touched and error show the error border, else success border
