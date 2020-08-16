@@ -30,8 +30,7 @@ export interface InputProps {
     accept?: string;
     full?: boolean;
 }
-interface onChangeParams {
+export interface onChangeParams {
     value: string | Array<string> | File;
     isValid: boolean;
 }
-export {};
