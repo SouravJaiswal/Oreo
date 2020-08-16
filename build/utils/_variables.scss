@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap');
+
+// COLORS
+$color-primary: #0e63f4;
+$color-primary-light: #f8faff;
+$color-primary-dark: #124fd5;
+$color-primary-dark-2: #171f46;
+
+$color-secondary: #67cb8b;
+$color-secondary-dark: #41be6e;
+
+$color-tertiary: #e74c3c;
+$color-tertiary-dark: #c72918;
+
+$color-grey-light-1: #d9d9d9;
+$color-grey-light-2: #e0e1e2;
+$color-grey-light-3: #cacbcd;
+$color-grey-light-4: #f9fafb;
+
+$color-grey-dark: #5d6d82;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+$color-grey-dark-4: #32312f;
+
+$color-white: #fff;
+$color-black: #000;
+
+// FONT
+$default-font-size: 1.6rem;
+$default-font-heading: 'Roboto Slab', serif;
+$default-font-regular: 'Roboto', sans-serif;
+
+// GRID
+$grid-width: 114rem;
+$gutter-vertical: 2rem;
+$gutter-vertical-small: 6rem;
+$gutter-horizontal: 3rem;
+$gutter-horizontal-small: 2rem;
