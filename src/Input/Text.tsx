@@ -62,8 +62,6 @@ export const Text = (props: InputProps) => {
     return props.onChange({ value, isValid: !!errMsg.length });
   };
 
-  console.log(errMsg);
-
   // If touched and error show the error border, else success border
   const showErrState = touched
     ? errMsg.length > 0

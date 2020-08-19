@@ -22,6 +22,11 @@
     display: flex;
   }
 
+  &__text {
+    display: flex;
+    align-items: center;
+  }
+
   &__animation &__loading {
     width: 1.6rem;
     height: 1.6rem;

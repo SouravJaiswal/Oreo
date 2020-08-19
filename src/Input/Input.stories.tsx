@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Card } from './index';
-import { H3, Paragraph } from '../Typography';
 import { Input } from '../Input';
 import { onChangeParams } from './Input.types';
 
@@ -86,6 +84,23 @@ export const Password = () => {
           limiter: '/^(?=.*d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
         },
       ]}
+    />
+  );
+};
+
+export const Search = () => {
+  let [search, setSearch] = useState('');
+
+  return (
+    <Input
+      type="search"
+      value={search}
+      onChange={({ value }: onChangeParams) =>
+        typeof value === 'string' ? setSearch(value) : ''
+      }
+      name="Search"
+      label="Search"
+      placeholder="eg. How am I looking today?"
     />
   );
 };

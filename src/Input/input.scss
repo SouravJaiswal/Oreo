@@ -55,7 +55,7 @@ select:-webkit-autofill:focus {
 
   &__main {
     display: inline-flex;
-    width: fit-content;
+    //width: fit-content;
   }
 
   &__label {
@@ -262,5 +262,52 @@ select:-webkit-autofill:focus {
 
   .errmsg {
     padding: 1rem 0rem 0.5rem;
+  }
+}
+
+// Search
+.search {
+  &__group {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    color: $color-grey-dark-3;
+  }
+
+  &__text {
+    border: 1px solid $color-grey-light-4;
+    border-top-left-radius: 2.4rem;
+    border-bottom-left-radius: 2.4rem;
+    padding: 0 3rem;
+    height: 4.8rem;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: $color-grey-dark-3;
+  }
+
+  &__input {
+    border: 1px solid $color-grey-light-4;
+    border-top-right-radius: 2.4rem;
+    border-bottom-right-radius: 2.4rem;
+    padding: 0 2rem;
+    height: 4.8rem;
+    min-width: 30rem;
+    width: 100%;
+    outline: none;
+    background: transparent;
+
+    padding: 1rem 1rem 1rem 2rem;
+    z-index: 10;
+    margin-left: -1px;
+
+    &::placeholder {
+      font-style: italic;
+    }
+  }
+
+  &__icon {
+    margin-left: -4rem;
+    color: currentColor;
   }
 }
