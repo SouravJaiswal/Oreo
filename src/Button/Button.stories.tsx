@@ -5,18 +5,57 @@ export default {
   title: 'Button',
 };
 
-export const Default = () => <Button state="default">Default</Button>;
-export const Primary = () => {
+export const Default = () => {
   return (
     <>
-      <Button state="primary" disabled>
-        Primary
+      <Button type="default">Default</Button>
+      <Button type="default" loading={true}>
+        Read More
       </Button>
-      <Button state="primary">Primary</Button>
     </>
   );
 };
-export const Danger = () => <Button state="danger">Danger</Button>;
-export const Success = () => <Button state="success">Success</Button>;
-export const Grey = () => <Button state="grey">Grey</Button>;
-export const Text = () => <Button state="text">Read More</Button>;
+export const Primary = () => {
+  return (
+    <>
+      <Button type="primary" disabled>
+        Primary
+      </Button>
+      <Button type="primary">Primary</Button>
+      <Button type="primary" loading={true}>
+        Read More
+      </Button>
+    </>
+  );
+};
+export const Danger = () => {
+  return (
+    <>
+      <Button type="danger">Danger</Button>
+      <Button type="danger" loading={true}>
+        Read More
+      </Button>
+    </>
+  );
+};
+export const Success = () => {
+  return (
+    <>
+      <Button type="success">Success</Button>
+      <Button type="success" loading={true}>
+        Read More
+      </Button>
+    </>
+  );
+};
+export const Grey = () => {
+  return (
+    <>
+      <Button type="grey">Grey</Button>
+      <Button type="grey" loading={true}>
+        Read More
+      </Button>
+    </>
+  );
+};
+export const Text = () => <Button type="text">Read More</Button>;

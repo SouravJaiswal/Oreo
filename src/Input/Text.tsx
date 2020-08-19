@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState, useRef } from 'react';
 import { InputProps } from './Input.types';
 import { ErrMsg } from './ErrMsg';
 import { checkErrors } from './util';
+
 /*
   Usage:
 
@@ -60,6 +61,8 @@ export const Text = (props: InputProps) => {
 
     return props.onChange({ value, isValid: !!errMsg.length });
   };
+
+  console.log(errMsg);
 
   // If touched and error show the error border, else success border
   const showErrState = touched

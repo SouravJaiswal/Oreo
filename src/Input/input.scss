@@ -23,7 +23,8 @@ select:-webkit-autofill:focus {
 
 .input {
   height: 4.8rem;
-  width: 30rem;
+  min-width: 30rem;
+  width: 100%;
   outline: none;
   background: transparent;
   color: $color-grey-dark-3;

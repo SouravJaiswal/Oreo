@@ -18,6 +18,18 @@
   width: fit-content;
   outline: none;
 
+  &__animation {
+    display: flex;
+  }
+
+  &__animation &__loading {
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    border: 0.15rem solid $color-white;
+    border-top-color: transparent;
+  }
+
   &--default {
     background: $color-primary-light;
     color: $color-primary;
@@ -26,6 +38,11 @@
       background-color: $color-primary;
       color: $color-white;
     }
+  }
+
+  &--default &__loading {
+    border-color: $color-primary;
+    border-top-color: $color-primary-light;
   }
 
   &--primary {
@@ -62,6 +79,11 @@
     &:hover {
       background-color: $color-grey-light-3;
     }
+  }
+
+  &--grey &__loading {
+    border-color: currentColor;
+    border-top-color: $color-grey-light-2;
   }
 
   &--text {

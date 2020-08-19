@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from './index';
 import { H3, Paragraph } from '../Typography';
 import { Input } from '../Input';
+import { onChangeParams } from './Input.types';
 
 export default {
   title: 'Input',
@@ -15,7 +16,9 @@ export const Text = () => {
       autoFocus={true}
       type="text"
       value={username}
-      onChange={setUsername}
+      onChange={({ value }: onChangeParams) =>
+        typeof value === 'string' ? setUsername(value) : ''
+      }
       name="username"
       label="username"
       placeholder="Username"
@@ -51,7 +54,9 @@ export const Email = () => {
     <Input
       type="text"
       value={email}
-      onChange={setEmail}
+      onChange={({ value }: onChangeParams) =>
+        typeof value === 'string' ? setEmail(value) : ''
+      }
       name="email"
       label="email"
       placeholder="Email"
@@ -67,7 +72,9 @@ export const Password = () => {
     <Input
       type="password"
       value={password}
-      onChange={setPassword}
+      onChange={({ value }: onChangeParams) =>
+        typeof value === 'string' ? setPassword(value) : ''
+      }
       name="Password"
       label="Password"
       placeholder="Password"

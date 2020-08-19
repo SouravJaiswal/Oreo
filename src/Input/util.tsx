@@ -12,13 +12,14 @@ export const checkErrors = (
   }
 
   let errors = [];
+
   // Handle all rules
-  for (let i = 0; i < rules.length; i++) {
+  for (let i = 0; i < rules.length && errors.length === 0; i++) {
     const { limiter, errMsg, type, min, max, maxSize } = rules[i];
     switch (type) {
       case 'required':
         if (typeof value === 'string' && value.length === 0) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case 'min':
@@ -29,7 +30,7 @@ export const checkErrors = (
         )
           break;
         if (parseInt(value) < min) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case 'max':
@@ -40,7 +41,7 @@ export const checkErrors = (
         )
           break;
         if (parseInt(value) > max) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case 'regex':
@@ -48,13 +49,13 @@ export const checkErrors = (
         let regex = new RegExp(limiter);
 
         if (!regex.test(value)) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case 'maxSize':
         if (!maxSize || typeof value === 'string') return;
         if (value.size / 1024 > maxSize) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case 'fileType':

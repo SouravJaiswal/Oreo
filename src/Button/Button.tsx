@@ -1,7 +1,15 @@
 import React from 'react';
 import './button.scss';
+import { Loading } from '../Loading';
 
-export const Button = (props: {
+export const Button = ({
+  type,
+  onClick,
+  children,
+  disabled,
+  className,
+  loading = false,
+}: {
   children: React.ReactNode;
   disabled?: boolean;
   className?: string;
@@ -9,20 +17,30 @@ export const Button = (props: {
   state could be 'default', 'primary', 
   'success', 'danger', 'grey', 'text'
   **/
-  state: string;
+  type: string;
   onClick?: Function;
+  loading?: boolean;
 }) => {
   // Call the onClick from the parent
-  const onClick = () => {
-    !!props.onClick && props.onClick();
+  const onButtonClick = () => {
+    // do not execute if the button is in loading state
+    if (loading) return;
+
+    !!onClick && onClick();
   };
 
   return (
     <button
-      {...props}
-      onClick={onClick}
-      className={`button button--${props.state} ${props.className}`}>
-      {props.children}
+      disabled={disabled}
+      onClick={onButtonClick}
+      className={`button button--${type} ${className}`}>
+      {loading ? (
+        <span className="button__animation">
+          <Loading type="default" className="button__loading" />
+        </span>
+      ) : (
+        <span className="button__text">{children}</span>
+      )}
     </button>
   );
 };

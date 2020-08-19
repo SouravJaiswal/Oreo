@@ -17,14 +17,15 @@ export const Loading = (props: LoadingProps) => {
     default:
       return (
         <div
-          className={`loading loading--default loading--default--${props.shade}`}></div>
+          className={`loading loading--default loading--default--${props.shade} ${props.className}`}></div>
       );
   }
 };
 
 const Modern = (props: any) => {
   return (
-    <div className={`loading loading--modern loading--modern--${props.shade}`}>
+    <div
+      className={`loading loading--modern loading--modern--${props.shade} ${props.className}`}>
       <svg
         version="1.1"
         id="L7"
@@ -81,7 +82,7 @@ L82,35.7z">
 
 const Line = (props: any) => {
   return (
-    <div className="loading loading--line">
+    <div className={`loading loading--line ${props.className}`}>
       <div></div>
       <div></div>
       <div></div>
