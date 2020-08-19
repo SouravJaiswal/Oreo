@@ -1,6 +1,6 @@
 import React from 'react';
 import './button.scss';
-export declare const Button: (props: {
+export declare const Button: ({ type, onClick, children, disabled, className, loading, }: {
     children: React.ReactNode;
     disabled?: boolean;
     className?: string;
@@ -8,6 +8,7 @@ export declare const Button: (props: {
     state could be 'default', 'primary',
     'success', 'danger', 'grey', 'text'
     **/
-    state: string;
+    type: string;
     onClick?: Function;
+    loading?: boolean;
 }) => JSX.Element;

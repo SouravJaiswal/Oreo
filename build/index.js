@@ -10,6 +10,39 @@ function _interopDefaultLegacy(e) {
 
 var React__default = /*#__PURE__*/ _interopDefaultLegacy(React);
 
+function styleInject(css, ref) {
+  if (ref === void 0) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === "undefined") {
+    return;
+  }
+
+  var head = document.head || document.getElementsByTagName("head")[0];
+  var style = document.createElement("style");
+  style.type = "text/css";
+
+  if (insertAt === "top") {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z =
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.button {\n  align-items: center;\n  background: transparent;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem;\n  font-weight: 500;\n  height: 4rem;\n  justify-content: center;\n  line-height: 1.62;\n  padding: 0 2rem;\n  transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);\n  width: fit-content;\n  outline: none; }\n  .button__animation {\n    display: flex; }\n  .button__animation .button__loading {\n    width: 1.6rem;\n    height: 1.6rem;\n    border-radius: 50%;\n    border: 0.15rem solid #fff;\n    border-top-color: transparent; }\n  .button--default {\n    background: #f8faff;\n    color: #0e63f4; }\n    .button--default:hover {\n      background-color: #0e63f4;\n      color: #fff; }\n  .button--default .button__loading {\n    border-color: #0e63f4;\n    border-top-color: #f8faff; }\n  .button--primary {\n    background-color: #0e63f4;\n    color: #fff; }\n    .button--primary:hover {\n      background-color: #124fd5; }\n  .button--danger {\n    background-color: #e74c3c;\n    color: #fff; }\n    .button--danger:hover {\n      background-color: #c72918; }\n  .button--success {\n    background-color: #67cb8b;\n    color: #fff; }\n    .button--success:hover {\n      background-color: #41be6e; }\n  .button--grey {\n    background-color: #e0e1e2;\n    color: #333; }\n    .button--grey:hover {\n      background-color: #cacbcd; }\n  .button--grey .button__loading {\n    border-color: currentColor;\n    border-top-color: #e0e1e2; }\n  .button--text {\n    background-color: transparent;\n    color: #333;\n    flex-direction: column;\n    padding: 0 1rem; }\n    .button--text::after {\n      background: #333;\n      content: \' \';\n      height: 2px;\n      opacity: 0;\n      width: 100%;\n      transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n    .button--text:hover::after {\n      opacity: 1; }\n  .button[disabled], .button:disabled {\n    background-color: #e0e1e2;\n    color: #333;\n    cursor: not-allowed; }\n';
+styleInject(css_248z);
+
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -48,57 +81,154 @@ function __spreadArrays() {
   return r;
 }
 
-function styleInject(css, ref) {
-  if (ref === void 0) ref = {};
-  var insertAt = ref.insertAt;
+var css_248z$1 =
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.loading {\n  display: inline-flex; }\n  .loading--default {\n    width: 3rem;\n    height: 3rem;\n    border-radius: 50%;\n    border: 0.3rem solid #cacbcd;\n    border-top-color: #333;\n    animation: 0.8s spin infinite linear; }\n    .loading--default--light {\n      border: 0.3rem solid #333;\n      border-top-color: transparent; }\n  .loading--modern svg {\n    width: 3rem;\n    height: 3rem;\n    fill: #333; }\n  .loading--modern--light svg {\n    fill: #cacbcd; }\n  .loading--line {\n    justify-content: center; }\n    .loading--line div {\n      width: 1rem;\n      height: 1rem;\n      margin: 0.3rem;\n      margin-top: 2rem;\n      background: #333;\n      border-radius: 50%;\n      animation: 0.9s bounce infinite alternate; }\n      .loading--line div:nth-child(2) {\n        animation-delay: 0.3s; }\n      .loading--line div:nth-child(3) {\n        animation-delay: 0.6s; }\n\n@keyframes spin {\n  to {\n    transform: rotate(360deg); } }\n\n@keyframes bounce {\n  to {\n    opacity: 0.3;\n    transform: translate3d(0, -1rem, 0); } }\n';
+styleInject(css_248z$1);
 
-  if (!css || typeof document === "undefined") {
-    return;
+var Loading = function (props) {
+  switch (props.type) {
+    case "modern":
+      return React__default["default"].createElement(
+        Modern,
+        __assign({}, props)
+      );
+    case "line":
+      return React__default["default"].createElement(Line, __assign({}, props));
+    default:
+      return React__default["default"].createElement("div", {
+        className:
+          "loading loading--default loading--default--" +
+          props.shade +
+          " " +
+          props.className,
+      });
   }
-
-  var head = document.head || document.getElementsByTagName("head")[0];
-  var style = document.createElement("style");
-  style.type = "text/css";
-
-  if (insertAt === "top") {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z =
-  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.button {\n  align-items: center;\n  background: transparent;\n  border: none;\n  border-radius: 4px;\n  cursor: pointer;\n  display: inline-flex;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem;\n  font-weight: 500;\n  height: 4rem;\n  justify-content: center;\n  line-height: 1.62;\n  padding: 0 2rem;\n  transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67);\n  width: fit-content;\n  outline: none; }\n  .button--default {\n    background: #f8faff;\n    color: #0e63f4; }\n    .button--default:hover {\n      background-color: #0e63f4;\n      color: #fff; }\n  .button--primary {\n    background-color: #0e63f4;\n    color: #fff; }\n    .button--primary:hover {\n      background-color: #124fd5; }\n  .button--danger {\n    background-color: #e74c3c;\n    color: #fff; }\n    .button--danger:hover {\n      background-color: #c72918; }\n  .button--success {\n    background-color: #67cb8b;\n    color: #fff; }\n    .button--success:hover {\n      background-color: #41be6e; }\n  .button--grey {\n    background-color: #e0e1e2;\n    color: #333; }\n    .button--grey:hover {\n      background-color: #cacbcd; }\n  .button--text {\n    background-color: transparent;\n    color: #333;\n    flex-direction: column;\n    padding: 0 1rem; }\n    .button--text::after {\n      background: #333;\n      content: \' \';\n      height: 2px;\n      opacity: 0;\n      width: 100%;\n      transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n    .button--text:hover::after {\n      opacity: 1; }\n  .button[disabled], .button:disabled {\n    background-color: #e0e1e2;\n    color: #333;\n    cursor: not-allowed; }\n';
-styleInject(css_248z);
-
-var Button = function (props) {
-  // Call the onClick from the parent
-  var onClick = function () {
-    !!props.onClick && props.onClick();
-  };
+};
+var Modern = function (props) {
   return React__default["default"].createElement(
-    "button",
-    __assign({}, props, {
-      onClick: onClick,
-      className: "button button--" + props.state + " " + props.className,
-    }),
-    props.children
+    "div",
+    {
+      className:
+        "loading loading--modern loading--modern--" +
+        props.shade +
+        " " +
+        props.className,
+    },
+    React__default["default"].createElement(
+      "svg",
+      {
+        version: "1.1",
+        id: "L7",
+        xmlns: "http://www.w3.org/2000/svg",
+        xmlnsXlink: "http://www.w3.org/1999/xlink",
+        x: "0px",
+        y: "0px",
+        viewBox: "0 0 100 100",
+        "enable-background": "new 0 0 100 100",
+        xmlSpace: "preserve",
+      },
+      React__default["default"].createElement(
+        "path",
+        {
+          d:
+            "M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3\nc-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z",
+        },
+        React__default["default"].createElement("animateTransform", {
+          attributeName: "transform",
+          attributeType: "XML",
+          type: "rotate",
+          dur: "1s",
+          from: "0 50 50",
+          to: "360 50 50",
+          repeatCount: "indefinite",
+        })
+      ),
+      React__default["default"].createElement(
+        "path",
+        {
+          d:
+            "M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7\nc-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z",
+        },
+        React__default["default"].createElement("animateTransform", {
+          attributeName: "transform",
+          attributeType: "XML",
+          type: "rotate",
+          dur: "1s",
+          from: "0 50 50",
+          to: "-360 50 50",
+          repeatCount: "indefinite",
+        })
+      ),
+      React__default["default"].createElement(
+        "path",
+        {
+          d:
+            "M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5\nL82,35.7z",
+        },
+        React__default["default"].createElement("animateTransform", {
+          attributeName: "transform",
+          attributeType: "XML",
+          type: "rotate",
+          dur: "1s",
+          from: "0 50 50",
+          to: "360 50 50",
+          repeatCount: "indefinite",
+        })
+      )
+    )
+  );
+};
+var Line = function (props) {
+  return React__default["default"].createElement(
+    "div",
+    { className: "loading loading--line " + props.className },
+    React__default["default"].createElement("div", null),
+    React__default["default"].createElement("div", null),
+    React__default["default"].createElement("div", null)
   );
 };
 
-var css_248z$1 =
+var Button = function (_a) {
+  var type = _a.type,
+    onClick = _a.onClick,
+    children = _a.children,
+    disabled = _a.disabled,
+    className = _a.className,
+    _b = _a.loading,
+    loading = _b === void 0 ? false : _b;
+  // Call the onClick from the parent
+  var onButtonClick = function () {
+    // do not execute if the button is in loading state
+    if (loading) return;
+    !!onClick && onClick();
+  };
+  return React__default["default"].createElement(
+    "button",
+    {
+      disabled: disabled,
+      onClick: onButtonClick,
+      className: "button button--" + type + " " + className,
+    },
+    loading
+      ? React__default["default"].createElement(
+          "span",
+          { className: "button__animation" },
+          React__default["default"].createElement(Loading, {
+            type: "default",
+            className: "button__loading",
+          })
+        )
+      : React__default["default"].createElement(
+          "span",
+          { className: "button__text" },
+          children
+        )
+  );
+};
+
+var css_248z$2 =
   '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.heading {\n  font-family: "Roboto Slab", serif;\n  font-weight: 700;\n  line-height: 1.3; }\n  .heading--jumbo {\n    font-size: 11.1rem; }\n  .heading--primary {\n    font-size: 6.8rem; }\n  .heading--secondary {\n    font-size: 4.2rem; }\n  .heading--tertiary {\n    font-size: 2.6rem; }\n  .heading--regular {\n    font-size: 2rem; }\n\n.paragraph {\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem;\n  line-height: 2;\n  max-width: 70rem; }\n  .paragraph:not(:last-child) {\n    margin-bottom: 1rem; }\n';
-styleInject(css_248z$1);
+styleInject(css_248z$2);
 
 var H1 = function (props) {
   return React__default["default"].createElement(
@@ -148,9 +278,9 @@ var Paragraph = function (props) {
   );
 };
 
-var css_248z$2 =
+var css_248z$3 =
   '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.nav {\n  display: flex;\n  height: 8rem;\n  align-items: center;\n  max-width: 100%;\n  width: 100%;\n  overflow: hidden;\n  border-bottom: 1px solid #d9d9d9; }\n  .nav__menu {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    max-width: 50%;\n    width: 50%;\n    overflow: hidden; }\n    .nav__menu > * {\n      font-size: 1.4rem; }\n    .nav__menu > *:not(:last-child) {\n      margin-right: 1rem; }\n  .nav__actions {\n    display: flex;\n    align-items: center; }\n    .nav__actions > * {\n      font-size: 1.4rem; }\n    .nav__actions > *:not(:last-child) {\n      margin-right: 1rem; }\n  .nav--side, .nav--center {\n    justify-content: space-between; }\n  .nav--center .nav__menu {\n    justify-content: center; }\n  .nav--side .nav__actions {\n    display: none; }\n\n.sidebar {\n  flex-shrink: 0;\n  width: 24rem;\n  overflow: hidden;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 0.2s ease; }\n  .sidebar__logo {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 2rem;\n    height: 8rem;\n    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1); }\n  .sidebar__control svg {\n    fill: #cacbcd;\n    width: 2rem;\n    height: 2rem;\n    cursor: pointer;\n    transform: rotate(180deg); }\n  .sidebar--collapsed {\n    width: 6.5rem; }\n  .sidebar--collapsed .sidebar__logo div {\n    visibility: hidden; }\n  .sidebar--collapsed .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--right .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--collapsed.sidebar--right .sidebar__control svg {\n    transform: rotate(180deg); }\n  .sidebar--right .sidebar__logo span {\n    order: -1; }\n\n.sidemenu {\n  display: flex;\n  flex-direction: column;\n  margin-top: 2rem; }\n  .sidemenu__item {\n    min-height: 6rem;\n    display: flex;\n    align-items: center;\n    font-family: "Roboto Slab", serif;\n    font-size: 1.4rem;\n    transition: all 0.2s ease;\n    margin-bottom: 0.5rem; }\n    .sidemenu__item > * {\n      display: flex;\n      /* justify-content: center; */\n      align-items: center;\n      width: 100%;\n      height: 100%;\n      padding-left: 2rem;\n      color: #333; }\n    .sidemenu__item--active {\n      background: #f8faff;\n      font-weight: 600; }\n    .sidemenu__item:hover {\n      background: #f8faff;\n      cursor: pointer; }\n  .sidebar--left .sidemenu__item--active:after {\n    position: absolute;\n    top: 0;\n    right: 0;\n    content: \'\';\n    width: 3px;\n    height: 100%;\n    background: #0e63f4; }\n  .sidebar--right .sidemenu__item--active:before {\n    position: absolute;\n    top: 0;\n    left: 0;\n    content: \'\';\n    width: 3px;\n    height: 100%;\n    background: #0e63f4; }\n  .sidemenu__item svg {\n    width: 1.6rem;\n    height: 1.6rem;\n    margin-right: 1.5rem;\n    fill: #333;\n    transition: all 0.2s ease; }\n  .sidebar--collapsed .sidemenu__item {\n    min-height: 6rem;\n    padding: 0;\n    display: flex;\n    justify-content: center; }\n    .sidebar--collapsed .sidemenu__item span {\n      display: none; }\n    .sidebar--collapsed .sidemenu__item svg {\n      width: 2rem;\n      height: 2rem;\n      margin-right: 0rem; }\n';
-styleInject(css_248z$2);
+styleInject(css_248z$3);
 
 var Nav = function (_a) {
   var logo = _a.logo,
@@ -273,9 +403,9 @@ var MenuItem = function (_a) {
   );
 };
 
-var css_248z$3 =
+var css_248z$4 =
   '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.modal {\n  background: rgba(0, 0, 0, 0.85);\n  height: 100vh;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100vw;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  visibility: hidden;\n  z-index: 9999; }\n  .modal__ui {\n    background: #fff;\n    width: 50vw;\n    max-height: 80vh;\n    overflow: hidden;\n    min-height: 20vh;\n    border-radius: 4px;\n    transform: scale(0); }\n  .modal--open {\n    visibility: initial; }\n  .modal--open .modal__ui {\n    transform: scale(1); }\n  .modal__heading {\n    padding: 1.5rem 2rem;\n    border-bottom: 1px solid #d9d9d9; }\n  .modal__main {\n    border-bottom: 1px solid #d9d9d9;\n    max-height: 60vh;\n    overflow-y: auto;\n    padding: 1.5rem 2rem; }\n  .modal__footer {\n    padding: 1rem 2rem;\n    display: flex;\n    justify-content: flex-end;\n    background: #f9fafb; }\n    .modal__footer > *:not(:last-child) {\n      margin-right: 1rem; }\n  .modal--small .modal__ui {\n    max-height: 24rem;\n    overflow-y: auto;\n    width: 50rem; }\n  .modal--small .modal__main {\n    max-height: 10rem;\n    overflow-y: auto;\n    padding: 2rem; }\n  .modal--empty .modal__main {\n    padding: 0;\n    border: none;\n    height: 100%;\n    max-height: fit-content;\n    width: fit-content;\n    max-width: 100%; }\n  .modal--empty .modal__ui {\n    width: fit-content;\n    max-height: fit-content; }\n';
-styleInject(css_248z$3);
+styleInject(css_248z$4);
 
 var Modal = function (props) {
   // Handle empty className
@@ -372,103 +502,6 @@ var ModalEmpty = function (props) {
   );
 };
 
-var css_248z$4 =
-  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.loading {\n  display: inline-flex; }\n  .loading--default {\n    width: 3rem;\n    height: 3rem;\n    border-radius: 50%;\n    border: 0.3rem solid #cacbcd;\n    border-top-color: #333;\n    animation: 0.8s spin infinite linear; }\n    .loading--default--light {\n      border: 0.3rem solid #333;\n      border-top-color: transparent; }\n  .loading--modern svg {\n    width: 3rem;\n    height: 3rem;\n    fill: #333; }\n  .loading--modern--light svg {\n    fill: #cacbcd; }\n  .loading--line {\n    justify-content: center; }\n    .loading--line div {\n      width: 1rem;\n      height: 1rem;\n      margin: 0.3rem;\n      margin-top: 2rem;\n      background: #333;\n      border-radius: 50%;\n      animation: 0.9s bounce infinite alternate; }\n      .loading--line div:nth-child(2) {\n        animation-delay: 0.3s; }\n      .loading--line div:nth-child(3) {\n        animation-delay: 0.6s; }\n\n@keyframes spin {\n  to {\n    transform: rotate(360deg); } }\n\n@keyframes bounce {\n  to {\n    opacity: 0.3;\n    transform: translate3d(0, -1rem, 0); } }\n';
-styleInject(css_248z$4);
-
-var Loading = function (props) {
-  switch (props.type) {
-    case "modern":
-      return React__default["default"].createElement(
-        Modern,
-        __assign({}, props)
-      );
-    case "line":
-      return React__default["default"].createElement(Line, __assign({}, props));
-    default:
-      return React__default["default"].createElement("div", {
-        className: "loading loading--default loading--default--" + props.shade,
-      });
-  }
-};
-var Modern = function (props) {
-  return React__default["default"].createElement(
-    "div",
-    { className: "loading loading--modern loading--modern--" + props.shade },
-    React__default["default"].createElement(
-      "svg",
-      {
-        version: "1.1",
-        id: "L7",
-        xmlns: "http://www.w3.org/2000/svg",
-        xmlnsXlink: "http://www.w3.org/1999/xlink",
-        x: "0px",
-        y: "0px",
-        viewBox: "0 0 100 100",
-        "enable-background": "new 0 0 100 100",
-        xmlSpace: "preserve",
-      },
-      React__default["default"].createElement(
-        "path",
-        {
-          d:
-            "M31.6,3.5C5.9,13.6-6.6,42.7,3.5,68.4c10.1,25.7,39.2,38.3,64.9,28.1l-3.1-7.9c-21.3,8.4-45.4-2-53.8-23.3\nc-8.4-21.3,2-45.4,23.3-53.8L31.6,3.5z",
-        },
-        React__default["default"].createElement("animateTransform", {
-          attributeName: "transform",
-          attributeType: "XML",
-          type: "rotate",
-          dur: "1s",
-          from: "0 50 50",
-          to: "360 50 50",
-          repeatCount: "indefinite",
-        })
-      ),
-      React__default["default"].createElement(
-        "path",
-        {
-          d:
-            "M42.3,39.6c5.7-4.3,13.9-3.1,18.1,2.7c4.3,5.7,3.1,13.9-2.7,18.1l4.1,5.5c8.8-6.5,10.6-19,4.1-27.7\nc-6.5-8.8-19-10.6-27.7-4.1L42.3,39.6z",
-        },
-        React__default["default"].createElement("animateTransform", {
-          attributeName: "transform",
-          attributeType: "XML",
-          type: "rotate",
-          dur: "1s",
-          from: "0 50 50",
-          to: "-360 50 50",
-          repeatCount: "indefinite",
-        })
-      ),
-      React__default["default"].createElement(
-        "path",
-        {
-          d:
-            "M82,35.7C74.1,18,53.4,10.1,35.7,18S10.1,46.6,18,64.3l7.6-3.4c-6-13.5,0-29.3,13.5-35.3s29.3,0,35.3,13.5\nL82,35.7z",
-        },
-        React__default["default"].createElement("animateTransform", {
-          attributeName: "transform",
-          attributeType: "XML",
-          type: "rotate",
-          dur: "1s",
-          from: "0 50 50",
-          to: "360 50 50",
-          repeatCount: "indefinite",
-        })
-      )
-    )
-  );
-};
-var Line = function (props) {
-  return React__default["default"].createElement(
-    "div",
-    { className: "loading loading--line" },
-    React__default["default"].createElement("div", null),
-    React__default["default"].createElement("div", null),
-    React__default["default"].createElement("div", null)
-  );
-};
-
 var OList = function (props) {
   return React__default["default"].createElement(
     "ol",
@@ -496,7 +529,7 @@ var Li = function (props) {
 };
 
 var css_248z$5 =
-  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n/* Change Autocomplete styles in Chrome*/\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  -webkit-text-fill-color: #333;\n  -webkit-box-shadow: 0 0 0px 1000px transparent inset;\n  transition: background-color 5000s ease-in-out 0s; }\n\n.errmsg {\n  color: #e74c3c;\n  font-size: 1.3rem;\n  padding: 1rem 1rem 0.5rem; }\n\n.input {\n  height: 4.8rem;\n  width: 30rem;\n  outline: none;\n  background: transparent;\n  color: #333;\n  border: 1px solid #999;\n  padding: 1rem 1rem 1rem 2rem;\n  z-index: 10;\n  font-size: 1.4rem;\n  border-radius: 1rem; }\n  .input--error {\n    border: 1px solid #e74c3c; }\n  .input--success {\n    border: 1px solid #67cb8b; }\n  .input::placeholder {\n    color: #333;\n    text-transform: capitalize; }\n  .input__group {\n    display: inline-flex;\n    flex-direction: column; }\n  .input__main {\n    display: inline-flex;\n    width: fit-content; }\n  .input__label {\n    opacity: 1;\n    position: absolute;\n    top: 50%;\n    left: 2rem;\n    text-transform: uppercase;\n    font-size: 1.2rem;\n    letter-spacing: 2px;\n    transform: translateY(-50%);\n    padding: 0 1rem;\n    z-index: 9;\n    transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n  .input__with-label:focus + .input__label,\n  .input__with-label:valid + .input__label {\n    top: 2px;\n    left: 2rem;\n    font-weight: 500;\n    opacity: 1;\n    background: #fff;\n    z-index: 11; }\n  .input__with-icon {\n    padding: 1rem 1rem 1rem 4.8rem; }\n  .input__icon {\n    position: absolute;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    top: 50%;\n    left: 2rem;\n    transform: translateY(-50%);\n    z-index: 11; }\n\n/* \n  Radio Group\n*/\n.radio__group {\n  display: inline-flex;\n  flex-direction: column; }\n  .radio__group--full {\n    width: 100%; }\n\n.radio__main {\n  display: flex;\n  border: 1px solid #f8faff;\n  min-height: 4.8rem;\n  justify-content: center;\n  align-items: center;\n  border-radius: 1rem;\n  padding: 0 2rem; }\n  .radio__main--full {\n    flex-direction: column;\n    width: 100%;\n    flex-wrap: wrap;\n    border: none;\n    min-height: fit-content;\n    justify-content: flex-start;\n    align-items: flex-start;\n    border-radius: 0;\n    padding: 0; }\n\n.radio__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.4rem; }\n  .radio__container:not(:last-child) {\n    margin-right: 2rem; }\n  .radio__container--full {\n    width: 100%;\n    min-height: 6rem;\n    font-size: 2rem;\n    line-height: 1.6;\n    border: 1px solid #f8faff;\n    border-radius: 1rem;\n    padding: 0 2rem;\n    align-items: center;\n    justify-content: stretch; }\n    .radio__container--full:not(:last-child) {\n      margin-right: 0;\n      margin-bottom: 1rem; }\n    .radio__container--full .radio__label {\n      padding: 1rem; }\n\n.radio__input {\n  margin-right: 1rem; }\n\n.radio__label {\n  color: #333; }\n\n.radio__group .input__label {\n  top: 2px;\n  left: 2rem;\n  font-weight: 500;\n  opacity: 1;\n  background: #fff;\n  z-index: 11; }\n\n.radio__icon {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: 1rem; }\n\n.file {\n  display: flex;\n  flex-direction: column;\n  border: 1px solid #f8faff;\n  border-radius: 1rem;\n  padding: 1.5rem 1rem 1rem; }\n  .file__icon {\n    width: 2rem;\n    height: 2rem;\n    margin-right: 1rem; }\n  .file__button {\n    position: relative;\n    overflow: hidden; }\n  .file__buttons {\n    display: flex; }\n  .file__input {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer; }\n  .file__preview {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    border-bottom: 1px solid #f8faff;\n    padding-bottom: 1rem;\n    margin-bottom: 1rem; }\n    .file__preview img {\n      width: 100%;\n      height: 20rem;\n      object-fit: cover;\n      margin-bottom: 1rem;\n      border-radius: 1rem; }\n  .file .input__label {\n    top: 2px;\n    left: 2rem;\n    font-weight: 500;\n    opacity: 1;\n    background: #fff;\n    z-index: 11; }\n  .file__name {\n    font-style: italic;\n    font-size: 1.4rem;\n    font-weight: 300; }\n  .file .errmsg {\n    padding: 1rem 0rem 0.5rem; }\n';
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n/* Change Autocomplete styles in Chrome*/\ninput:-webkit-autofill,\ninput:-webkit-autofill:hover,\ninput:-webkit-autofill:focus,\ntextarea:-webkit-autofill,\ntextarea:-webkit-autofill:hover,\ntextarea:-webkit-autofill:focus,\nselect:-webkit-autofill,\nselect:-webkit-autofill:hover,\nselect:-webkit-autofill:focus {\n  -webkit-text-fill-color: #333;\n  -webkit-box-shadow: 0 0 0px 1000px transparent inset;\n  transition: background-color 5000s ease-in-out 0s; }\n\n.errmsg {\n  color: #e74c3c;\n  font-size: 1.3rem;\n  padding: 1rem 1rem 0.5rem; }\n\n.input {\n  height: 4.8rem;\n  min-width: 30rem;\n  width: 100%;\n  outline: none;\n  background: transparent;\n  color: #333;\n  border: 1px solid #999;\n  padding: 1rem 1rem 1rem 2rem;\n  z-index: 10;\n  font-size: 1.4rem;\n  border-radius: 1rem; }\n  .input--error {\n    border: 1px solid #e74c3c; }\n  .input--success {\n    border: 1px solid #67cb8b; }\n  .input::placeholder {\n    color: #333;\n    text-transform: capitalize; }\n  .input__group {\n    display: inline-flex;\n    flex-direction: column; }\n  .input__main {\n    display: inline-flex;\n    width: fit-content; }\n  .input__label {\n    opacity: 1;\n    position: absolute;\n    top: 50%;\n    left: 2rem;\n    text-transform: uppercase;\n    font-size: 1.2rem;\n    letter-spacing: 2px;\n    transform: translateY(-50%);\n    padding: 0 1rem;\n    z-index: 9;\n    transition: all 0.2s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n  .input__with-label:focus + .input__label,\n  .input__with-label:valid + .input__label {\n    top: 2px;\n    left: 2rem;\n    font-weight: 500;\n    opacity: 1;\n    background: #fff;\n    z-index: 11; }\n  .input__with-icon {\n    padding: 1rem 1rem 1rem 4.8rem; }\n  .input__icon {\n    position: absolute;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    top: 50%;\n    left: 2rem;\n    transform: translateY(-50%);\n    z-index: 11; }\n\n/* \n  Radio Group\n*/\n.radio__group {\n  display: inline-flex;\n  flex-direction: column; }\n  .radio__group--full {\n    width: 100%; }\n\n.radio__main {\n  display: flex;\n  border: 1px solid #f8faff;\n  min-height: 4.8rem;\n  justify-content: center;\n  align-items: center;\n  border-radius: 1rem;\n  padding: 0 2rem; }\n  .radio__main--full {\n    flex-direction: column;\n    width: 100%;\n    flex-wrap: wrap;\n    border: none;\n    min-height: fit-content;\n    justify-content: flex-start;\n    align-items: flex-start;\n    border-radius: 0;\n    padding: 0; }\n\n.radio__container {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-size: 1.4rem; }\n  .radio__container:not(:last-child) {\n    margin-right: 2rem; }\n  .radio__container--full {\n    width: 100%;\n    min-height: 6rem;\n    font-size: 2rem;\n    line-height: 1.6;\n    border: 1px solid #f8faff;\n    border-radius: 1rem;\n    padding: 0 2rem;\n    align-items: center;\n    justify-content: stretch; }\n    .radio__container--full:not(:last-child) {\n      margin-right: 0;\n      margin-bottom: 1rem; }\n    .radio__container--full .radio__label {\n      padding: 1rem; }\n\n.radio__input {\n  margin-right: 1rem; }\n\n.radio__label {\n  color: #333; }\n\n.radio__group .input__label {\n  top: 2px;\n  left: 2rem;\n  font-weight: 500;\n  opacity: 1;\n  background: #fff;\n  z-index: 11; }\n\n.radio__icon {\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: 1rem; }\n\n.file {\n  display: flex;\n  flex-direction: column;\n  border: 1px solid #f8faff;\n  border-radius: 1rem;\n  padding: 1.5rem 1rem 1rem; }\n  .file__icon {\n    width: 2rem;\n    height: 2rem;\n    margin-right: 1rem; }\n  .file__button {\n    position: relative;\n    overflow: hidden; }\n  .file__buttons {\n    display: flex; }\n  .file__input {\n    position: absolute;\n    top: 0;\n    left: 0;\n    height: 100%;\n    opacity: 0;\n    cursor: pointer; }\n  .file__preview {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    border-bottom: 1px solid #f8faff;\n    padding-bottom: 1rem;\n    margin-bottom: 1rem; }\n    .file__preview img {\n      width: 100%;\n      height: 20rem;\n      object-fit: cover;\n      margin-bottom: 1rem;\n      border-radius: 1rem; }\n  .file .input__label {\n    top: 2px;\n    left: 2rem;\n    font-weight: 500;\n    opacity: 1;\n    background: #fff;\n    z-index: 11; }\n  .file__name {\n    font-style: italic;\n    font-size: 1.4rem;\n    font-weight: 300; }\n  .file .errmsg {\n    padding: 1rem 0rem 0.5rem; }\n';
 styleInject(css_248z$5);
 
 var ErrMsg = function (_a) {
@@ -516,7 +549,7 @@ var checkErrors = function (value, setErrMsg, rules) {
   }
   var errors = [];
   // Handle all rules
-  for (var i = 0; i < rules.length; i++) {
+  for (var i = 0; i < rules.length && errors.length === 0; i++) {
     var _a = rules[i],
       limiter = _a.limiter,
       errMsg = _a.errMsg,
@@ -527,7 +560,7 @@ var checkErrors = function (value, setErrMsg, rules) {
     switch (type) {
       case "required":
         if (typeof value === "string" && value.length === 0) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case "min":
@@ -538,7 +571,7 @@ var checkErrors = function (value, setErrMsg, rules) {
         )
           break;
         if (parseInt(value) < min) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case "max":
@@ -549,20 +582,20 @@ var checkErrors = function (value, setErrMsg, rules) {
         )
           break;
         if (parseInt(value) > max) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case "regex":
         if (!limiter || typeof value !== "string") return;
         var regex = new RegExp(limiter);
         if (!regex.test(value)) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
       case "maxSize":
         if (!maxSize || typeof value === "string") return;
         if (value.size / 1024 > maxSize) {
-          return errors.push(errMsg);
+          errors.push(errMsg);
         }
         break;
     }
@@ -775,6 +808,7 @@ var Text = function (props) {
     setTouched(true);
     return props.onChange({ value: value, isValid: !!errMsg.length });
   };
+  console.log(errMsg);
   // If touched and error show the error border, else success border
   var showErrState = touched
     ? errMsg.length > 0
