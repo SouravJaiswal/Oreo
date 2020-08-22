@@ -14,11 +14,8 @@ export const Center = () => {
       <Nav type={'center'} logo={<div className="main__logo">Exam lounge</div>}>
         <NavMenu>
           <Button type="text">Home</Button>
-
           <Button type="text">Blogs</Button>
-
           <Button type="text">Tests</Button>
-
           <Button type="text">Exams</Button>
         </NavMenu>
         <NavActions>
