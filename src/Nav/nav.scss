@@ -104,12 +104,6 @@
     }
   }
 
-  &__open & {
-    @include respond(phone) {
-      height: 100vh;
-    }
-  }
-
   // Space the items with free space between them
   &--side,
   &--center {
