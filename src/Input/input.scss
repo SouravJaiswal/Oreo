@@ -307,7 +307,10 @@ select:-webkit-autofill:focus {
   }
 
   &__icon {
-    margin-left: -4rem;
+    position: absolute;
     color: currentColor;
+    top: 50%;
+    right: 3rem;
+    transform: translateY(-50%);
   }
 }
