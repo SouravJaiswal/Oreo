@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { NavContext } from './Nav';
 
 export const NavActions = ({
   children,
@@ -7,5 +8,11 @@ export const NavActions = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  return <div className={`nav__actions ${className}`}>{children}</div>;
+  const menu = useContext(NavContext);
+  const menuClassName = menu ? 'nav__open' : 'nav__close';
+  return (
+    <div className={`nav__actions ${menuClassName} ${className}`}>
+      {children}
+    </div>
+  );
 };

@@ -8,6 +8,10 @@
   width: 100%;
   overflow: hidden;
 
+  @include respond(phone) {
+    padding: 0 2rem;
+  }
+
   @include border-bottom-light();
 
   &__menu {
@@ -18,12 +22,37 @@
     width: 50%;
     overflow: hidden;
 
+    @include transition-fast();
+
+    @include respond(phone) {
+      position: fixed;
+      transform: scale(0);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      top: 0;
+      left: 0;
+      max-width: 100%;
+      width: 100vw;
+      height: 100vh;
+      background: $color-white;
+    }
+
     & > * {
       font-size: 1.4rem;
+
+      @include respond(phone) {
+        font-size: 2.8rem;
+      }
     }
 
     & > *:not(:last-child) {
       margin-right: 1rem;
+
+      @include respond(phone) {
+        margin-right: 0;
+        margin-bottom: 5rem;
+      }
     }
   }
 
@@ -31,12 +60,47 @@
     display: flex;
     align-items: center;
 
+    @include respond(phone) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      width: 100vw;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: scale(0);
+    }
+
     & > * {
       font-size: 1.4rem;
+
+      @include respond(phone) {
+        font-size: 2rem;
+      }
     }
 
     & > *:not(:last-child) {
       margin-right: 1rem;
+
+      @include respond(phone) {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  // Handle open menu
+  &__open &__menu {
+    @include respond(phone) {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__open &__actions {
+    @include respond(phone) {
+      transform: scale(1);
+      opacity: 1;
     }
   }
 
@@ -53,6 +117,15 @@
   // Do not show the actions on the side menu
   &--side &__actions {
     display: none;
+  }
+
+  &__icon {
+    display: none;
+    cursor: pointer;
+
+    @include respond(phone) {
+      display: initial;
+    }
   }
 }
 
