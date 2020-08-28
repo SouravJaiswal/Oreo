@@ -72,5 +72,6 @@ export const checkErrors = (
   }
 
   setErrMsg(errors);
+
   return errors.length === 0;
 };

@@ -7,27 +7,20 @@ export default {
 };
 
 export const Text = () => {
-  let [username, setUsername] = useState('');
+  let [username, setUsername] = useState();
 
   return (
     <Input
       autoFocus={true}
       type="text"
       value={username}
-      onChange={({ value }: onChangeParams) =>
+      onChange={({ value, isValid }: onChangeParams) =>
         typeof value === 'string' ? setUsername(value) : ''
       }
       name="username"
       label="username"
       placeholder="Username"
-      rules={[
-        { type: 'required', errMsg: 'Username is required' },
-        {
-          type: 'regex',
-          errMsg: 'Username does not match the required items',
-          limiter: '/^(?=.*d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
-        },
-      ]}
+      rules={[{ type: 'required', errMsg: 'Username is required' }]}
       icon={
         <svg
           width="16"

@@ -642,7 +642,7 @@ var checkErrors = function (value, setErrMsg, rules) {
     }
   }
   setErrMsg(errors);
-  return errors.length > 0;
+  return errors.length === 0;
 };
 
 // 1. Need to upload the image - Done
@@ -848,6 +848,7 @@ var Text = function (props) {
     var isValid = checkErrors(value, setErrMsg, rules);
     // Touched state
     setTouched(true);
+    console.log(value, isValid, errMsg);
     return props.onChange({
       value: value,
       isValid: isValid,
