@@ -590,7 +590,8 @@ var checkErrors = function (value, setErrMsg, rules) {
       type = _a.type,
       min = _a.min,
       max = _a.max,
-      maxSize = _a.maxSize;
+      maxSize = _a.maxSize,
+      matchValue = _a.matchValue;
     switch (type) {
       case "required":
         if (typeof value === "string" && value.length === 0) {
@@ -629,6 +630,12 @@ var checkErrors = function (value, setErrMsg, rules) {
       case "maxSize":
         if (!maxSize || typeof value === "string") return;
         if (value.size / 1024 > maxSize) {
+          errors.push(errMsg);
+        }
+        break;
+      case "match":
+        if (!matchValue || typeof value !== "string") return;
+        if (matchValue !== value) {
           errors.push(errMsg);
         }
         break;

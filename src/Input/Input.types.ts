@@ -7,6 +7,7 @@ export interface RulesProps {
   max?: number;
   maxSize?: number;
   fileType?: string;
+  matchValue?: string;
 }
 
 export interface OptionsProps {

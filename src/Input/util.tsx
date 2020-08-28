@@ -15,7 +15,7 @@ export const checkErrors = (
 
   // Handle all rules
   for (let i = 0; i < rules.length && errors.length === 0; i++) {
-    const { limiter, errMsg, type, min, max, maxSize } = rules[i];
+    const { limiter, errMsg, type, min, max, maxSize, matchValue } = rules[i];
     switch (type) {
       case 'required':
         if (typeof value === 'string' && value.length === 0) {
@@ -58,6 +58,12 @@ export const checkErrors = (
           errors.push(errMsg);
         }
         break;
+        case 'match':
+          if(!matchValue || typeof value !== 'string') return;
+          if(matchValue !== value){
+            errors.push(errMsg);
+          }
+          break;
       case 'fileType':
         break;
       default:
