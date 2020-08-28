@@ -40,10 +40,11 @@ export const File = (props: InputProps) => {
       // If the file size is greater than the max file
       // size dont upload
       // Handle all the rules
-      if (!checkErrors(files[0], setErrMsg, rules)) {
+      const isValid = checkErrors(files[0], setErrMsg, rules);
+      if (!isValid) {
         fileReader.readAsDataURL(files[0]);
         setImage(files[0]);
-        return props.onChange({ value: files[0], isValid: !!errMsg.length });
+        return props.onChange({ value: files[0], isValid });
       }
     }
   };

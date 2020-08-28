@@ -54,12 +54,14 @@ export const Text = (props: InputProps) => {
     } = e;
 
     // Handle all the rules
-    checkErrors(value, setErrMsg, rules);
-
+    const isValid = checkErrors(value, setErrMsg, rules);
     // Touched state
     setTouched(true);
 
-    return props.onChange({ value, isValid: !!errMsg.length });
+    return props.onChange({
+      value,
+      isValid,
+    });
   };
 
   // If touched and error show the error border, else success border

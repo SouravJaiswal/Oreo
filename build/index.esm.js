@@ -636,10 +636,11 @@ var File = function (props) {
       // If the file size is greater than the max file
       // size dont upload
       // Handle all the rules
-      if (!checkErrors(files[0], setErrMsg, rules)) {
+      var isValid = checkErrors(files[0], setErrMsg, rules);
+      if (!isValid) {
         fileReader.readAsDataURL(files[0]);
         setImage(files[0]);
-        return props.onChange({ value: files[0], isValid: !!errMsg.length });
+        return props.onChange({ value: files[0], isValid: isValid });
       }
     }
   };
@@ -783,10 +784,13 @@ var Text = function (props) {
   var onChange = function (e) {
     var value = e.target.value;
     // Handle all the rules
-    checkErrors(value, setErrMsg, rules);
+    var isValid = checkErrors(value, setErrMsg, rules);
     // Touched state
     setTouched(true);
-    return props.onChange({ value: value, isValid: !!errMsg.length });
+    return props.onChange({
+      value: value,
+      isValid: isValid,
+    });
   };
   // If touched and error show the error border, else success border
   var showErrState = touched
@@ -991,8 +995,10 @@ var Search = function (props) {
   var onChange = function (e) {
     var value = e.target.value;
     // Handle all the rules
-    checkErrors(value, setErrMsg, [{ type: "required", errMsg: "" }]);
-    return props.onChange({ value: value, isValid: !!errMsg.length });
+    var isValid = checkErrors(value, setErrMsg, [
+      { type: "required", errMsg: "" },
+    ]);
+    return props.onChange({ value: value, isValid: isValid });
   };
   // If icon is provided, show the icon text
   return React.createElement(

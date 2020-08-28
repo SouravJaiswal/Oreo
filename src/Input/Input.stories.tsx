@@ -88,6 +88,57 @@ export const Password = () => {
   );
 };
 
+export const ConfirmPassword = () => {
+  let [password, setPassword] = useState('');
+  let [confirmPassword, setConfirmPassword] = useState('');
+
+  return (
+    <>
+      <Input
+        type="password"
+        value={password}
+        onChange={({ value }: onChangeParams) =>
+          typeof value === 'string' ? setPassword(value) : ''
+        }
+        name="Password"
+        label="Password"
+        placeholder="Password"
+        rules={[
+          { type: 'required', errMsg: 'Password is required' },
+          {
+            type: 'regex',
+            errMsg: 'Username does not match the required items',
+            limiter: '/^(?=.*d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
+          },
+        ]}
+      />
+      <Input
+        type="password"
+        value={confirmPassword}
+        onChange={({ value }: onChangeParams) =>
+          typeof value === 'string' ? setConfirmPassword(value) : ''
+        }
+        name="Confirm Password"
+        label="Confirm Password"
+        placeholder="Confirm Password"
+        rules={[
+          { type: 'required', errMsg: 'Password is required' },
+          {
+            type: 'match',
+            matchValue: password,
+            errMsg: 'Password mismatch',
+          },
+          {
+            type: 'regex',
+            errMsg: 'Username does not match the required items',
+            limiter: '/^(?=.*d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/',
+          },
+        ]}
+      />
+    </>
+  );
+};
+
 export const Search = () => {
   let [search, setSearch] = useState('');
 

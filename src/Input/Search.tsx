@@ -27,9 +27,11 @@ export const Search = (props: InputProps) => {
     } = e;
 
     // Handle all the rules
-    checkErrors(value, setErrMsg, [{ type: 'required', errMsg: '' }]);
+    const isValid = checkErrors(value, setErrMsg, [
+      { type: 'required', errMsg: '' },
+    ]);
 
-    return props.onChange({ value, isValid: !!errMsg.length });
+    return props.onChange({ value, isValid });
   };
 
   // If icon is provided, show the icon text

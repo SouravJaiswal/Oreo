@@ -58,12 +58,12 @@ export const checkErrors = (
           errors.push(errMsg);
         }
         break;
-        case 'match':
-          if(!matchValue || typeof value !== 'string') return;
-          if(matchValue !== value){
-            errors.push(errMsg);
-          }
-          break;
+      case 'match':
+        if (!matchValue || typeof value !== 'string') return;
+        if (matchValue !== value) {
+          errors.push(errMsg);
+        }
+        break;
       case 'fileType':
         break;
       default:
@@ -72,5 +72,5 @@ export const checkErrors = (
   }
 
   setErrMsg(errors);
-  return errors.length > 0;
+  return errors.length === 0;
 };
