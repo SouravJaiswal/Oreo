@@ -58,7 +58,6 @@ export const Text = (props: InputProps) => {
     // Touched state
     setTouched(true);
 
-    console.log(value, isValid, errMsg);
     return props.onChange({
       value,
       isValid,
