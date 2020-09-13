@@ -1,0 +1,76 @@
+@import "../main.scss";
+
+.chart {
+  &__box {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    color: $color-white;
+    min-width: 28rem;
+    color: rgba($color-white, 0.8);
+
+    & > * {
+      padding: 1.5rem 2rem;
+    }
+
+    &-heading {
+      background: #192147;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      border-bottom: 0.5px solid rgba($color-white, 0.1);
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & > *:first-child {
+        display: flex;
+        align-items: center;
+      }
+
+      & > *:last-child {
+      }
+    }
+
+    &-body {
+      background: #12193f;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      font-size: 1.8rem;
+      padding: 2rem 0rem;
+      text-align: center;
+      color: rgba($color-white, 0.9);
+      display: flex;
+      flex-direction: column;
+
+      & > *:first-child {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        & > * {
+          display: flex;
+          flex-direction: column;
+        }
+
+        & > *:not(:last-child) {
+          margin-right: 1.5rem;
+          padding-right: 1.5rem;
+          border-right: 0.5px solid rgba($color-white, 0.1);
+        }
+      }
+    }
+
+    &-date {
+      margin-top: 1.5rem;
+      //color: rgba($color-white, 0.8);
+      font-size: 1.2rem;
+      color: $color-secondary;
+    }
+  }
+
+  &__text {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: rgba($color-white, 0.7);
+  }
+}
