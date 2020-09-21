@@ -1,3 +1,11 @@
+/**
+ * Requirements:
+ * 1. Multiple Line / Area graphs data
+ * 2. Markers for both Axis
+ * 3. Axis labels
+ * 4. Max and Min values
+ * 5. No of labels
+ */
 export interface LineDataProps {
   /**
    * All the points with labels go here
@@ -16,16 +24,10 @@ export interface LineDataProps {
     axis?: string;
   }>;
   /**
-   * Default prepend value for the point label
-   */
-  defaultPointLabel?: string;
-  /**
-   * Default prepend value for the hover label
-   */
-  defaultHoverLabel?: string;
-  /**
    * All the data for the line path must be provided
    * here, including all those in the markers
+   * ID is the name that will be shown in the
+   * legend
    */
   chartData: Array<{
     id: string;
@@ -37,7 +39,7 @@ export interface LineDataProps {
   /**
    * These are the labels for each axis
    */
-  axisLabel: {
+  axisLabels: {
     x: number[] | string[];
     y: number[] | string[];
   };
@@ -52,6 +54,13 @@ export interface LineDataProps {
    * Min values of each axis
    */
   minValues: {
+    x: number;
+    y: number;
+  };
+  /**
+   * No of labels to show
+   */
+  noOfLabels: {
     x: number;
     y: number;
   };

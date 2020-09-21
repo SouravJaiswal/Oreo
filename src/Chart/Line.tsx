@@ -1,9 +1,7 @@
 import React from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { Defs, linearGradientDef } from "@nivo/core";
-import { BsArrowUpShort } from "react-icons/bs";
+import { linearGradientDef } from "@nivo/core";
 import { LineProps } from "./Line.types";
-import { values } from "lodash";
 
 /**
  * 1. Color
@@ -33,7 +31,14 @@ export const Line = ({
   enableArea = false,
   formatAxis = { x: null, y: null },
 }: LineProps) => {
-  const { chartData, markers = [], minValues, maxValues, axisLabel } = meta;
+  const {
+    chartData,
+    markers = [],
+    minValues,
+    maxValues,
+    axisLabels,
+    noOfLabels,
+  } = meta;
 
   /**
    * Marker formatting with Default values
@@ -60,10 +65,62 @@ export const Line = ({
     }
   }
 
+  /**
+   * Legends
+   */
+
+  const defaultLegendsConfig = [
+    {
+      anchor: "bottom",
+      direction: "row",
+      justify: false,
+      translateX: 0,
+      translateY: 80,
+      itemsSpacing: 0,
+      itemDirection: "left-to-right",
+      itemWidth: 80,
+      itemHeight: 20,
+      itemOpacity: 0.75,
+      symbolSize: 12,
+      symbolShape: "circle",
+      symbolBorderColor: "rgba(0, 0, 0, .5)",
+      effects: [
+        {
+          on: "hover",
+          style: {
+            itemBackground: "rgba(0, 0, 0, .03)",
+            itemOpacity: 1,
+          },
+        },
+      ],
+    },
+  ];
+
   // Convert Defs to Nivo's Defs
   let defsList = [];
   for (let i = 0; i < defs.length; i++) {
     defsList.push(linearGradientDef(defs[i].name, defs[i].styles));
+  }
+
+  /**
+   * Transform axisLabels
+   */
+  let xLabels = [];
+  for (let i = 0; i < axisLabels.x.length; i = i + noOfLabels.x) {
+    xLabels.push(axisLabels.x[i]);
+  }
+  // If the last item is not already added, add it
+  if (xLabels[xLabels.length - 1] !== axisLabels.x[axisLabels.x.length - 1]) {
+    xLabels.push(axisLabels.x[axisLabels.x[axisLabels.x.length - 1]]);
+  }
+
+  let yLabels = [];
+  for (let i = 0; i < axisLabels.y.length; i = i + noOfLabels.y) {
+    yLabels.push(axisLabels.y[i]);
+  }
+  // If the last item is not already added, add it
+  if (yLabels[yLabels.length - 1] !== axisLabels.y[axisLabels.y.length - 1]) {
+    yLabels.push(axisLabels.y[axisLabels.y[axisLabels.y.length - 1]]);
   }
 
   return (
@@ -87,7 +144,7 @@ export const Line = ({
       axisRight={null}
       colors={colors}
       axisLeft={{
-        tickValues: axisLabel.y,
+        tickValues: yLabels,
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
@@ -101,7 +158,7 @@ export const Line = ({
             },
       }}
       axisBottom={{
-        tickValues: axisLabel.x,
+        tickValues: xLabels,
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
@@ -133,6 +190,7 @@ export const Line = ({
       defs={defsList}
       fill={fill}
       markers={markersList}
+      legends={defaultLegendsConfig}
     />
   );
 };

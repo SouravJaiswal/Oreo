@@ -7,7 +7,7 @@ export default {
 };
 
 const LineData: LineDataProps = {
-  axisLabel: {
+  axisLabels: {
     x: [-20, 0, 20, 40, 60, 80, 100],
     y: [0, 50, 100, 150, 200, 250, 300],
   },
@@ -75,10 +75,10 @@ const LineData: LineDataProps = {
           y: 3,
         },
       ],
-      id: "Score 1",
+      id: "CSK vs RR",
     },
     {
-      id: "Score 2",
+      id: "CSK vs MI",
       data: [
         {
           x: -20,
@@ -139,7 +139,7 @@ const LineData: LineDataProps = {
       ],
     },
     {
-      id: "Score 3",
+      id: "DD vs MI",
       data: [
         {
           x: -20,
@@ -244,10 +244,14 @@ const LineData: LineDataProps = {
     x: 100,
     y: 300,
   },
+  noOfLabels: {
+    x: 5,
+    y: 5,
+  },
 };
 
 export const LineChart = () => {
-  const { markers, defaultPointLabel, defaultHoverLabel } = LineData;
+  const { markers } = LineData;
 
   const pointLabel = (e) => {
     for (let i = 0; i < markers.length; i++) {
@@ -255,17 +259,15 @@ export const LineChart = () => {
         return markers[i].pointLabel;
       }
     }
-    if (!!defaultPointLabel) {
-      return defaultPointLabel + e.x;
-    } else {
-      return "";
-    }
+
+    return "";
   };
 
   const toolTip = ({ slice }) => {
     return (
       <div>
-        {slice.points.map((point) => {
+        {/*
+          console.log(slice);
           let label = "";
           for (let i = 0; i < markers.length; i++) {
             if (markers[i].x === point.data.x && !!markers[i].pointLabel) {
@@ -274,37 +276,35 @@ export const LineChart = () => {
           }
           if (!label) {
             label = `${defaultHoverLabel}: ${point.data.x}`;
-          }
-          return (
-            <div className="chart__box">
-              <div className="chart__box-heading">
-                <span>Your Stats</span>
-                <span>
-                  29<sup>th</sup> July 2020
-                </span>
+          }*/}
+
+        <div className="chart__box">
+          <div className="chart__box-heading">
+            <span>Your Stats</span>
+            <span>
+              29<sup>th</sup> July 2020
+            </span>
+          </div>
+          <div className="chart__box-body">
+            <div>
+              <div>
+                <span>43%</span>
+                <span className="chart__text">Accuracy</span>
               </div>
-              <div className="chart__box-body">
-                <div>
-                  <div>
-                    <span>43%</span>
-                    <span className="chart__text">Accuracy</span>
-                  </div>
-                  <div>
-                    <span>32%</span>
-                    <span className="chart__text">Goal Reached</span>
-                  </div>
-                  <div>
-                    <span>37%</span>
-                    <span className="chart__text">Efficiency</span>
-                  </div>
-                </div>
-                <div className="chart__box-date">
-                  <span>&uarr; 4.8% than last week</span>
-                </div>
+              <div>
+                <span>32%</span>
+                <span className="chart__text">Goal Reached</span>
+              </div>
+              <div>
+                <span>37%</span>
+                <span className="chart__text">Efficiency</span>
               </div>
             </div>
-          );
-        })}
+            <div className="chart__box-date">
+              <span>&uarr; 4.8% than last week</span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   };
@@ -336,7 +336,12 @@ export const LineChart = () => {
     },
   ];
   return (
-    <div style={{ height: "50rem" }}>
+    <div
+      style={{
+        height: "60rem",
+        paddingBottom: "8rem",
+      }}
+    >
       <Line
         meta={LineData}
         enableArea={false}
