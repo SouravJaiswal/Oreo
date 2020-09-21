@@ -2,7 +2,7 @@
 export interface RulesProps {
     errMsg: string;
     type: string;
-    limiter?: string;
+    limiter?: RegExp;
     min?: number;
     max?: number;
     maxSize?: number;

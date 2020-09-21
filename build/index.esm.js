@@ -787,7 +787,6 @@ var Text = function (props) {
     var isValid = checkErrors(value, setErrMsg, rules);
     // Touched state
     setTouched(true);
-    console.log(value, isValid, errMsg);
     return props.onChange({
       value: value,
       isValid: isValid,
