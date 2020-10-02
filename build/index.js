@@ -999,11 +999,13 @@ var Radio = function (props) {
                     Array.isArray(value) && value.indexOf(opt.value) >= 0,
                   onChange: onCheckboxChange,
                 }),
-                React__default["default"].createElement(
-                  "label",
-                  { className: "radio__label", htmlFor: id },
-                  opt.label
-                )
+                React__default["default"].createElement("label", {
+                  className: "radio__label",
+                  htmlFor: id,
+                  dangerouslySetInnerHTML: {
+                    __html: opt.label,
+                  },
+                })
               );
             })
           : ""

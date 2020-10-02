@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useState, useRef } from 'react';
-import { InputProps, OptionsProps } from './Input.types';
+import React, { ChangeEvent, useState, useRef } from "react";
+import { InputProps, OptionsProps } from "./Input.types";
 
 export const Radio = (props: InputProps) => {
   const {
@@ -40,14 +40,14 @@ export const Radio = (props: InputProps) => {
     return props.onChange({ value, isValid: true });
   };
 
-  let fullWidthContainer = !!full ? 'radio__container--full' : '';
+  let fullWidthContainer = !!full ? "radio__container--full" : "";
 
-  let fullWidthMain = !!full ? 'radio__main--full' : '';
+  let fullWidthMain = !!full ? "radio__main--full" : "";
 
-  let fullWidthGroup = !!full ? 'radio__group--full' : '';
+  let fullWidthGroup = !!full ? "radio__group--full" : "";
 
   // If icon is provided, show the icon
-  if (type === 'checkbox') {
+  if (type === "checkbox") {
     return (
       <div className={`radio__group ${fullWidthGroup}`}>
         <div className={`radio__main ${fullWidthMain}`}>
@@ -57,7 +57,8 @@ export const Radio = (props: InputProps) => {
                 return (
                   <div
                     className={`radio__container ${fullWidthContainer}`}
-                    key={opt.value}>
+                    key={opt.value}
+                  >
                     <input
                       className={`radio__input ${className}`}
                       type="checkbox"
@@ -69,15 +70,19 @@ export const Radio = (props: InputProps) => {
                       }
                       onChange={onCheckboxChange}
                     />
-                    <label className="radio__label" htmlFor={id}>
-                      {opt.label}
-                    </label>
+                    <label
+                      className="radio__label"
+                      htmlFor={id}
+                      dangerouslySetInnerHTML={{
+                        __html: opt.label,
+                      }}
+                    ></label>
                   </div>
                 );
               })
-            : ''}
+            : ""}
         </div>
-        {!full ? <span className="input__label">{label}</span> : ''}
+        {!full ? <span className="input__label">{label}</span> : ""}
       </div>
     );
   }
@@ -102,7 +107,7 @@ export const Radio = (props: InputProps) => {
                 </label>
               </div>
             ))
-          : ''}
+          : ""}
       </div>
       <span className="input__label">{label}</span>
     </div>
