@@ -88,11 +88,14 @@ export const Radio = (props: InputProps) => {
   }
 
   return (
-    <div className="radio__group">
-      <div className="radio__main">
+    <div className={`radio__group ${fullWidthGroup}`}>
+      <div className={`radio__main ${fullWidthMain}`}>
         {!!options
           ? options.map((opt: OptionsProps) => (
-              <div className="radio__container" key={opt.value}>
+              <div
+                className={`radio__container ${fullWidthContainer}`}
+                key={opt.value}
+              >
                 <input
                   className={`radio__input ${className}`}
                   type="radio"
@@ -102,9 +105,13 @@ export const Radio = (props: InputProps) => {
                   checked={value === opt.value}
                   onChange={onRadioChange}
                 />
-                <label className="radio__label" htmlFor={opt.value}>
-                  {opt.label}
-                </label>
+                <label
+                  className="radio__label"
+                  dangerouslySetInnerHTML={{
+                    __html: opt.label,
+                  }}
+                  htmlFor={opt.value}
+                ></label>
               </div>
             ))
           : ""}

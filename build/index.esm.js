@@ -942,15 +942,18 @@ var Radio = function (props) {
   }
   return React.createElement(
     "div",
-    { className: "radio__group" },
+    { className: "radio__group " + fullWidthGroup },
     React.createElement(
       "div",
-      { className: "radio__main" },
+      { className: "radio__main " + fullWidthMain },
       !!options
         ? options.map(function (opt) {
             return React.createElement(
               "div",
-              { className: "radio__container", key: opt.value },
+              {
+                className: "radio__container " + fullWidthContainer,
+                key: opt.value,
+              },
               React.createElement("input", {
                 className: "radio__input " + className,
                 type: "radio",
@@ -960,11 +963,13 @@ var Radio = function (props) {
                 checked: value === opt.value,
                 onChange: onRadioChange,
               }),
-              React.createElement(
-                "label",
-                { className: "radio__label", htmlFor: opt.value },
-                opt.label
-              )
+              React.createElement("label", {
+                className: "radio__label",
+                dangerouslySetInnerHTML: {
+                  __html: opt.label,
+                },
+                htmlFor: opt.value,
+              })
             );
           })
         : ""
