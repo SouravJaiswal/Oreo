@@ -976,7 +976,7 @@ var Radio = function (props) {
   if (type === "checkbox") {
     return React__default["default"].createElement(
       "div",
-      { className: "radio__group " + fullWidthGroup },
+      { className: "radio__group " + className + " " + fullWidthGroup },
       React__default["default"].createElement(
         "div",
         { className: "radio__main " + fullWidthMain },
@@ -997,7 +997,7 @@ var Radio = function (props) {
                   key: opt.value,
                 },
                 React__default["default"].createElement("input", {
-                  className: "radio__input " + className,
+                  className: "radio__input ",
                   type: "checkbox",
                   id: id,
                   name: name,
@@ -1027,7 +1027,7 @@ var Radio = function (props) {
   }
   return React__default["default"].createElement(
     "div",
-    { className: "radio__group " + fullWidthGroup },
+    { className: "radio__group " + className + " " + fullWidthGroup },
     React__default["default"].createElement(
       "div",
       { className: "radio__main " + fullWidthMain },

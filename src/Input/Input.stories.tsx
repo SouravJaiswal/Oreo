@@ -155,6 +155,7 @@ export const Radio = () => {
 
   return (
     <Input
+      className="helloworld"
       type="radio"
       value={radio}
       onChange={({ value }) => setRadio(value)}

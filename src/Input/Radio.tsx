@@ -49,7 +49,7 @@ export const Radio = (props: InputProps) => {
   // If icon is provided, show the icon
   if (type === "checkbox") {
     return (
-      <div className={`radio__group ${fullWidthGroup}`}>
+      <div className={`radio__group ${className} ${fullWidthGroup}`}>
         <div className={`radio__main ${fullWidthMain}`}>
           {!!options
             ? options.map((opt: OptionsProps) => {
@@ -63,7 +63,7 @@ export const Radio = (props: InputProps) => {
                     key={opt.value}
                   >
                     <input
-                      className={`radio__input ${className}`}
+                      className={`radio__input `}
                       type="checkbox"
                       id={id}
                       name={name}
@@ -89,7 +89,7 @@ export const Radio = (props: InputProps) => {
   }
 
   return (
-    <div className={`radio__group ${fullWidthGroup}`}>
+    <div className={`radio__group ${className} ${fullWidthGroup}`}>
       <div className={`radio__main ${fullWidthMain}`}>
         {!!options
           ? options.map((opt: OptionsProps) => {

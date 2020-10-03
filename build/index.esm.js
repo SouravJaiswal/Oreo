@@ -901,7 +901,7 @@ var Radio = function (props) {
   if (type === "checkbox") {
     return React.createElement(
       "div",
-      { className: "radio__group " + fullWidthGroup },
+      { className: "radio__group " + className + " " + fullWidthGroup },
       React.createElement(
         "div",
         { className: "radio__main " + fullWidthMain },
@@ -922,7 +922,7 @@ var Radio = function (props) {
                   key: opt.value,
                 },
                 React.createElement("input", {
-                  className: "radio__input " + className,
+                  className: "radio__input ",
                   type: "checkbox",
                   id: id,
                   name: name,
@@ -948,7 +948,7 @@ var Radio = function (props) {
   }
   return React.createElement(
     "div",
-    { className: "radio__group " + fullWidthGroup },
+    { className: "radio__group " + className + " " + fullWidthGroup },
     React.createElement(
       "div",
       { className: "radio__main " + fullWidthMain },
