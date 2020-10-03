@@ -44,8 +44,7 @@
   margin: 0 0 6px;
   padding: 3rem;
   margin-bottom: 1.5rem;
-  width: 30rem;
-  max-height: 10rem;
+  width: fit-content;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 0 0 1rem #999;
   color: #000;
@@ -65,19 +64,14 @@
   font-size: 1.6rem;
   text-align: left;
   margin-top: 0;
-  margin-bottom: 6px;
-  height: 1.8rem;
+  margin-bottom: 1rem;
   z-index: 1;
 }
 
 .notification-message {
   margin: 0;
   text-align: left;
-  height: 1.8rem;
-  margin-left: -1px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.6;
   z-index: 2;
 }
 
@@ -94,7 +88,7 @@
 .toast {
   min-height: 5rem;
   height: fit-content;
-  max-width: 36.5rem;
+  width: 36rem;
   color: #fff;
   padding: 2.5rem;
 }

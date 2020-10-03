@@ -21,13 +21,14 @@ export const Default = () => {
               id: 100,
               title: "Success",
               description: "This is a success toast component",
-              backgroundColor: "#5cb85c",
+              backgroundColor: "#8FB020",
               icon: "",
             },
             {
               id: 10,
               title: "Error",
-              description: "This is a success toast component",
+              description:
+                "This is a success toast component. Hello World! What are you up to?",
               backgroundColor: "#ff7a70",
               icon: "",
             },
