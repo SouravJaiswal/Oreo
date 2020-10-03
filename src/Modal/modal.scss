@@ -1,4 +1,4 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .modal {
   //Default configs
@@ -59,13 +59,11 @@
 
   //Small Modal customization
   &--small &__ui {
-    min-height: 24rem;
     height: fit-content;
     width: 50rem;
   }
 
   &--small &__main {
-    min-height: 10rem;
     height: fit-content;
     padding: 2rem;
   }

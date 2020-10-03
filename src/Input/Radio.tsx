@@ -102,7 +102,7 @@ export const Radio = (props: InputProps) => {
                   key={opt.value}
                 >
                   <input
-                    className={`radio__input ${className}`}
+                    className={`radio__input `}
                     type="radio"
                     id={opt.value}
                     name={name}

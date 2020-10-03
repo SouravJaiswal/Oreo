@@ -174,3 +174,29 @@ export const Radio = () => {
     />
   );
 };
+
+export const Checkbox = () => {
+  let [radio, setRadio] = useState("");
+
+  return (
+    <Input
+      className="helloworld"
+      type="checkbox"
+      value={[radio]}
+      label="Declaration"
+      onChange={({ value }) => {
+        console.log(value);
+        setRadio(value);
+      }}
+      name="radio"
+      options={[
+        {
+          label:
+            "I have read all the instructions carefully and have understood them.I agree not to cheat or use unfair means in the examination. Iunderstand using unfair means of any sort will lead to my immediatedisqualification. The decision of Exam Lounge will be final in thesematters and cannot be appealed.",
+
+          value: "male",
+        },
+      ]}
+    />
+  );
+};
