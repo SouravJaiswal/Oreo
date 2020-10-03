@@ -153,7 +153,6 @@ export const Search = () => {
 export const Radio = () => {
   let [radio, setRadio] = useState("male");
 
-  console.log(radio);
   return (
     <Input
       type="radio"

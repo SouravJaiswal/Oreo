@@ -7,3 +7,4 @@ export { OList, UList, Li } from "./List";
 export { Input, Radio, Text, File, ErrMsg } from "./Input";
 export { Col, Row } from "./Grid";
 export { Card } from "./Card";
+export { Notification } from "./Notification";
