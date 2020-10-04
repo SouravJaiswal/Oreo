@@ -185,7 +185,6 @@ export const Checkbox = () => {
       value={[radio]}
       label="Declaration"
       onChange={({ value }) => {
-        console.log(value);
         setRadio(value);
       }}
       name="radio"
