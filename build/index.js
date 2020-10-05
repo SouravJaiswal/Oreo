@@ -1005,13 +1005,11 @@ var Radio = function (props) {
                   checked: active,
                   onChange: onCheckboxChange,
                 }),
-                React__default["default"].createElement("label", {
-                  className: "radio__label",
-                  htmlFor: id,
-                  dangerouslySetInnerHTML: {
-                    __html: opt.label,
-                  },
-                })
+                React__default["default"].createElement(
+                  "label",
+                  { className: "radio__label", htmlFor: id },
+                  opt.label
+                )
               );
             })
           : ""
@@ -1051,13 +1049,11 @@ var Radio = function (props) {
                 checked: active,
                 onChange: onRadioChange,
               }),
-              React__default["default"].createElement("label", {
-                className: "radio__label",
-                dangerouslySetInnerHTML: {
-                  __html: opt.label,
-                },
-                htmlFor: opt.value,
-              })
+              React__default["default"].createElement(
+                "label",
+                { className: "radio__label", htmlFor: opt.value },
+                opt.label
+              )
             );
           })
         : ""

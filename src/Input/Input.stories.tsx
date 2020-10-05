@@ -163,7 +163,7 @@ export const Radio = () => {
       full={true}
       options={[
         {
-          label: "Male",
+          label: <p>Hello world</p>,
           value: "male",
         },
         {

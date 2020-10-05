@@ -930,13 +930,11 @@ var Radio = function (props) {
                   checked: active,
                   onChange: onCheckboxChange,
                 }),
-                React.createElement("label", {
-                  className: "radio__label",
-                  htmlFor: id,
-                  dangerouslySetInnerHTML: {
-                    __html: opt.label,
-                  },
-                })
+                React.createElement(
+                  "label",
+                  { className: "radio__label", htmlFor: id },
+                  opt.label
+                )
               );
             })
           : ""
@@ -972,13 +970,11 @@ var Radio = function (props) {
                 checked: active,
                 onChange: onRadioChange,
               }),
-              React.createElement("label", {
-                className: "radio__label",
-                dangerouslySetInnerHTML: {
-                  __html: opt.label,
-                },
-                htmlFor: opt.value,
-              })
+              React.createElement(
+                "label",
+                { className: "radio__label", htmlFor: opt.value },
+                opt.label
+              )
             );
           })
         : ""

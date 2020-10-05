@@ -71,13 +71,9 @@ export const Radio = (props: InputProps) => {
                       checked={active}
                       onChange={onCheckboxChange}
                     />
-                    <label
-                      className="radio__label"
-                      htmlFor={id}
-                      dangerouslySetInnerHTML={{
-                        __html: opt.label,
-                      }}
-                    ></label>
+                    <label className="radio__label" htmlFor={id}>
+                      {opt.label}
+                    </label>
                   </div>
                 );
               })
@@ -110,13 +106,9 @@ export const Radio = (props: InputProps) => {
                     checked={active}
                     onChange={onRadioChange}
                   />
-                  <label
-                    className="radio__label"
-                    dangerouslySetInnerHTML={{
-                      __html: opt.label,
-                    }}
-                    htmlFor={opt.value}
-                  ></label>
+                  <label className="radio__label" htmlFor={opt.value}>
+                    {opt.label}
+                  </label>
                 </div>
               );
             })
