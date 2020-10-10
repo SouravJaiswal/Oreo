@@ -10,8 +10,9 @@ export interface RulesProps {
     matchValue?: string;
 }
 export interface OptionsProps {
-    label: string;
+    label: string | JSX.Element;
     value: string;
+    className?: string;
 }
 export interface InputProps {
     name: string;
@@ -30,6 +31,7 @@ export interface InputProps {
     initialValue?: string;
     accept?: string;
     full?: boolean;
+    disabled?: boolean;
 }
 export interface onChangeParams {
     value: string | Array<string> | File;

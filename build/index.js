@@ -946,9 +946,15 @@ var Radio = function (props) {
     type = props.type,
     options = props.options,
     value = props.value,
-    full = props.full;
+    full = props.full,
+    disabled = props.disabled;
   var onCheckboxChange = function (e) {
     var value = e.target.value;
+    // If the system is disabled, return.
+    // Do not allow change
+    if (disabled) {
+      return;
+    }
     if (!Array.isArray(props.value)) return;
     // Either add or remove the clicked element
     if (props.value.indexOf(value) < 0) {
@@ -967,6 +973,9 @@ var Radio = function (props) {
   };
   var onRadioChange = function (e) {
     var value = e.target.value;
+    if (disabled) {
+      return;
+    }
     return props.onChange({ value: value, isValid: true });
   };
   var fullWidthContainer = !!full ? "radio__container--full" : "";
@@ -993,7 +1002,9 @@ var Radio = function (props) {
                     "radio__container " +
                     activeClass +
                     " " +
-                    fullWidthContainer,
+                    fullWidthContainer +
+                    " " +
+                    opt.className,
                   key: opt.value,
                 },
                 React__default["default"].createElement("input", {
@@ -1037,7 +1048,12 @@ var Radio = function (props) {
               "div",
               {
                 className:
-                  "radio__container " + activeClass + " " + fullWidthContainer,
+                  "radio__container " +
+                  activeClass +
+                  " " +
+                  fullWidthContainer +
+                  " " +
+                  opt.className,
                 key: opt.value,
               },
               React__default["default"].createElement("input", {
