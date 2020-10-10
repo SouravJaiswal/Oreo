@@ -161,6 +161,7 @@ export const Radio = () => {
       onChange={({ value }) => setRadio(value)}
       name="radio"
       full={true}
+      disabled={true}
       options={[
         {
           label: <p>Hello world</p>,

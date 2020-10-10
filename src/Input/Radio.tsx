@@ -10,12 +10,19 @@ export const Radio = (props: InputProps) => {
     options,
     value,
     full,
+    disabled,
   }: InputProps = props;
 
   let onCheckboxChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
     } = e;
+
+    // If the system is disabled, return.
+    // Do not allow change
+    if (disabled) {
+      return;
+    }
 
     if (!Array.isArray(props.value)) return;
 
@@ -37,6 +44,9 @@ export const Radio = (props: InputProps) => {
       target: { value },
     } = e;
 
+    if (disabled) {
+      return;
+    }
     return props.onChange({ value, isValid: true });
   };
 
@@ -59,7 +69,7 @@ export const Radio = (props: InputProps) => {
                 const activeClass = active ? "radio__active" : "";
                 return (
                   <div
-                    className={`radio__container ${activeClass} ${fullWidthContainer}`}
+                    className={`radio__container ${activeClass} ${fullWidthContainer} ${opt.className}`}
                     key={opt.value}
                   >
                     <input
@@ -94,7 +104,7 @@ export const Radio = (props: InputProps) => {
               const activeClass = active ? "radio__active" : "";
               return (
                 <div
-                  className={`radio__container ${activeClass} ${fullWidthContainer}`}
+                  className={`radio__container ${activeClass} ${fullWidthContainer} ${opt.className}`}
                   key={opt.value}
                 >
                   <input

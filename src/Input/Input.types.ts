@@ -11,8 +11,9 @@ export interface RulesProps {
 }
 
 export interface OptionsProps {
-  label: string;
+  label: string | JSX.Element;
   value: string;
+  className?: string;
 }
 
 export interface InputProps {
@@ -32,6 +33,7 @@ export interface InputProps {
   initialValue?: string;
   accept?: string;
   full?: boolean;
+  disabled?: boolean;
 }
 
 export interface onChangeParams {
