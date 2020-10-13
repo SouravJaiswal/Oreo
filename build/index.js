@@ -1291,7 +1291,7 @@ var Notification = function (_a) {
 };
 
 var css_248z$9 =
-  ".table {\n  border: 1px solid #eeeeee;\n  width: 100%;\n  border-spacing: 0;\n  border-collapse: collapse; }\n  .table th,\n  .table td {\n    text-align: center;\n    padding: 2rem;\n    border-bottom: 1px solid #eee; }\n    .table th:not(:last-child),\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table td {\n    padding: 3rem;\n    border-bottom: 1px solid #eee; }\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table th {\n    background: #fcfcfc; }\n";
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.table {\n  border: 1px solid #eeeeee;\n  width: 100%;\n  border-spacing: 0;\n  border-collapse: collapse; }\n  .table td {\n    font-size: 1.4rem;\n    font-weight: 100;\n    color: #32312f; }\n  .table th,\n  .table td {\n    text-align: center;\n    padding: 2rem;\n    border-bottom: 1px solid #eee; }\n    .table th:not(:last-child),\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table th,\n  .table .table__heading {\n    font-size: 1.4rem;\n    font-weight: 400;\n    color: #32312f; }\n  .table td {\n    padding: 3rem;\n    border-bottom: 1px solid #eee; }\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table th {\n    background: #fcfcfc; }\n';
 styleInject(css_248z$9);
 
 var Table = function (_a) {
@@ -1312,10 +1312,14 @@ var Table = function (_a) {
           return !!data.render
             ? React__default["default"].createElement(
                 "td",
-                null,
+                { className: data.isHeading ? "table__heading" : "" },
                 data.render(data.value)
               )
-            : React__default["default"].createElement("td", null, data.value);
+            : React__default["default"].createElement(
+                "td",
+                { className: data.isHeading ? "table__heading" : "" },
+                data.value
+              );
         })
       )
     );

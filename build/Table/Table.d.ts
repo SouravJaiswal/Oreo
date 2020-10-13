@@ -4,6 +4,7 @@ export declare const Table: ({ headings, values, className, }: {
     values: Array<Array<{
         value: any;
         render?: Function;
+        isHeading?: boolean;
     }>>;
     className?: string;
 }) => JSX.Element;

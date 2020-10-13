@@ -22,6 +22,7 @@ export const Default = () => {
           [
             {
               value: "Section 1",
+              isHeading: true,
               render: (value) => {
                 return <div>{value}</div>;
               },
@@ -108,6 +109,7 @@ export const Default = () => {
           [
             {
               value: "Section 1",
+              isHeading: true,
               render: (value) => {
                 return <div>{value}</div>;
               },
@@ -194,6 +196,7 @@ export const Default = () => {
           [
             {
               value: "Section 1",
+              isHeading: true,
               render: (value) => {
                 return <div>{value}</div>;
               },
@@ -280,6 +283,7 @@ export const Default = () => {
           [
             {
               value: "Section 1",
+              isHeading: true,
               render: (value) => {
                 return <div>{value}</div>;
               },
@@ -366,6 +370,7 @@ export const Default = () => {
           [
             {
               value: "Section 1",
+              isHeading: true,
               render: (value) => {
                 return <div>{value}</div>;
               },

@@ -1,8 +1,16 @@
+@import "../main.scss";
+
 .table {
   border: 1px solid #eeeeee;
   width: 100%;
   border-spacing: 0;
   border-collapse: collapse;
+
+  td {
+    font-size: 1.4rem;
+    font-weight: 100;
+    color: $color-grey-dark-4;
+  }
 
   th,
   td {
@@ -12,6 +20,13 @@
     &:not(:last-child) {
       border-right: 1px solid #eee;
     }
+  }
+
+  th,
+  & &__heading {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: $color-grey-dark-4;
   }
 
   td {

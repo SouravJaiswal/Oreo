@@ -12,6 +12,7 @@ export const Table = ({
     Array<{
       value: any;
       render?: Function;
+      isHeading?: boolean;
     }>
   >;
   className?: string;
@@ -26,9 +27,13 @@ export const Table = ({
       <tr>
         {_.map(values[index], (data) => {
           return !!data.render ? (
-            <td>{data.render(data.value)}</td>
+            <td className={data.isHeading ? "table__heading" : ""}>
+              {data.render(data.value)}
+            </td>
           ) : (
-            <td>{data.value}</td>
+            <td className={data.isHeading ? "table__heading" : ""}>
+              {data.value}
+            </td>
           );
         })}
       </tr>
