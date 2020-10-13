@@ -6,12 +6,14 @@ var React = require("react");
 var fi = require("react-icons/fi");
 var ai = require("react-icons/ai");
 var gr = require("react-icons/gr");
+var _ = require("lodash");
 
 function _interopDefaultLegacy(e) {
   return e && typeof e === "object" && "default" in e ? e : { default: e };
 }
 
 var React__default = /*#__PURE__*/ _interopDefaultLegacy(React);
+var ___default = /*#__PURE__*/ _interopDefaultLegacy(_);
 
 function styleInject(css, ref) {
   if (ref === void 0) ref = {};
@@ -1288,6 +1290,52 @@ var Notification = function (_a) {
   );
 };
 
+var css_248z$9 =
+  ".table {\n  border: 1px solid #eeeeee;\n  width: 100%;\n  border-spacing: 0;\n  border-collapse: collapse; }\n  .table th,\n  .table td {\n    text-align: center;\n    padding: 2rem;\n    border-bottom: 1px solid #eee; }\n    .table th:not(:last-child),\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table td {\n    padding: 3rem;\n    border-bottom: 1px solid #eee; }\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table th {\n    background: #fcfcfc; }\n";
+styleInject(css_248z$9);
+
+var Table = function (_a) {
+  var headings = _a.headings,
+    values = _a.values,
+    className = _a.className;
+  var headingJsx = [];
+  var bodyJsx = [];
+  ___default["default"].map(headings, function (heading, index) {
+    headingJsx.push(
+      React__default["default"].createElement("th", null, heading)
+    );
+    bodyJsx.push(
+      React__default["default"].createElement(
+        "tr",
+        null,
+        ___default["default"].map(values[index], function (data) {
+          return !!data.render
+            ? React__default["default"].createElement(
+                "td",
+                null,
+                data.render(data.value)
+              )
+            : React__default["default"].createElement("td", null, "data.value");
+        })
+      )
+    );
+  });
+  return React__default["default"].createElement(
+    "table",
+    { className: "table " + className },
+    React__default["default"].createElement(
+      "thead",
+      { className: "table__head" },
+      React__default["default"].createElement("tr", null, headingJsx)
+    ),
+    React__default["default"].createElement(
+      "tbody",
+      { className: "table__body" },
+      bodyJsx
+    )
+  );
+};
+
 exports.Button = Button;
 exports.Card = Card;
 exports.Col = Col;
@@ -1312,6 +1360,7 @@ exports.Paragraph = Paragraph;
 exports.Radio = Radio;
 exports.Row = Row;
 exports.Sidebar = Sidebar;
+exports.Table = Table;
 exports.Text = Text;
 exports.UList = UList;
 //# sourceMappingURL=index.js.map

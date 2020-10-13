@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from "react";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrSearch } from "react-icons/gr";
+import _ from "lodash";
 
 function styleInject(css, ref) {
   if (ref === void 0) ref = {};
@@ -1195,6 +1196,42 @@ var Notification = function (_a) {
   );
 };
 
+var css_248z$9 =
+  ".table {\n  border: 1px solid #eeeeee;\n  width: 100%;\n  border-spacing: 0;\n  border-collapse: collapse; }\n  .table th,\n  .table td {\n    text-align: center;\n    padding: 2rem;\n    border-bottom: 1px solid #eee; }\n    .table th:not(:last-child),\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table td {\n    padding: 3rem;\n    border-bottom: 1px solid #eee; }\n    .table td:not(:last-child) {\n      border-right: 1px solid #eee; }\n  .table th {\n    background: #fcfcfc; }\n";
+styleInject(css_248z$9);
+
+var Table = function (_a) {
+  var headings = _a.headings,
+    values = _a.values,
+    className = _a.className;
+  var headingJsx = [];
+  var bodyJsx = [];
+  _.map(headings, function (heading, index) {
+    headingJsx.push(React.createElement("th", null, heading));
+    bodyJsx.push(
+      React.createElement(
+        "tr",
+        null,
+        _.map(values[index], function (data) {
+          return !!data.render
+            ? React.createElement("td", null, data.render(data.value))
+            : React.createElement("td", null, "data.value");
+        })
+      )
+    );
+  });
+  return React.createElement(
+    "table",
+    { className: "table " + className },
+    React.createElement(
+      "thead",
+      { className: "table__head" },
+      React.createElement("tr", null, headingJsx)
+    ),
+    React.createElement("tbody", { className: "table__body" }, bodyJsx)
+  );
+};
+
 export {
   Button,
   Card,
@@ -1220,6 +1257,7 @@ export {
   Radio,
   Row,
   Sidebar,
+  Table,
   Text,
   UList,
 };
