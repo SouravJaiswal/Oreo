@@ -1315,7 +1315,7 @@ var Table = function (_a) {
                 null,
                 data.render(data.value)
               )
-            : React__default["default"].createElement("td", null, "data.value");
+            : React__default["default"].createElement("td", null, data.value);
         })
       )
     );

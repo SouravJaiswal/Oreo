@@ -10,7 +10,7 @@ export const Table = ({
   headings: Array<string>;
   values: Array<
     Array<{
-      value: string | object;
+      value: any;
       render?: Function;
     }>
   >;
@@ -28,7 +28,7 @@ export const Table = ({
           return !!data.render ? (
             <td>{data.render(data.value)}</td>
           ) : (
-            <td>data.value</td>
+            <td>{data.value}</td>
           );
         })}
       </tr>

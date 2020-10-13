@@ -1215,7 +1215,7 @@ var Table = function (_a) {
         _.map(values[index], function (data) {
           return !!data.render
             ? React.createElement("td", null, data.render(data.value))
-            : React.createElement("td", null, "data.value");
+            : React.createElement("td", null, data.value);
         })
       )
     );
