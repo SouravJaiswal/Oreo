@@ -9,3 +9,4 @@ export { Col, Row } from "./Grid";
 export { Card } from "./Card";
 export { Notification } from "./Notification";
 export { Table } from "./Table";
+export { Dimmer } from "./Dimmer";

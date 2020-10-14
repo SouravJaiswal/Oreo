@@ -1240,10 +1240,31 @@ var Table = function (_a) {
   );
 };
 
+var css_248z$a =
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.dimmer {\n  position: relative; }\n  .dimmer__bg {\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: rgba(0, 0, 0, 0.85);\n    z-index: 9; }\n  .dimmer__loading {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    z-index: 10; }\n';
+styleInject(css_248z$a);
+
+var Dimmer = function (props) {
+  return React.createElement(
+    "div",
+    { className: "dimmer" },
+    React.createElement("div", { className: "dimmer__bg" }),
+    props.children,
+    props.isLoading
+      ? React.createElement(
+          "div",
+          { className: "dimmer__loading" },
+          props.loading
+        )
+      : React.createElement(React.Fragment, null)
+  );
+};
+
 export {
   Button,
   Card,
   Col,
+  Dimmer,
   ErrMsg,
   File,
   H1,
