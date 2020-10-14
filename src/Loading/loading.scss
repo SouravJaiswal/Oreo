@@ -1,4 +1,4 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .loading {
   display: inline-flex;
@@ -44,7 +44,7 @@
       margin-top: 2rem;
       background: $color-grey-dark-3;
       border-radius: 50%;
-      animation: 0.9s bounce infinite alternate;
+      animation: 0.6s bounce infinite alternate;
 
       &:nth-child(2) {
         animation-delay: 0.3s;
