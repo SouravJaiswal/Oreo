@@ -1,6 +1,6 @@
 import React from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { linearGradientDef } from "@nivo/core";
+import { LegendProps } from "@nivo/legends";
 import { LineProps } from "./Line.types";
 
 /**
@@ -13,6 +13,54 @@ import { LineProps } from "./Line.types";
  * 7. Fills
  * 8. Enable Area
  */
+
+/*
+  Remove this after using from the library
+*/
+function _objectSpread$4(target, options) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys: any = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$5(target, key, source[key]);
+    });
+  }
+  return target;
+}
+
+function _defineProperty$5(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+
+function linearGradientDef(id, colors) {
+  var options =
+    arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+  return _objectSpread$4(
+    {
+      id: id,
+      type: "linearGradient",
+      colors: colors,
+    },
+    options
+  );
+}
 
 export const Line = ({
   meta,
@@ -68,8 +116,8 @@ export const Line = ({
   /**
    * Legends
    */
-
-  const defaultLegendsConfig = [
+  let defaultLegendsConfig: Array<LegendProps>;
+  defaultLegendsConfig = [
     {
       anchor: "bottom",
       direction: "row",
