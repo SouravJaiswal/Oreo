@@ -1345,12 +1345,21 @@ var css_248z$a =
 styleInject(css_248z$a);
 
 var Dimmer = function (props) {
+  var isLoading = props.isLoading === undefined ? true : props.isLoading;
+  console.log(isLoading, props.isLoading);
   return React__default["default"].createElement(
     "div",
     { className: "dimmer" },
-    React__default["default"].createElement("div", { className: "dimmer__bg" }),
+    isLoading
+      ? React__default["default"].createElement("div", {
+          className: "dimmer__bg",
+        })
+      : React__default["default"].createElement(
+          React__default["default"].Fragment,
+          null
+        ),
     props.children,
-    props.isLoading
+    isLoading
       ? React__default["default"].createElement(
           "div",
           { className: "dimmer__loading" },

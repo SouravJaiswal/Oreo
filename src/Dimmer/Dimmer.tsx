@@ -3,15 +3,17 @@ import React from "react";
 interface Dimmer {
   children: React.ReactNode;
   loading: React.ReactNode;
-  isLoading: boolean;
+  isLoading?: boolean;
 }
 
 export const Dimmer = (props: Dimmer) => {
+  const isLoading = props.isLoading === undefined ? true : props.isLoading;
+  console.log(isLoading, props.isLoading);
   return (
     <div className="dimmer">
-      <div className="dimmer__bg"></div>
+      {isLoading ? <div className="dimmer__bg"></div> : <></>}
       {props.children}
-      {props.isLoading ? (
+      {isLoading ? (
         <div className="dimmer__loading">{props.loading}</div>
       ) : (
         <></>

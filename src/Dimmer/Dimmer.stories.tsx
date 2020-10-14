@@ -1,14 +1,14 @@
-import React from 'react';
-import { Dimmer } from './index';
-import { Loading } from '../Loading';
-import { H1, H2, Paragraph } from '../Typography';
+import React from "react";
+import { Dimmer } from "./index";
+import { Loading } from "../Loading";
+import { H1, H2, Paragraph } from "../Typography";
 
 export default {
-  title: 'Dimmer',
+  title: "Dimmer",
 };
 
 export const Modern = () => (
-  <Dimmer loading={<Loading type="modern" shade="light" />}>
+  <Dimmer isLoading={true} loading={<Loading type="modern" shade="light" />}>
     <H1>This is a heading!</H1>
     <Paragraph className="u-margin-bottom-medium">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, aspernatur
