@@ -8,7 +8,6 @@ interface Dimmer {
 
 export const Dimmer = (props: Dimmer) => {
   const isLoading = props.isLoading === undefined ? true : props.isLoading;
-  console.log(isLoading, props.isLoading);
   return (
     <div className="dimmer">
       {isLoading ? <div className="dimmer__bg"></div> : <></>}

@@ -1,4 +1,4 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .nav {
   display: flex;
@@ -199,45 +199,56 @@
   margin-top: 2rem;
 
   &__item {
-    min-height: 6rem;
+    min-height: 5rem;
     display: flex;
     align-items: center;
-    font-family: $default-font-heading;
+    font-family: Roboto;
     font-size: 1.4rem;
     transition: all 0.2s ease;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0px 2rem;
 
     & > * {
       display: flex;
       /* justify-content: center; */
       align-items: center;
-      width: 100%;
+      cursor: pointer;
+      padding-left: 3rem;
+      border-radius: 2rem;
+      width: 19rem;
       height: 100%;
-      padding-left: 2rem;
-      color: $color-grey-dark-3;
+      transition: 0.2s all;
+
+      &:hover {
+        background: #eee;
+      }
     }
 
     &--active {
-      background: $color-primary-light;
-      font-weight: 600;
-    }
+      & > * {
+        background: #262728;
+        color: #fff;
+        font-weight: 400;
+        height: 100%;
 
-    &:hover {
-      background: $color-primary-light;
-      cursor: pointer;
+        &:hover {
+          background: #262728;
+        }
+      }
     }
   }
 
   .sidebar--left &__item--active {
+    /*
     &:after {
       position: absolute;
       top: 0;
       right: 0;
-      content: '';
+      content: "";
       width: 3px;
       height: 100%;
-      background: $color-primary;
-    }
+      //background: $color-primary;
+    }*/
   }
 
   .sidebar--right &__item--active {
@@ -245,7 +256,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      content: '';
+      content: "";
       width: 3px;
       height: 100%;
       background: $color-primary;
@@ -253,11 +264,22 @@
   }
 
   &__item svg {
+    /*
     width: 1.6rem;
     height: 1.6rem;
     margin-right: 1.5rem;
     fill: $color-grey-dark-3;
     transition: all 0.2s ease;
+    */
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1.5rem;
+    fill: #262728;
+    transition: all 0.2s ease;
+  }
+
+  &__item--active svg {
+    fill: #eee;
   }
 
   .sidebar--collapsed &__item {
