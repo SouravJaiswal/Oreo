@@ -8,7 +8,7 @@ export default {
 };
 
 export const Modern = () => (
-  <Dimmer isLoading={true} loading={<Loading type="modern" shade="light" />}>
+  <Dimmer isLoading={false} loading={<Loading type="modern" shade="light" />}>
     <H1>This is a heading!</H1>
     <Paragraph className="u-margin-bottom-medium">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, aspernatur

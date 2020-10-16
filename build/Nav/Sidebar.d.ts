@@ -1,2 +1,2 @@
-import { SidebarProps } from './Sidebar.types';
-export declare const Sidebar: ({ children, collapsed, logo, onCollapsed, className, type, direction, }: SidebarProps) => JSX.Element;
+import { SidebarProps } from "./Sidebar.types";
+export declare const Sidebar: ({ children, collapsed, longLogo, shortLogo, onCollapsed, className, type, direction, }: SidebarProps) => JSX.Element;

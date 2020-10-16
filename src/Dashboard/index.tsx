@@ -12,7 +12,8 @@ export const Dashboard = () => {
         className="sidebar"
         collapsed={collapsed}
         onCollapsed={() => setCollapsed(!collapsed)}
-        logo={<div className="app__logo"></div>}
+        longLogo={<div>EXAMLOUNGE</div>}
+        shortLogo={<div>EL</div>}
       >
         <Menu active={"contact"} title={"Main"}>
           <MenuItem value={"home"}>
