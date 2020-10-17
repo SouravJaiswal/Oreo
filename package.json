@@ -9,7 +9,6 @@
     "build"
   ],
   "peerDependencies": {
-    "@nivo/legends": "^0.62.0",
     "d3-array": "^2.7.1",
     "lodash": "^4.17.20",
     "react": "^16.13.1",

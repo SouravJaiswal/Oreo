@@ -1,11 +1,67 @@
 import React from "react";
 import { Line } from "./index";
-import { LineDataProps } from "./Line.types";
 
 export default {
   title: "Chart",
 };
 
+/*
+const LineData = {
+  minValues: { x: -5, y: 0 },
+  maxValues: { x: 10, y: 200 },
+  axisLabels: {
+    x: [
+      "-5 to -3",
+      "-3 to -1",
+      "-1 to 1",
+      "1 to 3",
+      "3 to 5",
+      "5 to 7",
+      "7 to 9",
+      "9 to 11",
+    ],
+    y: [0, 50, 100, 150, 200],
+  },
+  markers: [
+    {
+      x: 2.5,
+      y: 2,
+      pointLabel: "Your Score: 2.50",
+      hoverLabel: null,
+      markerLabel: "You are here",
+      axis: "x",
+    },
+    {
+      x: 2.5,
+      y: 2,
+      pointLabel: "Highest Score: 2.50",
+      hoverLabel: null,
+      markerLabel: "Highest",
+      axis: "x",
+    },
+  ],
+  chartData: [
+    {
+      id: "Score vs Users",
+      data: [
+        { x: -3, y: 0 },
+        { x: -1, y: 0 },
+        { x: 1, y: 193 },
+        { x: 3, y: 4 },
+        { x: 5, y: 0 },
+        { x: 7, y: 0 },
+        { x: 9, y: 0 },
+        { x: 11, y: 0 },
+      ],
+    },
+  ],
+  
+  noOfLabels: {
+    x: 1,
+    y: 1,
+  },
+};*/
+/*
 const LineData: LineDataProps = {
   axisLabels: {
     x: [-20, 0, 20, 40, 60, 80, 100],
@@ -211,7 +267,7 @@ const LineData: LineDataProps = {
       x: 94.25,
       y: 1,
     },
-    /*{
+    {
       axis: "x",
       hoverLabel: null,
       markerLabel: "Mean",
@@ -226,7 +282,7 @@ const LineData: LineDataProps = {
       pointLabel: "Median: 54",
       x: 54,
       y: null,
-    },*/
+    },
     {
       axis: "x",
       hoverLabel: null,
@@ -244,10 +300,49 @@ const LineData: LineDataProps = {
     x: 100,
     y: 300,
   },
-  noOfLabels: {
-    x: 5,
-    y: 5,
+};
+*/
+
+export const LineData = {
+  minValues: { x: -5, y: 0 },
+  maxValues: { x: 20, y: 100 },
+  axisLabels: {
+    x: [-1, 3, 7, 11, 15, 19, 23],
+    y: [0, 50, 100],
   },
+  markers: [
+    {
+      x: 0,
+      y: 94,
+      pointLabel: "Your Score: 0.00",
+      hoverLabel: null,
+      markerLabel: "You are here",
+      axis: "x",
+    },
+    {
+      x: 0.75,
+      y: 1,
+      pointLabel: "Highest Score: 0.75",
+      hoverLabel: null,
+      markerLabel: "Highest",
+      axis: "x",
+    },
+  ],
+  chartData: [
+    {
+      id: "Score vs Users",
+      data: [
+        { x: -1, y: 2 },
+        { x: 3, y: 100 },
+        { x: 7, y: 0 },
+        { x: 11, y: 0 },
+        { x: 15, y: 0 },
+        { x: 19, y: 0 },
+        { x: 23, y: 0 },
+      ],
+    },
+  ],
+  noOfLabels: { x: 1, y: 1 },
 };
 
 export const LineChart = () => {

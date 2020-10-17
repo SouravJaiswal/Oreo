@@ -1,6 +1,5 @@
 import React from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { LegendProps } from "@nivo/legends";
 import { LineProps } from "./Line.types";
 
 /**
@@ -85,7 +84,10 @@ export const Line = ({
     minValues,
     maxValues,
     axisLabels,
-    noOfLabels,
+    noOfLabels = {
+      x: 1,
+      y: 1,
+    },
   } = meta;
 
   /**
@@ -108,7 +110,9 @@ export const Line = ({
         value: markers[i][markers[i].axis || "x"],
         lineStyle: markerLineStyles[i] || defaultLineStyle,
         textStyle: markerTextStyles[i] || defaultTextStyle,
-        legend: markers[i].pointLabel ? "" : markers[i].markerLabel,
+        legend: markers[i].pointLabel
+          ? markers[i].pointLabel
+          : markers[i].markerLabel,
       });
     }
   }
@@ -116,7 +120,7 @@ export const Line = ({
   /**
    * Legends
    */
-  let defaultLegendsConfig: Array<LegendProps>;
+  let defaultLegendsConfig: Array<any>;
   defaultLegendsConfig = [
     {
       anchor: "bottom",

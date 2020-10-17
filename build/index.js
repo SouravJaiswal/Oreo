@@ -21,7 +21,6 @@ require("lodash/partialRight");
 var isPlainObject$1 = require("lodash/isPlainObject");
 var pick = require("lodash/pick");
 var isNumber = require("lodash/isNumber");
-var legends = require("@nivo/legends");
 var uniq = require("lodash/uniq");
 var uniqBy = require("lodash/uniqBy");
 var sortBy = require("lodash/sortBy");
@@ -319,7 +318,7 @@ var Paragraph = function (props) {
 };
 
 var css_248z$3 =
-  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.nav {\n  display: flex;\n  height: 8rem;\n  align-items: center;\n  max-width: 100%;\n  width: 100%;\n  overflow: hidden;\n  border-bottom: 1px solid #d9d9d9; }\n  .nav__menu {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    max-width: 50%;\n    width: 50%;\n    overflow: hidden;\n    transition: all 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n    @media only screen and (max-width: 37.5em) {\n      .nav__menu {\n        position: fixed;\n        transform: scale(0);\n        opacity: 0;\n        display: flex;\n        flex-direction: column;\n        top: 0;\n        left: 0;\n        max-width: 100%;\n        width: 100vw;\n        height: 100vh;\n        background: #fff; } }\n    .nav__menu > * {\n      font-size: 1.4rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__menu > * {\n          font-size: 2.8rem; } }\n    .nav__menu > *:not(:last-child) {\n      margin-right: 1rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__menu > *:not(:last-child) {\n          margin-right: 0;\n          margin-bottom: 5rem; } }\n  .nav__actions {\n    display: flex;\n    align-items: center; }\n    @media only screen and (max-width: 37.5em) {\n      .nav__actions {\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        width: 100vw;\n        margin-bottom: 2rem;\n        opacity: 0;\n        transform: scale(0); } }\n    .nav__actions > * {\n      font-size: 1.4rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__actions > * {\n          font-size: 2rem; } }\n    .nav__actions > *:not(:last-child) {\n      margin-right: 1rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__actions > *:not(:last-child) {\n          margin-right: 4rem; } }\n  @media only screen and (max-width: 37.5em) {\n    .nav__open .nav__menu {\n      transform: scale(1);\n      opacity: 1; } }\n  @media only screen and (max-width: 37.5em) {\n    .nav__open .nav__actions {\n      transform: scale(1);\n      opacity: 1; } }\n  .nav--side, .nav--center {\n    justify-content: space-between; }\n  .nav--center .nav__menu {\n    justify-content: center; }\n  .nav--side .nav__actions {\n    display: none; }\n  .nav__icon {\n    display: none;\n    cursor: pointer; }\n    .nav__icon svg {\n      width: 1.6rem;\n      height: 1.6rem; }\n    @media only screen and (max-width: 37.5em) {\n      .nav__icon {\n        display: initial; } }\n\n.sidebar {\n  flex-shrink: 0;\n  width: 24rem;\n  overflow: hidden;\n  min-height: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 0.2s ease; }\n  .sidebar__logo {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 1rem;\n    height: 8rem;\n    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1); }\n  .sidebar__control svg {\n    fill: #cacbcd;\n    width: 1.2rem;\n    height: 1.2rem;\n    cursor: pointer;\n    transform: rotate(180deg); }\n  .sidebar--collapsed {\n    width: 8rem; }\n  .sidebar--collapsed .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--right .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--collapsed.sidebar--right .sidebar__control svg {\n    transform: rotate(180deg); }\n  .sidebar--right .sidebar__logo span {\n    order: -1; }\n  .sidebar--light {\n    background: #fff; }\n\n.sidemenu {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 4rem; }\n  .sidemenu__item {\n    min-height: 5rem;\n    display: flex;\n    align-items: center;\n    font-family: Roboto;\n    font-size: 1.4rem;\n    transition: all 0.2s ease;\n    margin-bottom: 1.5rem;\n    padding: 0px 2rem; }\n    .sidemenu__item > * {\n      display: flex;\n      /* justify-content: center; */\n      align-items: center;\n      cursor: pointer;\n      padding-left: 3rem;\n      border-radius: 2rem;\n      width: 19rem;\n      height: 100%;\n      transition: 0.1s all; }\n      .sidemenu__item > *:hover {\n        background: #eee;\n        font-weight: 500; }\n    .sidemenu__item--active > * {\n      background: #262728;\n      color: #fff;\n      font-weight: 400;\n      height: 100%; }\n      .sidemenu__item--active > *:hover {\n        background: #262728; }\n  .sidebar--left .sidemenu__item--active {\n    /*\n    &:after {\n      position: absolute;\n      top: 0;\n      right: 0;\n      content: "";\n      width: 3px;\n      height: 100%;\n      //background: $color-primary;\n    }*/ }\n  .sidebar--right .sidemenu__item--active:before {\n    position: absolute;\n    top: 0;\n    left: 0;\n    content: "";\n    width: 3px;\n    height: 100%;\n    background: #0e63f4; }\n  .sidemenu__item svg {\n    /*\n    width: 1.6rem;\n    height: 1.6rem;\n    margin-right: 1.5rem;\n    fill: $color-grey-dark-3;\n    transition: all 0.2s ease;\n    */\n    width: 1.6rem;\n    height: 1.6rem;\n    margin-right: 1.5rem;\n    fill: #262728;\n    transition: all 0.2s ease; }\n  .sidemenu__item--active svg {\n    fill: #eee; }\n  .sidebar--collapsed .sidemenu__item {\n    min-height: 5rem;\n    width: 5rem;\n    padding: 0;\n    display: flex;\n    justify-content: center; }\n    .sidebar--collapsed .sidemenu__item > * {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding: 0; }\n    .sidebar--collapsed .sidemenu__item span {\n      display: none; }\n    .sidebar--collapsed .sidemenu__item svg {\n      width: 1.6rem;\n      height: 1.6rem;\n      margin-right: 0rem; }\n';
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.nav {\n  display: flex;\n  height: 8rem;\n  align-items: center;\n  max-width: 100%;\n  width: 100%;\n  overflow: hidden;\n  border-bottom: 1px solid #d9d9d9; }\n  .nav__menu {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    max-width: 50%;\n    width: 50%;\n    overflow: hidden;\n    transition: all 0.1s cubic-bezier(0.17, 0.67, 0.83, 0.67); }\n    @media only screen and (max-width: 37.5em) {\n      .nav__menu {\n        position: fixed;\n        transform: scale(0);\n        opacity: 0;\n        display: flex;\n        flex-direction: column;\n        top: 0;\n        left: 0;\n        max-width: 100%;\n        width: 100vw;\n        height: 100vh;\n        background: #fff; } }\n    .nav__menu > * {\n      font-size: 1.4rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__menu > * {\n          font-size: 2.8rem; } }\n    .nav__menu > *:not(:last-child) {\n      margin-right: 1rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__menu > *:not(:last-child) {\n          margin-right: 0;\n          margin-bottom: 5rem; } }\n  .nav__actions {\n    display: flex;\n    align-items: center; }\n    @media only screen and (max-width: 37.5em) {\n      .nav__actions {\n        position: fixed;\n        bottom: 0;\n        left: 0;\n        display: flex;\n        justify-content: center;\n        width: 100vw;\n        margin-bottom: 2rem;\n        opacity: 0;\n        transform: scale(0); } }\n    .nav__actions > * {\n      font-size: 1.4rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__actions > * {\n          font-size: 2rem; } }\n    .nav__actions > *:not(:last-child) {\n      margin-right: 1rem; }\n      @media only screen and (max-width: 37.5em) {\n        .nav__actions > *:not(:last-child) {\n          margin-right: 4rem; } }\n  @media only screen and (max-width: 37.5em) {\n    .nav__open .nav__menu {\n      transform: scale(1);\n      opacity: 1; } }\n  @media only screen and (max-width: 37.5em) {\n    .nav__open .nav__actions {\n      transform: scale(1);\n      opacity: 1; } }\n  .nav--side, .nav--center {\n    justify-content: space-between; }\n  .nav--center .nav__menu {\n    justify-content: center; }\n  .nav--side .nav__actions {\n    display: none; }\n  .nav__icon {\n    display: none;\n    cursor: pointer; }\n    .nav__icon svg {\n      width: 1.6rem;\n      height: 1.6rem; }\n    @media only screen and (max-width: 37.5em) {\n      .nav__icon {\n        display: initial; } }\n\n.sidebar {\n  flex-shrink: 0;\n  width: 24rem;\n  overflow: hidden;\n  min-height: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 0.2s ease; }\n  .sidebar__logo {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 1rem;\n    height: 8rem;\n    box-shadow: 0 0px 1px rgba(0, 0, 0, 0.1); }\n  .sidebar__control svg {\n    fill: #cacbcd;\n    width: 1.2rem;\n    height: 1.2rem;\n    cursor: pointer;\n    transform: rotate(180deg); }\n  .sidebar--collapsed {\n    width: 9rem; }\n  .sidebar--collapsed .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--right .sidebar__control svg {\n    transform: rotate(0deg); }\n  .sidebar--collapsed.sidebar--right .sidebar__control svg {\n    transform: rotate(180deg); }\n  .sidebar--right .sidebar__logo span {\n    order: -1; }\n  .sidebar--light {\n    background: #fff; }\n\n.sidemenu {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 4rem; }\n  .sidemenu__item {\n    min-height: 5rem;\n    display: flex;\n    align-items: center;\n    font-family: Roboto;\n    font-size: 1.4rem;\n    transition: all 0.2s ease;\n    margin-bottom: 1.5rem;\n    padding: 0px 2rem; }\n    .sidemenu__item > * {\n      display: flex;\n      /* justify-content: center; */\n      align-items: center;\n      cursor: pointer;\n      padding-left: 3rem;\n      border-radius: 2rem;\n      width: 19rem;\n      height: 100%;\n      transition: 0.1s all; }\n      .sidemenu__item > *:hover {\n        background: #eee;\n        font-weight: 500; }\n    .sidemenu__item--active > * {\n      background: #262728;\n      color: #fff;\n      font-weight: 400;\n      height: 100%; }\n      .sidemenu__item--active > *:hover {\n        background: #262728; }\n  .sidebar--left .sidemenu__item--active {\n    /*\n    &:after {\n      position: absolute;\n      top: 0;\n      right: 0;\n      content: "";\n      width: 3px;\n      height: 100%;\n      //background: $color-primary;\n    }*/ }\n  .sidebar--right .sidemenu__item--active:before {\n    position: absolute;\n    top: 0;\n    left: 0;\n    content: "";\n    width: 3px;\n    height: 100%;\n    background: #0e63f4; }\n  .sidemenu__item svg {\n    /*\n    width: 1.6rem;\n    height: 1.6rem;\n    margin-right: 1.5rem;\n    fill: $color-grey-dark-3;\n    transition: all 0.2s ease;\n    */\n    width: 1.6rem;\n    height: 1.6rem;\n    margin-right: 1.5rem;\n    fill: #262728;\n    transition: all 0.2s ease; }\n  .sidemenu__item--active svg {\n    fill: #eee; }\n  .sidebar--collapsed .sidemenu__item {\n    min-height: 5rem;\n    width: 5rem;\n    padding: 0;\n    display: flex;\n    justify-content: center; }\n    .sidebar--collapsed .sidemenu__item > * {\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      padding: 0; }\n    .sidebar--collapsed .sidemenu__item span {\n      display: none; }\n    .sidebar--collapsed .sidemenu__item svg {\n      width: 1.6rem;\n      height: 1.6rem;\n      margin-right: 0rem; }\n';
 styleInject(css_248z$3);
 
 var NavContext = React__default["default"].createContext(false);
@@ -20470,6 +20469,1640 @@ var renderGridLinesToCanvas = function renderGridLinesToCanvas(ctx, _ref3) {
   });
 };
 
+var DIRECTION_ROW = "row";
+var DIRECTION_COLUMN = "column";
+var ANCHOR_TOP = "top";
+var ANCHOR_TOP_RIGHT = "top-right";
+var ANCHOR_RIGHT = "right";
+var ANCHOR_BOTTOM_RIGHT = "bottom-right";
+var ANCHOR_BOTTOM = "bottom";
+var ANCHOR_BOTTOM_LEFT = "bottom-left";
+var ANCHOR_LEFT = "left";
+var ANCHOR_TOP_LEFT = "top-left";
+var ANCHOR_CENTER = "center";
+var DIRECTION_LEFT_TO_RIGHT = "left-to-right";
+var DIRECTION_RIGHT_TO_LEFT = "right-to-left";
+var DIRECTION_TOP_TO_BOTTOM = "top-to-bottom";
+var DIRECTION_BOTTOM_TO_TOP = "bottom-to-top";
+
+function _objectSpread$7(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$7(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _defineProperty$7(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var legendEffectPropType = propTypes.shape({
+  on: propTypes.oneOfType([propTypes.oneOf(["hover"])]).isRequired,
+  style: propTypes.shape({
+    itemTextColor: propTypes.string,
+    itemBackground: propTypes.string,
+    itemOpacity: propTypes.number,
+    symbolSize: propTypes.number,
+    symbolBorderWidth: propTypes.number,
+    symbolBorderColor: propTypes.string,
+  }).isRequired,
+});
+var symbolPropTypes = {
+  symbolShape: propTypes.oneOfType([propTypes.string, propTypes.func]),
+  symbolSize: propTypes.number,
+  symbolSpacing: propTypes.number,
+  symbolBorderWidth: propTypes.number,
+  symbolBorderColor: propTypes.string,
+};
+var interactivityPropTypes = {
+  onClick: propTypes.func,
+  onMouseEnter: propTypes.func,
+  onMouseLeave: propTypes.func,
+};
+var datumPropType = propTypes.shape({
+  id: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
+  label: propTypes.oneOfType([propTypes.string, propTypes.number]).isRequired,
+  color: propTypes.string.isRequired,
+  fill: propTypes.string,
+});
+var LegendPropShape = _objectSpread$7(
+  {
+    data: propTypes.arrayOf(datumPropType),
+    anchor: propTypes.oneOf([
+      ANCHOR_TOP,
+      ANCHOR_TOP_RIGHT,
+      ANCHOR_RIGHT,
+      ANCHOR_BOTTOM_RIGHT,
+      ANCHOR_BOTTOM,
+      ANCHOR_BOTTOM_LEFT,
+      ANCHOR_LEFT,
+      ANCHOR_TOP_LEFT,
+      ANCHOR_CENTER,
+    ]).isRequired,
+    translateX: propTypes.number,
+    translateY: propTypes.number,
+    direction: propTypes.oneOf([DIRECTION_ROW, DIRECTION_COLUMN]).isRequired,
+    itemsSpacing: propTypes.number,
+    itemWidth: propTypes.number.isRequired,
+    itemHeight: propTypes.number.isRequired,
+    itemDirection: propTypes.oneOf([
+      DIRECTION_LEFT_TO_RIGHT,
+      DIRECTION_RIGHT_TO_LEFT,
+      DIRECTION_TOP_TO_BOTTOM,
+      DIRECTION_BOTTOM_TO_TOP,
+    ]),
+    itemTextColor: propTypes.string,
+    itemBackground: propTypes.string,
+    itemOpacity: propTypes.number,
+  },
+  symbolPropTypes,
+  interactivityPropTypes,
+  {
+    effects: propTypes.arrayOf(legendEffectPropType),
+  }
+);
+
+function _objectSpread$1$3(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$1$3(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _defineProperty$1$3(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var zeroPadding = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
+};
+var computeDimensions = function computeDimensions(_ref) {
+  var direction = _ref.direction,
+    itemsSpacing = _ref.itemsSpacing,
+    _padding = _ref.padding,
+    itemCount = _ref.itemCount,
+    itemWidth = _ref.itemWidth,
+    itemHeight = _ref.itemHeight;
+  var padding;
+  if (isNumber__default["default"](_padding)) {
+    padding = {
+      top: _padding,
+      right: _padding,
+      bottom: _padding,
+      left: _padding,
+    };
+  } else if (isPlainObject__default["default"](_padding)) {
+    padding = _objectSpread$1$3({}, zeroPadding, _padding);
+  } else {
+    throw new TypeError(
+      "Invalid property padding, must be one of: number, object"
+    );
+  }
+  var horizontalPadding = padding.left + padding.right;
+  var verticalPadding = padding.top + padding.bottom;
+  var width = itemWidth + horizontalPadding;
+  var height = itemHeight + verticalPadding;
+  var spacing = (itemCount - 1) * itemsSpacing;
+  if (direction === DIRECTION_ROW) {
+    width = itemWidth * itemCount + spacing + horizontalPadding;
+  } else if (direction === DIRECTION_COLUMN) {
+    height = itemHeight * itemCount + spacing + verticalPadding;
+  }
+  return {
+    width: width,
+    height: height,
+    padding: padding,
+  };
+};
+var computePositionFromAnchor = function computePositionFromAnchor(_ref2) {
+  var anchor = _ref2.anchor,
+    translateX = _ref2.translateX,
+    translateY = _ref2.translateY,
+    containerWidth = _ref2.containerWidth,
+    containerHeight = _ref2.containerHeight,
+    width = _ref2.width,
+    height = _ref2.height;
+  var x = translateX;
+  var y = translateY;
+  switch (anchor) {
+    case ANCHOR_TOP:
+      x += (containerWidth - width) / 2;
+      break;
+    case ANCHOR_TOP_RIGHT:
+      x += containerWidth - width;
+      break;
+    case ANCHOR_RIGHT:
+      x += containerWidth - width;
+      y += (containerHeight - height) / 2;
+      break;
+    case ANCHOR_BOTTOM_RIGHT:
+      x += containerWidth - width;
+      y += containerHeight - height;
+      break;
+    case ANCHOR_BOTTOM:
+      x += (containerWidth - width) / 2;
+      y += containerHeight - height;
+      break;
+    case ANCHOR_BOTTOM_LEFT:
+      y += containerHeight - height;
+      break;
+    case ANCHOR_LEFT:
+      y += (containerHeight - height) / 2;
+      break;
+    case ANCHOR_CENTER:
+      x += (containerWidth - width) / 2;
+      y += (containerHeight - height) / 2;
+      break;
+  }
+  return {
+    x: x,
+    y: y,
+  };
+};
+var computeItemLayout = function computeItemLayout(_ref3) {
+  var direction = _ref3.direction,
+    justify = _ref3.justify,
+    symbolSize = _ref3.symbolSize,
+    symbolSpacing = _ref3.symbolSpacing,
+    width = _ref3.width,
+    height = _ref3.height;
+  var symbolX;
+  var symbolY;
+  var labelX;
+  var labelY;
+  var labelAnchor;
+  var labelAlignment;
+  switch (direction) {
+    case DIRECTION_LEFT_TO_RIGHT:
+      symbolX = 0;
+      symbolY = (height - symbolSize) / 2;
+      labelY = height / 2;
+      labelAlignment = "central";
+      if (justify === true) {
+        labelX = width;
+        labelAnchor = "end";
+      } else {
+        labelX = symbolSize + symbolSpacing;
+        labelAnchor = "start";
+      }
+      break;
+    case DIRECTION_RIGHT_TO_LEFT:
+      symbolX = width - symbolSize;
+      symbolY = (height - symbolSize) / 2;
+      labelY = height / 2;
+      labelAlignment = "central";
+      if (justify === true) {
+        labelX = 0;
+        labelAnchor = "start";
+      } else {
+        labelX = width - symbolSize - symbolSpacing;
+        labelAnchor = "end";
+      }
+      break;
+    case DIRECTION_TOP_TO_BOTTOM:
+      symbolX = (width - symbolSize) / 2;
+      symbolY = 0;
+      labelX = width / 2;
+      labelAnchor = "middle";
+      if (justify === true) {
+        labelY = height;
+        labelAlignment = "alphabetic";
+      } else {
+        labelY = symbolSize + symbolSpacing;
+        labelAlignment = "text-before-edge";
+      }
+      break;
+    case DIRECTION_BOTTOM_TO_TOP:
+      symbolX = (width - symbolSize) / 2;
+      symbolY = height - symbolSize;
+      labelX = width / 2;
+      labelAnchor = "middle";
+      if (justify === true) {
+        labelY = 0;
+        labelAlignment = "text-before-edge";
+      } else {
+        labelY = height - symbolSize - symbolSpacing;
+        labelAlignment = "alphabetic";
+      }
+      break;
+  }
+  return {
+    symbolX: symbolX,
+    symbolY: symbolY,
+    labelX: labelX,
+    labelY: labelY,
+    labelAnchor: labelAnchor,
+    labelAlignment: labelAlignment,
+  };
+};
+
+var symbolPropTypes$1 = {
+  x: propTypes.number.isRequired,
+  y: propTypes.number.isRequired,
+  size: propTypes.number.isRequired,
+  fill: propTypes.string.isRequired,
+  borderWidth: propTypes.number.isRequired,
+  borderColor: propTypes.string.isRequired,
+};
+var symbolDefaultProps = {
+  borderWidth: 0,
+  borderColor: "transparent",
+};
+
+function _objectSpread$2$3(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$2$3(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _typeof$3(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$3 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$3 = function _typeof(obj) {
+      return obj &&
+        typeof Symbol === "function" &&
+        obj.constructor === Symbol &&
+        obj !== Symbol.prototype
+        ? "symbol"
+        : typeof obj;
+    };
+  }
+  return _typeof$3(obj);
+}
+function _classCallCheck$3(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _defineProperties$3(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+function _createClass$3(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$3(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$3(Constructor, staticProps);
+  return Constructor;
+}
+function _possibleConstructorReturn$3(self, call) {
+  if (call && (_typeof$3(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+  return _assertThisInitialized$3(self);
+}
+function _assertThisInitialized$3(self) {
+  if (self === void 0) {
+    throw new ReferenceError(
+      "this hasn't been initialised - super() hasn't been called"
+    );
+  }
+  return self;
+}
+function _getPrototypeOf$3(o) {
+  _getPrototypeOf$3 = Object.setPrototypeOf
+    ? Object.getPrototypeOf
+    : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+  return _getPrototypeOf$3(o);
+}
+function _inherits$3(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: { value: subClass, writable: true, configurable: true },
+  });
+  if (superClass) _setPrototypeOf$3(subClass, superClass);
+}
+function _setPrototypeOf$3(o, p) {
+  _setPrototypeOf$3 =
+    Object.setPrototypeOf ||
+    function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+  return _setPrototypeOf$3(o, p);
+}
+function _defineProperty$2$3(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var SymbolCircle = (function (_PureComponent) {
+  _inherits$3(SymbolCircle, _PureComponent);
+  function SymbolCircle() {
+    _classCallCheck$3(this, SymbolCircle);
+    return _possibleConstructorReturn$3(
+      this,
+      _getPrototypeOf$3(SymbolCircle).apply(this, arguments)
+    );
+  }
+  _createClass$3(SymbolCircle, [
+    {
+      key: "render",
+      value: function render() {
+        var _this$props = this.props,
+          x = _this$props.x,
+          y = _this$props.y,
+          size = _this$props.size,
+          fill = _this$props.fill,
+          borderWidth = _this$props.borderWidth,
+          borderColor = _this$props.borderColor;
+        return React__default["default"].createElement("circle", {
+          r: size / 2,
+          cx: x + size / 2,
+          cy: y + size / 2,
+          fill: fill,
+          strokeWidth: borderWidth,
+          stroke: borderColor,
+          style: {
+            pointerEvents: "none",
+          },
+        });
+      },
+    },
+  ]);
+  return SymbolCircle;
+})(React.PureComponent);
+_defineProperty$2$3(
+  SymbolCircle,
+  "propTypes",
+  _objectSpread$2$3({}, symbolPropTypes$1)
+);
+_defineProperty$2$3(
+  SymbolCircle,
+  "defaultProps",
+  _objectSpread$2$3({}, symbolDefaultProps)
+);
+
+function _objectSpread$3$2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$3$2(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _typeof$1$1(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$1$1 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$1$1 = function _typeof(obj) {
+      return obj &&
+        typeof Symbol === "function" &&
+        obj.constructor === Symbol &&
+        obj !== Symbol.prototype
+        ? "symbol"
+        : typeof obj;
+    };
+  }
+  return _typeof$1$1(obj);
+}
+function _classCallCheck$1$1(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _defineProperties$1$1(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+function _createClass$1$1(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$1$1(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$1$1(Constructor, staticProps);
+  return Constructor;
+}
+function _possibleConstructorReturn$1$1(self, call) {
+  if (call && (_typeof$1$1(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+  return _assertThisInitialized$1$1(self);
+}
+function _assertThisInitialized$1$1(self) {
+  if (self === void 0) {
+    throw new ReferenceError(
+      "this hasn't been initialised - super() hasn't been called"
+    );
+  }
+  return self;
+}
+function _getPrototypeOf$1$1(o) {
+  _getPrototypeOf$1$1 = Object.setPrototypeOf
+    ? Object.getPrototypeOf
+    : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+  return _getPrototypeOf$1$1(o);
+}
+function _inherits$1$1(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: { value: subClass, writable: true, configurable: true },
+  });
+  if (superClass) _setPrototypeOf$1$1(subClass, superClass);
+}
+function _setPrototypeOf$1$1(o, p) {
+  _setPrototypeOf$1$1 =
+    Object.setPrototypeOf ||
+    function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+  return _setPrototypeOf$1$1(o, p);
+}
+function _defineProperty$3$2(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var SymbolDiamond = (function (_PureComponent) {
+  _inherits$1$1(SymbolDiamond, _PureComponent);
+  function SymbolDiamond() {
+    _classCallCheck$1$1(this, SymbolDiamond);
+    return _possibleConstructorReturn$1$1(
+      this,
+      _getPrototypeOf$1$1(SymbolDiamond).apply(this, arguments)
+    );
+  }
+  _createClass$1$1(SymbolDiamond, [
+    {
+      key: "render",
+      value: function render() {
+        var _this$props = this.props,
+          x = _this$props.x,
+          y = _this$props.y,
+          size = _this$props.size,
+          fill = _this$props.fill,
+          borderWidth = _this$props.borderWidth,
+          borderColor = _this$props.borderColor;
+        return React__default["default"].createElement(
+          "g",
+          {
+            transform: "translate(".concat(x, ",").concat(y, ")"),
+          },
+          React__default["default"].createElement("path", {
+            d: "\n                    M"
+              .concat(size / 2, " 0\n                    L")
+              .concat(size * 0.8, " ")
+              .concat(size / 2, "\n                    L")
+              .concat(size / 2, " ")
+              .concat(size, "\n                    L")
+              .concat(size * 0.2, " ")
+              .concat(size / 2, "\n                    L")
+              .concat(size / 2, " 0\n                "),
+            fill: fill,
+            strokeWidth: borderWidth,
+            stroke: borderColor,
+            style: {
+              pointerEvents: "none",
+            },
+          })
+        );
+      },
+    },
+  ]);
+  return SymbolDiamond;
+})(React.PureComponent);
+_defineProperty$3$2(
+  SymbolDiamond,
+  "propTypes",
+  _objectSpread$3$2({}, symbolPropTypes$1)
+);
+_defineProperty$3$2(
+  SymbolDiamond,
+  "defaultProps",
+  _objectSpread$3$2({}, symbolDefaultProps)
+);
+
+function _objectSpread$4$1(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$4$2(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _typeof$2$1(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$2$1 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$2$1 = function _typeof(obj) {
+      return obj &&
+        typeof Symbol === "function" &&
+        obj.constructor === Symbol &&
+        obj !== Symbol.prototype
+        ? "symbol"
+        : typeof obj;
+    };
+  }
+  return _typeof$2$1(obj);
+}
+function _classCallCheck$2$1(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _defineProperties$2$1(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+function _createClass$2$1(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$2$1(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$2$1(Constructor, staticProps);
+  return Constructor;
+}
+function _possibleConstructorReturn$2$1(self, call) {
+  if (call && (_typeof$2$1(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+  return _assertThisInitialized$2$1(self);
+}
+function _assertThisInitialized$2$1(self) {
+  if (self === void 0) {
+    throw new ReferenceError(
+      "this hasn't been initialised - super() hasn't been called"
+    );
+  }
+  return self;
+}
+function _getPrototypeOf$2$1(o) {
+  _getPrototypeOf$2$1 = Object.setPrototypeOf
+    ? Object.getPrototypeOf
+    : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+  return _getPrototypeOf$2$1(o);
+}
+function _inherits$2$1(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: { value: subClass, writable: true, configurable: true },
+  });
+  if (superClass) _setPrototypeOf$2$1(subClass, superClass);
+}
+function _setPrototypeOf$2$1(o, p) {
+  _setPrototypeOf$2$1 =
+    Object.setPrototypeOf ||
+    function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+  return _setPrototypeOf$2$1(o, p);
+}
+function _defineProperty$4$2(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var SymbolSquare = (function (_PureComponent) {
+  _inherits$2$1(SymbolSquare, _PureComponent);
+  function SymbolSquare() {
+    _classCallCheck$2$1(this, SymbolSquare);
+    return _possibleConstructorReturn$2$1(
+      this,
+      _getPrototypeOf$2$1(SymbolSquare).apply(this, arguments)
+    );
+  }
+  _createClass$2$1(SymbolSquare, [
+    {
+      key: "render",
+      value: function render() {
+        var _this$props = this.props,
+          x = _this$props.x,
+          y = _this$props.y,
+          size = _this$props.size,
+          fill = _this$props.fill,
+          borderWidth = _this$props.borderWidth,
+          borderColor = _this$props.borderColor;
+        return React__default["default"].createElement("rect", {
+          x: x,
+          y: y,
+          fill: fill,
+          strokeWidth: borderWidth,
+          stroke: borderColor,
+          width: size,
+          height: size,
+          style: {
+            pointerEvents: "none",
+          },
+        });
+      },
+    },
+  ]);
+  return SymbolSquare;
+})(React.PureComponent);
+_defineProperty$4$2(
+  SymbolSquare,
+  "propTypes",
+  _objectSpread$4$1({}, symbolPropTypes$1)
+);
+_defineProperty$4$2(
+  SymbolSquare,
+  "defaultProps",
+  _objectSpread$4$1({}, symbolDefaultProps)
+);
+
+function _objectSpread$5$1(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$5$1(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _typeof$3$1(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof$3$1 = function _typeof(obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof$3$1 = function _typeof(obj) {
+      return obj &&
+        typeof Symbol === "function" &&
+        obj.constructor === Symbol &&
+        obj !== Symbol.prototype
+        ? "symbol"
+        : typeof obj;
+    };
+  }
+  return _typeof$3$1(obj);
+}
+function _classCallCheck$3$1(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _defineProperties$3$1(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+function _createClass$3$1(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties$3$1(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties$3$1(Constructor, staticProps);
+  return Constructor;
+}
+function _possibleConstructorReturn$3$1(self, call) {
+  if (call && (_typeof$3$1(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+  return _assertThisInitialized$3$1(self);
+}
+function _assertThisInitialized$3$1(self) {
+  if (self === void 0) {
+    throw new ReferenceError(
+      "this hasn't been initialised - super() hasn't been called"
+    );
+  }
+  return self;
+}
+function _getPrototypeOf$3$1(o) {
+  _getPrototypeOf$3$1 = Object.setPrototypeOf
+    ? Object.getPrototypeOf
+    : function _getPrototypeOf(o) {
+        return o.__proto__ || Object.getPrototypeOf(o);
+      };
+  return _getPrototypeOf$3$1(o);
+}
+function _inherits$3$1(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: { value: subClass, writable: true, configurable: true },
+  });
+  if (superClass) _setPrototypeOf$3$1(subClass, superClass);
+}
+function _setPrototypeOf$3$1(o, p) {
+  _setPrototypeOf$3$1 =
+    Object.setPrototypeOf ||
+    function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+  return _setPrototypeOf$3$1(o, p);
+}
+function _defineProperty$5$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var SymbolTriangle = (function (_PureComponent) {
+  _inherits$3$1(SymbolTriangle, _PureComponent);
+  function SymbolTriangle() {
+    _classCallCheck$3$1(this, SymbolTriangle);
+    return _possibleConstructorReturn$3$1(
+      this,
+      _getPrototypeOf$3$1(SymbolTriangle).apply(this, arguments)
+    );
+  }
+  _createClass$3$1(SymbolTriangle, [
+    {
+      key: "render",
+      value: function render() {
+        var _this$props = this.props,
+          x = _this$props.x,
+          y = _this$props.y,
+          size = _this$props.size,
+          fill = _this$props.fill,
+          borderWidth = _this$props.borderWidth,
+          borderColor = _this$props.borderColor;
+        return React__default["default"].createElement(
+          "g",
+          {
+            transform: "translate(".concat(x, ",").concat(y, ")"),
+          },
+          React__default["default"].createElement("path", {
+            d: "\n                M"
+              .concat(size / 2, " 0\n                L")
+              .concat(size, " ")
+              .concat(size, "\n                L0 ")
+              .concat(size, "\n                L")
+              .concat(size / 2, " 0\n            "),
+            fill: fill,
+            strokeWidth: borderWidth,
+            stroke: borderColor,
+            style: {
+              pointerEvents: "none",
+            },
+          })
+        );
+      },
+    },
+  ]);
+  return SymbolTriangle;
+})(React.PureComponent);
+_defineProperty$5$1(
+  SymbolTriangle,
+  "propTypes",
+  _objectSpread$5$1({}, symbolPropTypes$1)
+);
+_defineProperty$5$1(
+  SymbolTriangle,
+  "defaultProps",
+  _objectSpread$5$1({}, symbolDefaultProps)
+);
+
+function _objectSpread$6$1(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$6$1(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _defineProperty$6$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function _slicedToArray$4(arr, i) {
+  return (
+    _arrayWithHoles$4(arr) ||
+    _iterableToArrayLimit$4(arr, i) ||
+    _nonIterableRest$4()
+  );
+}
+function _nonIterableRest$4() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+}
+function _iterableToArrayLimit$4(arr, i) {
+  if (
+    !(
+      Symbol.iterator in Object(arr) ||
+      Object.prototype.toString.call(arr) === "[object Arguments]"
+    )
+  ) {
+    return;
+  }
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
+  try {
+    for (
+      var _i = arr[Symbol.iterator](), _s;
+      !(_n = (_s = _i.next()).done);
+      _n = true
+    ) {
+      _arr.push(_s.value);
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+  return _arr;
+}
+function _arrayWithHoles$4(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+var symbolByShape = {
+  circle: SymbolCircle,
+  diamond: SymbolDiamond,
+  square: SymbolSquare,
+  triangle: SymbolTriangle,
+};
+var LegendSvgItem = function LegendSvgItem(_ref) {
+  var x = _ref.x,
+    y = _ref.y,
+    width = _ref.width,
+    height = _ref.height,
+    data = _ref.data,
+    direction = _ref.direction,
+    justify = _ref.justify,
+    textColor = _ref.textColor,
+    background = _ref.background,
+    opacity = _ref.opacity,
+    symbolShape = _ref.symbolShape,
+    symbolSize = _ref.symbolSize,
+    symbolSpacing = _ref.symbolSpacing,
+    symbolBorderWidth = _ref.symbolBorderWidth,
+    symbolBorderColor = _ref.symbolBorderColor,
+    onClick = _ref.onClick,
+    onMouseEnter = _ref.onMouseEnter,
+    onMouseLeave = _ref.onMouseLeave,
+    effects = _ref.effects;
+  var _useState = React.useState({}),
+    _useState2 = _slicedToArray$4(_useState, 2),
+    style = _useState2[0],
+    setStyle = _useState2[1];
+  var theme = useTheme();
+  var handleClick = React.useCallback(
+    function (event) {
+      return onClick && onClick(data, event);
+    },
+    [onClick, data]
+  );
+  var handleMouseEnter = React.useCallback(
+    function (event) {
+      if (effects.length > 0) {
+        var applyEffects = effects.filter(function (_ref2) {
+          var on = _ref2.on;
+          return on === "hover";
+        });
+        var _style = applyEffects.reduce(function (acc, effect) {
+          return _objectSpread$6$1({}, acc, effect.style);
+        }, {});
+        setStyle(_style);
+      }
+      if (onMouseEnter === undefined) return;
+      onMouseEnter(data, event);
+    },
+    [onMouseEnter, data, effects]
+  );
+  var handleMouseLeave = React.useCallback(
+    function () {
+      if (effects.length > 0) {
+        var applyEffects = effects.filter(function (_ref3) {
+          var on = _ref3.on;
+          return on !== "hover";
+        });
+        var _style2 = applyEffects.reduce(function (acc, effect) {
+          return _objectSpread$6$1({}, acc, effect.style);
+        }, {});
+        setStyle(_style2);
+      }
+      if (onMouseLeave === undefined) return;
+      onMouseLeave(data, event);
+    },
+    [onMouseLeave, data, effects]
+  );
+  var _computeItemLayout = computeItemLayout({
+      direction: direction,
+      justify: justify,
+      symbolSize: style.symbolSize || symbolSize,
+      symbolSpacing: symbolSpacing,
+      width: width,
+      height: height,
+    }),
+    symbolX = _computeItemLayout.symbolX,
+    symbolY = _computeItemLayout.symbolY,
+    labelX = _computeItemLayout.labelX,
+    labelY = _computeItemLayout.labelY,
+    labelAnchor = _computeItemLayout.labelAnchor,
+    labelAlignment = _computeItemLayout.labelAlignment;
+  var isInteractive = [onClick, onMouseEnter, onMouseLeave].some(function (
+    handler
+  ) {
+    return handler !== undefined;
+  });
+  var _Symbol;
+  if (isFunction__default["default"](symbolShape)) {
+    _Symbol = symbolShape;
+  } else {
+    _Symbol = symbolByShape[symbolShape];
+  }
+  return React__default["default"].createElement(
+    "g",
+    {
+      transform: "translate(".concat(x, ",").concat(y, ")"),
+      style: {
+        opacity: style.itemOpacity !== undefined ? style.itemOpacity : opacity,
+      },
+    },
+    React__default["default"].createElement("rect", {
+      width: width,
+      height: height,
+      fill: style.itemBackground || background,
+      style: {
+        cursor: isInteractive ? "pointer" : "auto",
+      },
+      onClick: handleClick,
+      onMouseEnter: handleMouseEnter,
+      onMouseLeave: handleMouseLeave,
+    }),
+    React__default["default"].createElement(_Symbol, {
+      id: data.id,
+      x: symbolX,
+      y: symbolY,
+      size: style.symbolSize || symbolSize,
+      fill: data.fill || data.color,
+      borderWidth:
+        style.symbolBorderWidth !== undefined
+          ? style.symbolBorderWidth
+          : symbolBorderWidth,
+      borderColor: style.symbolBorderColor || symbolBorderColor,
+    }),
+    React__default["default"].createElement(
+      "text",
+      {
+        textAnchor: labelAnchor,
+        style: _objectSpread$6$1({}, theme.legends.text, {
+          fill: style.itemTextColor || textColor,
+          dominantBaseline: labelAlignment,
+          pointerEvents: "none",
+          userSelect: "none",
+        }),
+        x: labelX,
+        y: labelY,
+      },
+      data.label
+    )
+  );
+};
+LegendSvgItem.displayName = "LegendSvgItem";
+LegendSvgItem.propTypes = _objectSpread$6$1(
+  {
+    data: datumPropType.isRequired,
+    x: propTypes.number.isRequired,
+    y: propTypes.number.isRequired,
+    width: propTypes.number.isRequired,
+    height: propTypes.number.isRequired,
+    textColor: propTypes.string,
+    background: propTypes.string,
+    opacity: propTypes.number,
+    direction: propTypes.oneOf([
+      "left-to-right",
+      "right-to-left",
+      "top-to-bottom",
+      "bottom-to-top",
+    ]).isRequired,
+    justify: propTypes.bool.isRequired,
+  },
+  symbolPropTypes,
+  interactivityPropTypes
+);
+LegendSvgItem.defaultProps = {
+  direction: "left-to-right",
+  justify: false,
+  textColor: "black",
+  background: "transparent",
+  opacity: 1,
+  symbolShape: "square",
+  symbolSize: 16,
+  symbolSpacing: 8,
+  symbolBorderWidth: 0,
+  symbolBorderColor: "transparent",
+  effects: [],
+};
+
+function _objectSpread$7$1(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$7$1(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _defineProperty$7$1(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var LegendSvg = function LegendSvg(_ref) {
+  var data = _ref.data,
+    x = _ref.x,
+    y = _ref.y,
+    direction = _ref.direction,
+    _padding = _ref.padding,
+    justify = _ref.justify,
+    effects = _ref.effects,
+    itemWidth = _ref.itemWidth,
+    itemHeight = _ref.itemHeight,
+    itemDirection = _ref.itemDirection,
+    itemsSpacing = _ref.itemsSpacing,
+    itemTextColor = _ref.itemTextColor,
+    itemBackground = _ref.itemBackground,
+    itemOpacity = _ref.itemOpacity,
+    symbolShape = _ref.symbolShape,
+    symbolSize = _ref.symbolSize,
+    symbolSpacing = _ref.symbolSpacing,
+    symbolBorderWidth = _ref.symbolBorderWidth,
+    symbolBorderColor = _ref.symbolBorderColor,
+    onClick = _ref.onClick,
+    onMouseEnter = _ref.onMouseEnter,
+    onMouseLeave = _ref.onMouseLeave;
+  var _computeDimensions = computeDimensions({
+      itemCount: data.length,
+      itemWidth: itemWidth,
+      itemHeight: itemHeight,
+      itemsSpacing: itemsSpacing,
+      direction: direction,
+      padding: _padding,
+    }),
+    padding = _computeDimensions.padding;
+  var xStep = 0;
+  var yStep = 0;
+  if (direction === "row") {
+    xStep = itemWidth + itemsSpacing;
+  } else if (direction === "column") {
+    yStep = itemHeight + itemsSpacing;
+  }
+  return React__default["default"].createElement(
+    "g",
+    {
+      transform: "translate(".concat(x, ",").concat(y, ")"),
+    },
+    data.map(function (data, i) {
+      return React__default["default"].createElement(LegendSvgItem, {
+        key: i,
+        data: data,
+        x: i * xStep + padding.left,
+        y: i * yStep + padding.top,
+        width: itemWidth,
+        height: itemHeight,
+        direction: itemDirection,
+        justify: justify,
+        effects: effects,
+        textColor: itemTextColor,
+        background: itemBackground,
+        opacity: itemOpacity,
+        symbolShape: symbolShape,
+        symbolSize: symbolSize,
+        symbolSpacing: symbolSpacing,
+        symbolBorderWidth: symbolBorderWidth,
+        symbolBorderColor: symbolBorderColor,
+        onClick: onClick,
+        onMouseEnter: onMouseEnter,
+        onMouseLeave: onMouseLeave,
+      });
+    })
+  );
+};
+LegendSvg.propTypes = _objectSpread$7$1(
+  {
+    data: propTypes.arrayOf(datumPropType).isRequired,
+    x: propTypes.number.isRequired,
+    y: propTypes.number.isRequired,
+    direction: propTypes.oneOf(["row", "column"]).isRequired,
+    padding: propTypes.oneOfType([
+      propTypes.number,
+      propTypes.shape({
+        top: propTypes.number,
+        right: propTypes.number,
+        bottom: propTypes.number,
+        left: propTypes.number,
+      }),
+    ]).isRequired,
+    justify: propTypes.bool.isRequired,
+    itemsSpacing: propTypes.number.isRequired,
+    itemWidth: propTypes.number.isRequired,
+    itemHeight: propTypes.number.isRequired,
+    itemDirection: propTypes.oneOf([
+      DIRECTION_LEFT_TO_RIGHT,
+      DIRECTION_RIGHT_TO_LEFT,
+      DIRECTION_TOP_TO_BOTTOM,
+      DIRECTION_BOTTOM_TO_TOP,
+    ]).isRequired,
+    itemTextColor: propTypes.string.isRequired,
+    itemBackground: propTypes.string.isRequired,
+    itemOpacity: propTypes.number.isRequired,
+  },
+  symbolPropTypes,
+  interactivityPropTypes
+);
+LegendSvg.defaultProps = {
+  padding: 0,
+  justify: false,
+  itemsSpacing: 0,
+  itemDirection: "left-to-right",
+  itemTextColor: "black",
+  itemBackground: "transparent",
+  itemOpacity: 1,
+};
+
+function _objectSpread$8$1(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(Object(source));
+    if (typeof Object.getOwnPropertySymbols === "function") {
+      ownKeys = ownKeys.concat(
+        Object.getOwnPropertySymbols(source).filter(function (sym) {
+          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+        })
+      );
+    }
+    ownKeys.forEach(function (key) {
+      _defineProperty$8(target, key, source[key]);
+    });
+  }
+  return target;
+}
+function _defineProperty$8(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+var BoxLegendSvg = function BoxLegendSvg(_ref) {
+  var data = _ref.data,
+    containerWidth = _ref.containerWidth,
+    containerHeight = _ref.containerHeight,
+    translateX = _ref.translateX,
+    translateY = _ref.translateY,
+    anchor = _ref.anchor,
+    direction = _ref.direction,
+    padding = _ref.padding,
+    justify = _ref.justify,
+    itemsSpacing = _ref.itemsSpacing,
+    itemWidth = _ref.itemWidth,
+    itemHeight = _ref.itemHeight,
+    itemDirection = _ref.itemDirection,
+    itemTextColor = _ref.itemTextColor,
+    itemBackground = _ref.itemBackground,
+    itemOpacity = _ref.itemOpacity,
+    symbolShape = _ref.symbolShape,
+    symbolSize = _ref.symbolSize,
+    symbolSpacing = _ref.symbolSpacing,
+    symbolBorderWidth = _ref.symbolBorderWidth,
+    symbolBorderColor = _ref.symbolBorderColor,
+    onClick = _ref.onClick,
+    onMouseEnter = _ref.onMouseEnter,
+    onMouseLeave = _ref.onMouseLeave,
+    effects = _ref.effects;
+  var _computeDimensions = computeDimensions({
+      itemCount: data.length,
+      itemsSpacing: itemsSpacing,
+      itemWidth: itemWidth,
+      itemHeight: itemHeight,
+      direction: direction,
+      padding: padding,
+    }),
+    width = _computeDimensions.width,
+    height = _computeDimensions.height;
+  var _computePositionFromA = computePositionFromAnchor({
+      anchor: anchor,
+      translateX: translateX,
+      translateY: translateY,
+      containerWidth: containerWidth,
+      containerHeight: containerHeight,
+      width: width,
+      height: height,
+    }),
+    x = _computePositionFromA.x,
+    y = _computePositionFromA.y;
+  return React__default["default"].createElement(LegendSvg, {
+    data: data,
+    x: x,
+    y: y,
+    direction: direction,
+    padding: padding,
+    justify: justify,
+    effects: effects,
+    itemsSpacing: itemsSpacing,
+    itemWidth: itemWidth,
+    itemHeight: itemHeight,
+    itemDirection: itemDirection,
+    itemTextColor: itemTextColor,
+    itemBackground: itemBackground,
+    itemOpacity: itemOpacity,
+    symbolShape: symbolShape,
+    symbolSize: symbolSize,
+    symbolSpacing: symbolSpacing,
+    symbolBorderWidth: symbolBorderWidth,
+    symbolBorderColor: symbolBorderColor,
+    onClick: onClick,
+    onMouseEnter: onMouseEnter,
+    onMouseLeave: onMouseLeave,
+  });
+};
+BoxLegendSvg.propTypes = _objectSpread$8$1(
+  {
+    data: propTypes.arrayOf(datumPropType).isRequired,
+    containerWidth: propTypes.number.isRequired,
+    containerHeight: propTypes.number.isRequired,
+    translateX: propTypes.number.isRequired,
+    translateY: propTypes.number.isRequired,
+    anchor: propTypes.oneOf([
+      ANCHOR_TOP,
+      ANCHOR_TOP_RIGHT,
+      ANCHOR_RIGHT,
+      ANCHOR_BOTTOM_RIGHT,
+      ANCHOR_BOTTOM,
+      ANCHOR_BOTTOM_LEFT,
+      ANCHOR_LEFT,
+      ANCHOR_TOP_LEFT,
+      ANCHOR_CENTER,
+    ]).isRequired,
+    direction: propTypes.oneOf([DIRECTION_ROW, DIRECTION_COLUMN]).isRequired,
+    padding: propTypes.oneOfType([
+      propTypes.number,
+      propTypes.shape({
+        top: propTypes.number,
+        right: propTypes.number,
+        bottom: propTypes.number,
+        left: propTypes.number,
+      }),
+    ]).isRequired,
+    justify: propTypes.bool,
+    itemWidth: propTypes.number.isRequired,
+    itemHeight: propTypes.number.isRequired,
+    itemDirection: propTypes.oneOf([
+      DIRECTION_LEFT_TO_RIGHT,
+      DIRECTION_RIGHT_TO_LEFT,
+      DIRECTION_TOP_TO_BOTTOM,
+      DIRECTION_BOTTOM_TO_TOP,
+    ]),
+    itemsSpacing: propTypes.number.isRequired,
+    itemTextColor: propTypes.string,
+    itemBackground: propTypes.string,
+    itemOpacity: propTypes.number,
+  },
+  symbolPropTypes,
+  interactivityPropTypes
+);
+BoxLegendSvg.defaultProps = {
+  translateX: 0,
+  translateY: 0,
+  itemsSpacing: LegendSvg.defaultProps.itemsSpacing,
+  padding: LegendSvg.defaultProps.padding,
+};
+
+var textPropsMapping = {
+  align: {
+    start: "left",
+    middle: "center",
+    end: "right",
+  },
+  baseline: {
+    hanging: "top",
+    middle: "middle",
+    central: "middle",
+    baseline: "bottom",
+  },
+};
+var renderLegendToCanvas = function renderLegendToCanvas(ctx, _ref) {
+  var data = _ref.data,
+    containerWidth = _ref.containerWidth,
+    containerHeight = _ref.containerHeight,
+    _ref$translateX = _ref.translateX,
+    translateX =
+      _ref$translateX === void 0
+        ? BoxLegendSvg.defaultProps.translateX
+        : _ref$translateX,
+    _ref$translateY = _ref.translateY,
+    translateY =
+      _ref$translateY === void 0
+        ? BoxLegendSvg.defaultProps.translateY
+        : _ref$translateY,
+    anchor = _ref.anchor,
+    direction = _ref.direction,
+    _ref$padding = _ref.padding,
+    _padding =
+      _ref$padding === void 0 ? LegendSvg.defaultProps.padding : _ref$padding,
+    _ref$justify = _ref.justify,
+    justify =
+      _ref$justify === void 0
+        ? LegendSvgItem.defaultProps.justify
+        : _ref$justify,
+    _ref$itemsSpacing = _ref.itemsSpacing,
+    itemsSpacing =
+      _ref$itemsSpacing === void 0
+        ? LegendSvg.defaultProps.itemsSpacing
+        : _ref$itemsSpacing,
+    itemWidth = _ref.itemWidth,
+    itemHeight = _ref.itemHeight,
+    _ref$itemDirection = _ref.itemDirection,
+    itemDirection =
+      _ref$itemDirection === void 0
+        ? LegendSvgItem.defaultProps.direction
+        : _ref$itemDirection,
+    _ref$itemTextColor = _ref.itemTextColor,
+    itemTextColor =
+      _ref$itemTextColor === void 0
+        ? LegendSvg.defaultProps.textColor
+        : _ref$itemTextColor,
+    _ref$symbolSize = _ref.symbolSize,
+    symbolSize =
+      _ref$symbolSize === void 0
+        ? LegendSvgItem.defaultProps.symbolSize
+        : _ref$symbolSize,
+    _ref$symbolSpacing = _ref.symbolSpacing,
+    symbolSpacing =
+      _ref$symbolSpacing === void 0
+        ? LegendSvgItem.defaultProps.symbolSpacing
+        : _ref$symbolSpacing,
+    theme = _ref.theme;
+  var _computeDimensions = computeDimensions({
+      itemCount: data.length,
+      itemWidth: itemWidth,
+      itemHeight: itemHeight,
+      itemsSpacing: itemsSpacing,
+      direction: direction,
+      padding: _padding,
+    }),
+    width = _computeDimensions.width,
+    height = _computeDimensions.height,
+    padding = _computeDimensions.padding;
+  var _computePositionFromA = computePositionFromAnchor({
+      anchor: anchor,
+      translateX: translateX,
+      translateY: translateY,
+      containerWidth: containerWidth,
+      containerHeight: containerHeight,
+      width: width,
+      height: height,
+    }),
+    x = _computePositionFromA.x,
+    y = _computePositionFromA.y;
+  var xStep = 0;
+  var yStep = 0;
+  if (direction === DIRECTION_ROW) {
+    xStep = itemWidth + itemsSpacing;
+  } else if (direction === DIRECTION_COLUMN) {
+    yStep = itemHeight + itemsSpacing;
+  }
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.font = ""
+    .concat(theme.legends.text.fontSize, "px ")
+    .concat(theme.legends.text.fontFamily || "sans-serif");
+  data.forEach(function (d, i) {
+    var itemX = i * xStep + padding.left;
+    var itemY = i * yStep + padding.top;
+    var _computeItemLayout = computeItemLayout({
+        direction: itemDirection,
+        justify: justify,
+        symbolSize: symbolSize,
+        symbolSpacing: symbolSpacing,
+        width: itemWidth,
+        height: itemHeight,
+      }),
+      symbolX = _computeItemLayout.symbolX,
+      symbolY = _computeItemLayout.symbolY,
+      labelX = _computeItemLayout.labelX,
+      labelY = _computeItemLayout.labelY,
+      labelAnchor = _computeItemLayout.labelAnchor,
+      labelAlignment = _computeItemLayout.labelAlignment;
+    ctx.fillStyle = d.color;
+    ctx.fillRect(itemX + symbolX, itemY + symbolY, symbolSize, symbolSize);
+    ctx.textAlign = textPropsMapping.align[labelAnchor];
+    ctx.textBaseline = textPropsMapping.baseline[labelAlignment];
+    ctx.fillStyle = itemTextColor || theme.legends.text.fill;
+    ctx.fillText(d.label, itemX + labelX, itemY + labelY);
+  });
+  ctx.restore();
+};
+
 var linearScale = function linearScale(_ref, xy, width, height) {
   var axis = _ref.axis,
     _ref$min = _ref.min,
@@ -20572,7 +22205,7 @@ var pointScalePropTypes = {
 };
 
 var _precisionCutOffsByTy;
-function _defineProperty$7(obj, key, value) {
+function _defineProperty$a(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -20623,33 +22256,33 @@ var precisionCutOffs = [
 ];
 var precisionCutOffsByType =
   ((_precisionCutOffsByTy = {}),
-  _defineProperty$7(_precisionCutOffsByTy, TIME_PRECISION_MILLISECOND, []),
-  _defineProperty$7(
+  _defineProperty$a(_precisionCutOffsByTy, TIME_PRECISION_MILLISECOND, []),
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_SECOND,
     precisionCutOffs.slice(0, 1)
   ),
-  _defineProperty$7(
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_MINUTE,
     precisionCutOffs.slice(0, 2)
   ),
-  _defineProperty$7(
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_HOUR,
     precisionCutOffs.slice(0, 3)
   ),
-  _defineProperty$7(
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_DAY,
     precisionCutOffs.slice(0, 4)
   ),
-  _defineProperty$7(
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_MONTH,
     precisionCutOffs.slice(0, 5)
   ),
-  _defineProperty$7(
+  _defineProperty$a(
     _precisionCutOffsByTy,
     TIME_PRECISION_YEAR,
     precisionCutOffs.slice(0, 6)
@@ -20748,7 +22381,7 @@ function _arrayWithoutHoles(arr) {
     return arr2;
   }
 }
-function _objectSpread$7(target) {
+function _objectSpread$a(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -20760,12 +22393,12 @@ function _objectSpread$7(target) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$1$3(target, key, source[key]);
+      _defineProperty$1$4(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$1$3(obj, key, value) {
+function _defineProperty$1$4(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -20795,10 +22428,10 @@ var computeXYScalesForSeries = function computeXYScalesForSeries(
   height
 ) {
   var series = _series.map(function (serie) {
-    return _objectSpread$7({}, serie, {
+    return _objectSpread$a({}, serie, {
       data: serie.data.map(function (d) {
         return {
-          data: _objectSpread$7({}, d),
+          data: _objectSpread$a({}, d),
         };
       }),
     });
@@ -20811,7 +22444,7 @@ var computeXYScalesForSeries = function computeXYScalesForSeries(
     stackY(xScaleSpec.type, xy, series);
   }
   var xScale = computeScale(
-    _objectSpread$7({}, xScaleSpec, {
+    _objectSpread$a({}, xScaleSpec, {
       axis: "x",
     }),
     xy,
@@ -20819,7 +22452,7 @@ var computeXYScalesForSeries = function computeXYScalesForSeries(
     height
   );
   var yScale = computeScale(
-    _objectSpread$7({}, yScaleSpec, {
+    _objectSpread$a({}, yScaleSpec, {
       axis: "y",
     }),
     xy,
@@ -20848,7 +22481,7 @@ var computeXYScalesForSeries = function computeXYScalesForSeries(
       };
     });
   });
-  return _objectSpread$7({}, xy, {
+  return _objectSpread$a({}, xy, {
     series: series,
     xScale: xScale,
     yScale: yScale,
@@ -22638,17 +24271,17 @@ var useVoronoiMesh = function useVoronoiMesh(_ref) {
   );
 };
 
-function _slicedToArray$4(arr, i) {
+function _slicedToArray$5(arr, i) {
   return (
-    _arrayWithHoles$4(arr) ||
-    _iterableToArrayLimit$4(arr, i) ||
-    _nonIterableRest$4()
+    _arrayWithHoles$5(arr) ||
+    _iterableToArrayLimit$5(arr, i) ||
+    _nonIterableRest$5()
   );
 }
-function _nonIterableRest$4() {
+function _nonIterableRest$5() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
-function _iterableToArrayLimit$4(arr, i) {
+function _iterableToArrayLimit$5(arr, i) {
   if (
     !(
       Symbol.iterator in Object(arr) ||
@@ -22682,7 +24315,7 @@ function _iterableToArrayLimit$4(arr, i) {
   }
   return _arr;
 }
-function _arrayWithHoles$4(arr) {
+function _arrayWithHoles$5(arr) {
   if (Array.isArray(arr)) return arr;
 }
 var Mesh = function Mesh(_ref) {
@@ -22698,7 +24331,7 @@ var Mesh = function Mesh(_ref) {
     onClick = _ref.onClick;
   var elementRef = React.useRef(null);
   var _useState = React.useState(null),
-    _useState2 = _slicedToArray$4(_useState, 2),
+    _useState2 = _slicedToArray$5(_useState, 2),
     currentIndex = _useState2[0],
     setCurrentIndex = _useState2[1];
   var _useVoronoiMesh = useVoronoiMesh({
@@ -22717,7 +24350,7 @@ var Mesh = function Mesh(_ref) {
   var getIndexAndNodeFromEvent = React.useCallback(
     function (event) {
       var _getRelativeCursor = getRelativeCursor(elementRef.current, event),
-        _getRelativeCursor2 = _slicedToArray$4(_getRelativeCursor, 2),
+        _getRelativeCursor2 = _slicedToArray$5(_getRelativeCursor, 2),
         x = _getRelativeCursor2[0],
         y = _getRelativeCursor2[1];
       var index = delaunay.find(x, y);
@@ -22728,7 +24361,7 @@ var Mesh = function Mesh(_ref) {
   var handleMouseEnter = React.useCallback(
     function (event) {
       var _getIndexAndNodeFromE = getIndexAndNodeFromEvent(event),
-        _getIndexAndNodeFromE2 = _slicedToArray$4(_getIndexAndNodeFromE, 2),
+        _getIndexAndNodeFromE2 = _slicedToArray$5(_getIndexAndNodeFromE, 2),
         index = _getIndexAndNodeFromE2[0],
         node = _getIndexAndNodeFromE2[1];
       if (currentIndex !== index) setCurrentIndex(index);
@@ -22739,7 +24372,7 @@ var Mesh = function Mesh(_ref) {
   var handleMouseMove = React.useCallback(
     function (event) {
       var _getIndexAndNodeFromE3 = getIndexAndNodeFromEvent(event),
-        _getIndexAndNodeFromE4 = _slicedToArray$4(_getIndexAndNodeFromE3, 2),
+        _getIndexAndNodeFromE4 = _slicedToArray$5(_getIndexAndNodeFromE3, 2),
         index = _getIndexAndNodeFromE4[0],
         node = _getIndexAndNodeFromE4[1];
       if (currentIndex !== index) setCurrentIndex(index);
@@ -22763,7 +24396,7 @@ var Mesh = function Mesh(_ref) {
   var handleClick = React.useCallback(
     function (event) {
       var _getIndexAndNodeFromE5 = getIndexAndNodeFromEvent(event),
-        _getIndexAndNodeFromE6 = _slicedToArray$4(_getIndexAndNodeFromE5, 2),
+        _getIndexAndNodeFromE6 = _slicedToArray$5(_getIndexAndNodeFromE5, 2),
         index = _getIndexAndNodeFromE6[0],
         node = _getIndexAndNodeFromE6[1];
       if (currentIndex !== index) setCurrentIndex(index);
@@ -22921,7 +24554,7 @@ SliceTooltip.propTypes = {
 };
 var SliceTooltip$1 = React.memo(SliceTooltip);
 
-function _objectSpread$a(target) {
+function _objectSpread$b(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -22933,12 +24566,12 @@ function _objectSpread$a(target) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$8(target, key, source[key]);
+      _defineProperty$b(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$8(obj, key, value) {
+function _defineProperty$b(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -23046,8 +24679,7 @@ var commonPropTypes = {
     propTypes.instanceOf(Date),
   ]).isRequired,
   lineWidth: propTypes.number.isRequired,
-  legends: propTypes.arrayOf(propTypes.shape(legends.LegendPropShape))
-    .isRequired,
+  legends: propTypes.arrayOf(propTypes.shape(LegendPropShape)).isRequired,
   isInteractive: propTypes.bool.isRequired,
   debugMesh: propTypes.bool.isRequired,
   tooltip: propTypes.oneOfType([propTypes.func, propTypes.object]).isRequired,
@@ -23059,7 +24691,7 @@ var commonPropTypes = {
   enableCrosshair: propTypes.bool.isRequired,
   crosshairType: crosshairPropTypes.type.isRequired,
 };
-var LinePropTypes = _objectSpread$a(
+var LinePropTypes = _objectSpread$b(
   {},
   commonPropTypes,
   {
@@ -23069,7 +24701,7 @@ var LinePropTypes = _objectSpread$a(
   motionPropTypes,
   defsPropTypes
 );
-var LineCanvasPropTypes = _objectSpread$a(
+var LineCanvasPropTypes = _objectSpread$b(
   {
     pixelRatio: propTypes.number.isRequired,
   },
@@ -23128,7 +24760,7 @@ var commonDefaultProps = {
   enableCrosshair: true,
   crosshairType: "bottom-left",
 };
-var LineDefaultProps = _objectSpread$a({}, commonDefaultProps, {
+var LineDefaultProps = _objectSpread$b({}, commonDefaultProps, {
   enablePointLabel: false,
   useMesh: false,
   animate: true,
@@ -23137,24 +24769,24 @@ var LineDefaultProps = _objectSpread$a({}, commonDefaultProps, {
   defs: [],
   fill: [],
 });
-var LineCanvasDefaultProps = _objectSpread$a({}, commonDefaultProps, {
+var LineCanvasDefaultProps = _objectSpread$b({}, commonDefaultProps, {
   pixelRatio:
     global.window && global.window.devicePixelRatio
       ? global.window.devicePixelRatio
       : 1,
 });
 
-function _slicedToArray$5(arr, i) {
+function _slicedToArray$6(arr, i) {
   return (
-    _arrayWithHoles$5(arr) ||
-    _iterableToArrayLimit$5(arr, i) ||
-    _nonIterableRest$5()
+    _arrayWithHoles$6(arr) ||
+    _iterableToArrayLimit$6(arr, i) ||
+    _nonIterableRest$6()
   );
 }
-function _nonIterableRest$5() {
+function _nonIterableRest$6() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance");
 }
-function _iterableToArrayLimit$5(arr, i) {
+function _iterableToArrayLimit$6(arr, i) {
   if (
     !(
       Symbol.iterator in Object(arr) ||
@@ -23188,10 +24820,10 @@ function _iterableToArrayLimit$5(arr, i) {
   }
   return _arr;
 }
-function _arrayWithHoles$5(arr) {
+function _arrayWithHoles$6(arr) {
   if (Array.isArray(arr)) return arr;
 }
-function _objectSpread$1$3(target) {
+function _objectSpread$1$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -23203,12 +24835,12 @@ function _objectSpread$1$3(target) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$1$4(target, key, source[key]);
+      _defineProperty$1$5(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$1$4(obj, key, value) {
+function _defineProperty$1$5(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -23314,7 +24946,7 @@ var usePoints = function usePoints(_ref3) {
                 };
                 point.color = getPointColor(serie);
                 point.borderColor = getPointBorderColor(point);
-                point.data = _objectSpread$1$3({}, datum.data, {
+                point.data = _objectSpread$1$4({}, datum.data, {
                   xFormatted: formatX(datum.data.x),
                   yFormatted: formatY(datum.data.y),
                 });
@@ -23347,7 +24979,7 @@ var useSlices = function useSlices(_ref4) {
             return a[0] - b[0];
           })
           .map(function (_ref5, i, slices) {
-            var _ref6 = _slicedToArray$5(_ref5, 2),
+            var _ref6 = _slicedToArray$6(_ref5, 2),
               x = _ref6[0],
               slicePoints = _ref6[1];
             var prevSlice = slices[i - 1];
@@ -23381,7 +25013,7 @@ var useSlices = function useSlices(_ref4) {
             return a[0] - b[0];
           })
           .map(function (_ref7, i, slices) {
-            var _ref8 = _slicedToArray$5(_ref7, 2),
+            var _ref8 = _slicedToArray$6(_ref7, 2),
               y = _ref8[0],
               slicePoints = _ref8[1];
             var prevSlice = slices[i - 1];
@@ -23468,7 +25100,7 @@ var useLine = function useLine(_ref9) {
   var series = React.useMemo(
     function () {
       return rawSeries.map(function (serie) {
-        return _objectSpread$1$3({}, serie, {
+        return _objectSpread$1$4({}, serie, {
           color: getColor(serie),
         });
       });
@@ -24027,7 +25659,7 @@ Mesh$1.propTypes = {
 };
 var Mesh$1$1 = React.memo(Mesh$1);
 
-function _objectSpread$2$3(target) {
+function _objectSpread$2$4(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -24039,12 +25671,12 @@ function _objectSpread$2$3(target) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$2$3(target, key, source[key]);
+      _defineProperty$2$4(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$2$3(obj, key, value) {
+function _defineProperty$2$4(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -24158,7 +25790,7 @@ var Line$1 = function Line(props) {
     defs = props.defs,
     fill = props.fill,
     markers = props.markers,
-    legends$1 = props.legends,
+    legends = props.legends,
     isInteractive = props.isInteractive,
     useMesh = props.useMesh,
     debugMesh = props.debugMesh,
@@ -24268,9 +25900,9 @@ var Line$1 = function Line(props) {
     points: null,
     crosshair: null,
     mesh: null,
-    legends: legends$1.map(function (legend, i) {
+    legends: legends.map(function (legend, i) {
       return React__default["default"].createElement(
-        legends.BoxLegendSvg,
+        BoxLegendSvg,
         _extends$1$3(
           {
             key: "legend.".concat(i),
@@ -24378,7 +26010,7 @@ var Line$1 = function Line(props) {
             key: i,
           },
           layer(
-            _objectSpread$2$3({}, props, {
+            _objectSpread$2$4({}, props, {
               innerWidth: innerWidth,
               innerHeight: innerHeight,
               series: series,
@@ -24441,7 +26073,7 @@ var ResponsiveLine = function ResponsiveLine(props) {
   );
 };
 
-function _objectSpread$3$2(target) {
+function _objectSpread$3$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -24453,12 +26085,12 @@ function _objectSpread$3$2(target) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$3$2(target, key, source[key]);
+      _defineProperty$3$3(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$3$2(obj, key, value) {
+function _defineProperty$3$3(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -24548,7 +26180,7 @@ var LineCanvas = function LineCanvas(_ref) {
     axisRight = _ref.axisRight,
     axisBottom = _ref.axisBottom,
     axisLeft = _ref.axisLeft,
-    legends$1 = _ref.legends,
+    legends = _ref.legends,
     isInteractive = _ref.isInteractive,
     debugMesh = _ref.debugMesh,
     onMouseLeave = _ref.onMouseLeave,
@@ -24696,10 +26328,10 @@ var LineCanvas = function LineCanvas(_ref) {
               };
             })
             .reverse();
-          legends$1.forEach(function (legend) {
-            legends.renderLegendToCanvas(
+          legends.forEach(function (legend) {
+            renderLegendToCanvas(
               ctx,
-              _objectSpread$3$2({}, legend, {
+              _objectSpread$3$3({}, legend, {
                 data: legend.data || legendData,
                 containerWidth: innerWidth,
                 containerHeight: innerHeight,
@@ -24728,7 +26360,7 @@ var LineCanvas = function LineCanvas(_ref) {
       axisRight,
       axisBottom,
       axisLeft,
-      legends$1,
+      legends,
       points,
       enablePoints,
       pointSize,
@@ -24825,7 +26457,7 @@ var LineCanvas$1 = withContainer(LineCanvas);
 /*
   Remove this after using from the library
 */
-function _objectSpread$4$1(target, options) {
+function _objectSpread$4$2(target, options) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
     var ownKeys = Object.keys(Object(source));
@@ -24837,12 +26469,12 @@ function _objectSpread$4$1(target, options) {
       );
     }
     ownKeys.forEach(function (key) {
-      _defineProperty$5$1(target, key, source[key]);
+      _defineProperty$5$2(target, key, source[key]);
     });
   }
   return target;
 }
-function _defineProperty$5$1(obj, key, value) {
+function _defineProperty$5$2(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
       value: value,
@@ -24858,7 +26490,7 @@ function _defineProperty$5$1(obj, key, value) {
 function linearGradientDef(id, colors) {
   var options =
     arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
-  return _objectSpread$4$1(
+  return _objectSpread$4$2(
     {
       id: id,
       type: "linearGradient",
@@ -24898,7 +26530,14 @@ var Line$2 = function (_a) {
     minValues = meta.minValues,
     maxValues = meta.maxValues,
     axisLabels = meta.axisLabels,
-    noOfLabels = meta.noOfLabels;
+    _j = meta.noOfLabels,
+    noOfLabels =
+      _j === void 0
+        ? {
+            x: 1,
+            y: 1,
+          }
+        : _j;
   /**
    * Marker formatting with Default values
    */
@@ -24919,7 +26558,9 @@ var Line$2 = function (_a) {
         value: markers[i][markers[i].axis || "x"],
         lineStyle: markerLineStyles[i] || defaultLineStyle,
         textStyle: markerTextStyles[i] || defaultTextStyle,
-        legend: markers[i].pointLabel ? "" : markers[i].markerLabel,
+        legend: markers[i].pointLabel
+          ? markers[i].pointLabel
+          : markers[i].markerLabel,
       });
     }
   }
