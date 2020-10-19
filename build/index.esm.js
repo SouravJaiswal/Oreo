@@ -1340,6 +1340,27 @@ function createCommonjsModule(fn, basedir, module) {
   );
 }
 
+function getAugmentedNamespace(n) {
+  if (n.__esModule) return n;
+  var a = Object.defineProperty({}, "__esModule", { value: true });
+  Object.keys(n).forEach(function (k) {
+    var d = Object.getOwnPropertyDescriptor(n, k);
+    Object.defineProperty(
+      a,
+      k,
+      d.get
+        ? d
+        : {
+            enumerable: true,
+            get: function () {
+              return n[k];
+            },
+          }
+    );
+  });
+  return a;
+}
+
 function commonjsRequire() {
   throw new Error(
     "Dynamic requires are not currently supported by @rollup/plugin-commonjs"
@@ -9317,7 +9338,7 @@ function formatLocale$1(locale) {
   };
 }
 
-var pads = { "-": "", _: " ", "0": "0" },
+var pads = { "-": "", _: " ", 0: "0" },
   numberRe = /^\s*\d+/, // note: ignores next directive
   percentRe = /^%/,
   requoteRe = /[\\^$*+?|[\]().{}]/g;
@@ -14116,7 +14137,7 @@ function formatLocale$3(locale) {
   };
 }
 
-var pads$1 = { "-": "", _: " ", "0": "0" },
+var pads$1 = { "-": "", _: " ", 0: "0" },
   numberRe$1 = /^\s*\d+/, // note: ignores next directive
   percentRe$1 = /^%/,
   requoteRe$1 = /[\\^$*+?|[\]().{}]/g;
@@ -15026,6 +15047,10 @@ var shallowEqual$1 = createCommonjsModule(function (module, exports) {
   exports.default = _default;
 });
 
+var _reactLifecyclesCompat = /*@__PURE__*/ getAugmentedNamespace(
+  reactLifecyclesCompat_es
+);
+
 var withPropsOnChange_1 = createCommonjsModule(function (module, exports) {
   exports.__esModule = true;
   exports.default = void 0;
@@ -15110,7 +15135,7 @@ var withPropsOnChange_1 = createCommonjsModule(function (module, exports) {
           return WithPropsOnChange;
         })(React.Component);
 
-      (0, reactLifecyclesCompat_es.polyfill)(WithPropsOnChange);
+      (0, _reactLifecyclesCompat.polyfill)(WithPropsOnChange);
 
       if (process.env.NODE_ENV !== "production") {
         return (0, _setDisplayName.default)(
@@ -26917,9 +26942,7 @@ var LineChart = function (_a) {
   if (yLabels[yLabels.length - 1] !== axisLabels.y[axisLabels.y.length - 1]) {
     yLabels.push(axisLabels.y[axisLabels.y[axisLabels.y.length - 1]]);
   }
-  return React.createElement(AutoSizer, { style: { width: "100%" } }, function (
-    _a
-  ) {
+  return React.createElement(AutoSizer, null, function (_a) {
     var height = _a.height,
       width = _a.width;
     return React.createElement(Line$1$1, {

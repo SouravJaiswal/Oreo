@@ -177,7 +177,7 @@ export const LineChart = ({
   }
 
   return (
-    <AutoSizer style={{ width: "100%" }}>
+    <AutoSizer>
       {({ height, width }) => (
         <Line
           height={height}

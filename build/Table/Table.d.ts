@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import "./table.scss";
 export declare const Table: ({ headings, values, className, }: {
     headings: Array<string>;

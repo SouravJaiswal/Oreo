@@ -1444,6 +1444,27 @@ function createCommonjsModule(fn, basedir, module) {
   );
 }
 
+function getAugmentedNamespace(n) {
+  if (n.__esModule) return n;
+  var a = Object.defineProperty({}, "__esModule", { value: true });
+  Object.keys(n).forEach(function (k) {
+    var d = Object.getOwnPropertyDescriptor(n, k);
+    Object.defineProperty(
+      a,
+      k,
+      d.get
+        ? d
+        : {
+            enumerable: true,
+            get: function () {
+              return n[k];
+            },
+          }
+    );
+  });
+  return a;
+}
+
 function commonjsRequire() {
   throw new Error(
     "Dynamic requires are not currently supported by @rollup/plugin-commonjs"
@@ -9421,7 +9442,7 @@ function formatLocale$1(locale) {
   };
 }
 
-var pads = { "-": "", _: " ", "0": "0" },
+var pads = { "-": "", _: " ", 0: "0" },
   numberRe = /^\s*\d+/, // note: ignores next directive
   percentRe = /^%/,
   requoteRe = /[\\^$*+?|[\]().{}]/g;
@@ -14226,7 +14247,7 @@ function formatLocale$3(locale) {
   };
 }
 
-var pads$1 = { "-": "", _: " ", "0": "0" },
+var pads$1 = { "-": "", _: " ", 0: "0" },
   numberRe$1 = /^\s*\d+/, // note: ignores next directive
   percentRe$1 = /^%/,
   requoteRe$1 = /[\\^$*+?|[\]().{}]/g;
@@ -15136,6 +15157,10 @@ var shallowEqual$1 = createCommonjsModule(function (module, exports) {
   exports.default = _default;
 });
 
+var _reactLifecyclesCompat = /*@__PURE__*/ getAugmentedNamespace(
+  reactLifecyclesCompat_es
+);
+
 var withPropsOnChange_1 = createCommonjsModule(function (module, exports) {
   exports.__esModule = true;
   exports.default = void 0;
@@ -15220,7 +15245,7 @@ var withPropsOnChange_1 = createCommonjsModule(function (module, exports) {
           return WithPropsOnChange;
         })(React__default["default"].Component);
 
-      (0, reactLifecyclesCompat_es.polyfill)(WithPropsOnChange);
+      (0, _reactLifecyclesCompat.polyfill)(WithPropsOnChange);
 
       if (process.env.NODE_ENV !== "production") {
         return (0, _setDisplayName.default)(
@@ -27076,84 +27101,82 @@ var LineChart = function (_a) {
   if (yLabels[yLabels.length - 1] !== axisLabels.y[axisLabels.y.length - 1]) {
     yLabels.push(axisLabels.y[axisLabels.y[axisLabels.y.length - 1]]);
   }
-  return React__default["default"].createElement(
-    AutoSizer,
-    { style: { width: "100%" } },
-    function (_a) {
-      var height = _a.height,
-        width = _a.width;
-      return React__default["default"].createElement(Line$1$1, {
-        height: height,
-        width: width,
-        data: chartData,
-        margin: margin,
-        xScale: {
-          type: "linear",
-          min: minValues.x,
-          max: maxValues.x,
-        },
-        yScale: {
-          type: "linear",
-          min: minValues.y,
-          max: maxValues.y,
-          stacked: false,
-          reverse: false,
-        },
-        curve: "monotoneX",
-        axisTop: null,
-        axisRight: null,
-        colors: colors,
-        axisLeft: {
-          tickValues: yLabels,
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: legends.y || "",
-          legendOffset: -45,
-          legendPosition: "middle",
-          format: !!formatAxis.y
-            ? formatAxis.y
-            : function (value) {
-                return value;
-              },
-        },
-        axisBottom: {
-          tickValues: xLabels,
-          tickSize: 5,
-          tickPadding: 5,
-          tickRotation: 0,
-          legend: legends.x || "",
-          legendOffset: 36,
-          legendPosition: "middle",
-          format: !!formatAxis.x
-            ? formatAxis.x
-            : function (value) {
-                return value;
-              },
-        },
-        //enableGridX={false}
-        //enableGridY={false}
-        gridXValues: [minValues.x],
-        gridYValues: [minValues.y],
-        pointSize: 6,
-        pointColor: { theme: "background" },
-        pointBorderWidth: 2,
-        enablePointLabel: true,
-        pointBorderColor: { from: "serieColor" },
-        pointLabel: pointLabel,
-        pointLabelYOffset: -24,
-        useMesh: true,
-        animate: true,
-        enableArea: enableArea,
-        enableSlices: "x",
-        sliceTooltip: toolTip,
-        defs: defsList,
-        fill: fill,
-        markers: markersList,
-        legends: defaultLegendsConfig,
-      });
-    }
-  );
+  return React__default["default"].createElement(AutoSizer, null, function (
+    _a
+  ) {
+    var height = _a.height,
+      width = _a.width;
+    return React__default["default"].createElement(Line$1$1, {
+      height: height,
+      width: width,
+      data: chartData,
+      margin: margin,
+      xScale: {
+        type: "linear",
+        min: minValues.x,
+        max: maxValues.x,
+      },
+      yScale: {
+        type: "linear",
+        min: minValues.y,
+        max: maxValues.y,
+        stacked: false,
+        reverse: false,
+      },
+      curve: "monotoneX",
+      axisTop: null,
+      axisRight: null,
+      colors: colors,
+      axisLeft: {
+        tickValues: yLabels,
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: legends.y || "",
+        legendOffset: -45,
+        legendPosition: "middle",
+        format: !!formatAxis.y
+          ? formatAxis.y
+          : function (value) {
+              return value;
+            },
+      },
+      axisBottom: {
+        tickValues: xLabels,
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: legends.x || "",
+        legendOffset: 36,
+        legendPosition: "middle",
+        format: !!formatAxis.x
+          ? formatAxis.x
+          : function (value) {
+              return value;
+            },
+      },
+      //enableGridX={false}
+      //enableGridY={false}
+      gridXValues: [minValues.x],
+      gridYValues: [minValues.y],
+      pointSize: 6,
+      pointColor: { theme: "background" },
+      pointBorderWidth: 2,
+      enablePointLabel: true,
+      pointBorderColor: { from: "serieColor" },
+      pointLabel: pointLabel,
+      pointLabelYOffset: -24,
+      useMesh: true,
+      animate: true,
+      enableArea: enableArea,
+      enableSlices: "x",
+      sliceTooltip: toolTip,
+      defs: defsList,
+      fill: fill,
+      markers: markersList,
+      legends: defaultLegendsConfig,
+    });
+  });
 };
 
 var Area = function () {};
