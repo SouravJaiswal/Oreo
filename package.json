@@ -13,8 +13,7 @@
     "lodash": "^4.17.20",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-icons": "^3.11.0",
-    "react-virtualized-auto-sizer": "^1.0.2"
+    "react-icons": "^3.11.0"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
@@ -78,6 +77,7 @@
   },
   "dependencies": {
     "@nivo/core": "^0.62.0",
-    "@nivo/line": "^0.62.0"
+    "@nivo/line": "^0.62.0",
+    "react-virtualized-auto-sizer": "^1.0.2"
   }
 }
