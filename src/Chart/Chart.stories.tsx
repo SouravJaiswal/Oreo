@@ -304,43 +304,23 @@ const LineData: LineDataProps = {
 */
 
 export const LineData = {
-  minValues: { x: -5, y: 0 },
-  maxValues: { x: 20, y: 100 },
-  axisLabels: {
-    x: [-1, 3, 7, 11, 15, 19, 23],
-    y: [0, 50, 100],
-  },
+  minValues: { x: "2020-10-19", y: 0 },
+  maxValues: { x: "2020-10-19", y: 100 },
+  axisLabels: { x: ["2020-10-19"], y: [0, 20, 40, 60, 80, 100] },
   markers: [
     {
-      x: 0,
-      y: 94,
-      pointLabel: "Your Score: 0.00",
+      x: null,
+      y: 80,
+      pointLabel: null,
       hoverLabel: null,
-      markerLabel: "You are here",
-      axis: "x",
-    },
-    {
-      x: 0.75,
-      y: 1,
-      pointLabel: "Highest Score: 0.75",
-      hoverLabel: null,
-      markerLabel: "Highest",
-      axis: "x",
+      markerLabel: "Target Preparation",
+      axis: "y",
     },
   ],
   chartData: [
-    {
-      id: "Score vs Users",
-      data: [
-        { x: -1, y: 2 },
-        { x: 3, y: 100 },
-        { x: 7, y: 0 },
-        { x: 11, y: 0 },
-        { x: 15, y: 0 },
-        { x: 19, y: 0 },
-        { x: 23, y: 0 },
-      ],
-    },
+    { id: "Preparation", data: [{ x: "2020-10-19", y: 5.94 }] },
+    { id: "Accuracy", data: [{ x: "2020-10-19", y: 0 }] },
+    { id: "Efficiency", data: [{ x: "2020-10-19", y: 0 }] },
   ],
   noOfLabels: { x: 1, y: 1 },
 };

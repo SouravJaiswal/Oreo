@@ -25,6 +25,7 @@ var uniq = require("lodash/uniq");
 var uniqBy = require("lodash/uniqBy");
 var sortBy = require("lodash/sortBy");
 var isDate = require("lodash/isDate");
+var AutoSizer = require("react-virtualized-auto-sizer");
 
 function _interopDefaultLegacy(e) {
   return e && typeof e === "object" && "default" in e ? e : { default: e };
@@ -48,6 +49,7 @@ var uniq__default = /*#__PURE__*/ _interopDefaultLegacy(uniq);
 var uniqBy__default = /*#__PURE__*/ _interopDefaultLegacy(uniqBy);
 var sortBy__default = /*#__PURE__*/ _interopDefaultLegacy(sortBy);
 var isDate__default = /*#__PURE__*/ _interopDefaultLegacy(isDate);
+var AutoSizer__default = /*#__PURE__*/ _interopDefaultLegacy(AutoSizer);
 
 function styleInject(css, ref) {
   if (ref === void 0) ref = {};
@@ -26036,43 +26038,6 @@ Line$1.propTypes = LinePropTypes;
 Line$1.defaultProps = LineDefaultProps;
 var Line$1$1 = withContainer(Line$1);
 
-function _extends$2$2() {
-  _extends$2$2 =
-    Object.assign ||
-    function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-      return target;
-    };
-  return _extends$2$2.apply(this, arguments);
-}
-var ResponsiveLine = function ResponsiveLine(props) {
-  return React__default["default"].createElement(
-    ResponsiveWrapper,
-    null,
-    function (_ref) {
-      var width = _ref.width,
-        height = _ref.height;
-      return React__default["default"].createElement(
-        Line$1$1,
-        _extends$2$2(
-          {
-            width: width,
-            height: height,
-          },
-          props
-        )
-      );
-    }
-  );
-};
-
 function _objectSpread$3$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
@@ -26499,7 +26464,7 @@ function linearGradientDef(id, colors) {
     options
   );
 }
-var Line$2 = function (_a) {
+var LineChart = function (_a) {
   var meta = _a.meta,
     margin = _a.margin,
     _b = _a.colors,
@@ -26618,74 +26583,84 @@ var Line$2 = function (_a) {
   if (yLabels[yLabels.length - 1] !== axisLabels.y[axisLabels.y.length - 1]) {
     yLabels.push(axisLabels.y[axisLabels.y[axisLabels.y.length - 1]]);
   }
-  return React__default["default"].createElement(ResponsiveLine, {
-    data: chartData,
-    margin: margin,
-    xScale: {
-      type: "linear",
-      min: minValues.x,
-      max: maxValues.x,
-    },
-    yScale: {
-      type: "linear",
-      min: minValues.y,
-      max: maxValues.y,
-      stacked: false,
-      reverse: false,
-    },
-    curve: "monotoneX",
-    axisTop: null,
-    axisRight: null,
-    colors: colors,
-    axisLeft: {
-      tickValues: yLabels,
-      tickSize: 5,
-      tickPadding: 5,
-      tickRotation: 0,
-      legend: legends.y || "",
-      legendOffset: -45,
-      legendPosition: "middle",
-      format: !!formatAxis.y
-        ? formatAxis.y
-        : function (value) {
-            return value;
-          },
-    },
-    axisBottom: {
-      tickValues: xLabels,
-      tickSize: 5,
-      tickPadding: 5,
-      tickRotation: 0,
-      legend: legends.x || "",
-      legendOffset: 36,
-      legendPosition: "middle",
-      format: !!formatAxis.x
-        ? formatAxis.x
-        : function (value) {
-            return value;
-          },
-    },
-    //enableGridX={false}
-    //enableGridY={false}
-    gridXValues: [minValues.x],
-    gridYValues: [minValues.y],
-    pointSize: 6,
-    pointColor: { theme: "background" },
-    pointBorderWidth: 2,
-    enablePointLabel: true,
-    pointBorderColor: { from: "serieColor" },
-    pointLabel: pointLabel,
-    pointLabelYOffset: -24,
-    useMesh: true,
-    animate: true,
-    enableArea: enableArea,
-    enableSlices: "x",
-    sliceTooltip: toolTip,
-    defs: defsList,
-    fill: fill,
-    markers: markersList,
-    legends: defaultLegendsConfig,
-  });
+  return React__default["default"].createElement(
+    AutoSizer__default["default"],
+    { style: { width: "100%" } },
+    function (_a) {
+      var height = _a.height,
+        width = _a.width;
+      return React__default["default"].createElement(Line$1$1, {
+        height: height,
+        width: width,
+        data: chartData,
+        margin: margin,
+        xScale: {
+          type: "linear",
+          min: minValues.x,
+          max: maxValues.x,
+        },
+        yScale: {
+          type: "linear",
+          min: minValues.y,
+          max: maxValues.y,
+          stacked: false,
+          reverse: false,
+        },
+        curve: "monotoneX",
+        axisTop: null,
+        axisRight: null,
+        colors: colors,
+        axisLeft: {
+          tickValues: yLabels,
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: legends.y || "",
+          legendOffset: -45,
+          legendPosition: "middle",
+          format: !!formatAxis.y
+            ? formatAxis.y
+            : function (value) {
+                return value;
+              },
+        },
+        axisBottom: {
+          tickValues: xLabels,
+          tickSize: 5,
+          tickPadding: 5,
+          tickRotation: 0,
+          legend: legends.x || "",
+          legendOffset: 36,
+          legendPosition: "middle",
+          format: !!formatAxis.x
+            ? formatAxis.x
+            : function (value) {
+                return value;
+              },
+        },
+        //enableGridX={false}
+        //enableGridY={false}
+        gridXValues: [minValues.x],
+        gridYValues: [minValues.y],
+        pointSize: 6,
+        pointColor: { theme: "background" },
+        pointBorderWidth: 2,
+        enablePointLabel: true,
+        pointBorderColor: { from: "serieColor" },
+        pointLabel: pointLabel,
+        pointLabelYOffset: -24,
+        useMesh: true,
+        animate: true,
+        enableArea: enableArea,
+        enableSlices: "x",
+        sliceTooltip: toolTip,
+        defs: defsList,
+        fill: fill,
+        markers: markersList,
+        legends: defaultLegendsConfig,
+      });
+    }
+  );
 };
 
 var Area = function () {};
@@ -26703,7 +26678,7 @@ exports.H3 = H3;
 exports.H4 = H4;
 exports.Input = Input;
 exports.Li = Li;
-exports.Line = Line$2;
+exports.Line = LineChart;
 exports.Loading = Loading;
 exports.Menu = Menu;
 exports.MenuItem = MenuItem;

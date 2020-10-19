@@ -1,6 +1,7 @@
 import React from "react";
-import { ResponsiveLine } from "@nivo/line";
+import { Line } from "@nivo/line";
 import { LineProps } from "./Line.types";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 /**
  * 1. Color
@@ -61,7 +62,7 @@ function linearGradientDef(id, colors) {
   );
 }
 
-export const Line = ({
+export const LineChart = ({
   meta,
   margin,
   colors = ["#3498db"],
@@ -176,73 +177,79 @@ export const Line = ({
   }
 
   return (
-    <ResponsiveLine
-      data={chartData}
-      margin={margin}
-      xScale={{
-        type: "linear",
-        min: minValues.x,
-        max: maxValues.x,
-      }}
-      yScale={{
-        type: "linear",
-        min: minValues.y,
-        max: maxValues.y,
-        stacked: false,
-        reverse: false,
-      }}
-      curve="monotoneX"
-      axisTop={null}
-      axisRight={null}
-      colors={colors}
-      axisLeft={{
-        tickValues: yLabels,
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: legends.y || "",
-        legendOffset: -45,
-        legendPosition: "middle",
-        format: !!formatAxis.y
-          ? formatAxis.y
-          : (value) => {
-              return value;
-            },
-      }}
-      axisBottom={{
-        tickValues: xLabels,
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: legends.x || "",
-        legendOffset: 36,
-        legendPosition: "middle",
-        format: !!formatAxis.x
-          ? formatAxis.x
-          : (value) => {
-              return value;
-            },
-      }}
-      //enableGridX={false}
-      //enableGridY={false}
-      gridXValues={[minValues.x]}
-      gridYValues={[minValues.y]}
-      pointSize={6}
-      pointColor={{ theme: "background" }}
-      pointBorderWidth={2}
-      enablePointLabel={true}
-      pointBorderColor={{ from: "serieColor" }}
-      pointLabel={pointLabel}
-      pointLabelYOffset={-24}
-      useMesh={true}
-      animate={true}
-      enableArea={enableArea}
-      enableSlices={"x"}
-      sliceTooltip={toolTip}
-      defs={defsList}
-      fill={fill}
-      markers={markersList}
-      legends={defaultLegendsConfig}
-    />
+    <AutoSizer style={{ width: "100%" }}>
+      {({ height, width }) => (
+        <Line
+          height={height}
+          width={width}
+          data={chartData}
+          margin={margin}
+          xScale={{
+            type: "linear",
+            min: minValues.x,
+            max: maxValues.x,
+          }}
+          yScale={{
+            type: "linear",
+            min: minValues.y,
+            max: maxValues.y,
+            stacked: false,
+            reverse: false,
+          }}
+          curve="monotoneX"
+          axisTop={null}
+          axisRight={null}
+          colors={colors}
+          axisLeft={{
+            tickValues: yLabels,
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: legends.y || "",
+            legendOffset: -45,
+            legendPosition: "middle",
+            format: !!formatAxis.y
+              ? formatAxis.y
+              : (value) => {
+                  return value;
+                },
+          }}
+          axisBottom={{
+            tickValues: xLabels,
+            tickSize: 5,
+            tickPadding: 5,
+            tickRotation: 0,
+            legend: legends.x || "",
+            legendOffset: 36,
+            legendPosition: "middle",
+            format: !!formatAxis.x
+              ? formatAxis.x
+              : (value) => {
+                  return value;
+                },
+          }}
+          //enableGridX={false}
+          //enableGridY={false}
+          gridXValues={[minValues.x]}
+          gridYValues={[minValues.y]}
+          pointSize={6}
+          pointColor={{ theme: "background" }}
+          pointBorderWidth={2}
+          enablePointLabel={true}
+          pointBorderColor={{ from: "serieColor" }}
+          pointLabel={pointLabel}
+          pointLabelYOffset={-24}
+          useMesh={true}
+          animate={true}
+          enableArea={enableArea}
+          enableSlices={"x"}
+          sliceTooltip={toolTip}
+          defs={defsList}
+          fill={fill}
+          markers={markersList}
+          legends={defaultLegendsConfig}
+        />
+      )}
+    </AutoSizer>
   );
 };

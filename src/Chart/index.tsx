@@ -1,4 +1,4 @@
 import "./chart.scss";
 
-export { Line } from "./Line";
+export { LineChart as Line } from "./Line";
 export { Area } from "./Area";

@@ -41,6 +41,7 @@ import uniq from "lodash/uniq";
 import uniqBy from "lodash/uniqBy";
 import sortBy from "lodash/sortBy";
 import isDate from "lodash/isDate";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 function styleInject(css, ref) {
   if (ref === void 0) ref = {};
@@ -25877,39 +25878,6 @@ Line$1.propTypes = LinePropTypes;
 Line$1.defaultProps = LineDefaultProps;
 var Line$1$1 = withContainer(Line$1);
 
-function _extends$2$2() {
-  _extends$2$2 =
-    Object.assign ||
-    function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
-          }
-        }
-      }
-      return target;
-    };
-  return _extends$2$2.apply(this, arguments);
-}
-var ResponsiveLine = function ResponsiveLine(props) {
-  return React.createElement(ResponsiveWrapper, null, function (_ref) {
-    var width = _ref.width,
-      height = _ref.height;
-    return React.createElement(
-      Line$1$1,
-      _extends$2$2(
-        {
-          width: width,
-          height: height,
-        },
-        props
-      )
-    );
-  });
-};
-
 function _objectSpread$3$3(target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i] != null ? arguments[i] : {};
@@ -26336,7 +26304,7 @@ function linearGradientDef(id, colors) {
     options
   );
 }
-var Line$2 = function (_a) {
+var LineChart = function (_a) {
   var meta = _a.meta,
     margin = _a.margin,
     _b = _a.colors,
@@ -26455,73 +26423,81 @@ var Line$2 = function (_a) {
   if (yLabels[yLabels.length - 1] !== axisLabels.y[axisLabels.y.length - 1]) {
     yLabels.push(axisLabels.y[axisLabels.y[axisLabels.y.length - 1]]);
   }
-  return React.createElement(ResponsiveLine, {
-    data: chartData,
-    margin: margin,
-    xScale: {
-      type: "linear",
-      min: minValues.x,
-      max: maxValues.x,
-    },
-    yScale: {
-      type: "linear",
-      min: minValues.y,
-      max: maxValues.y,
-      stacked: false,
-      reverse: false,
-    },
-    curve: "monotoneX",
-    axisTop: null,
-    axisRight: null,
-    colors: colors,
-    axisLeft: {
-      tickValues: yLabels,
-      tickSize: 5,
-      tickPadding: 5,
-      tickRotation: 0,
-      legend: legends.y || "",
-      legendOffset: -45,
-      legendPosition: "middle",
-      format: !!formatAxis.y
-        ? formatAxis.y
-        : function (value) {
-            return value;
-          },
-    },
-    axisBottom: {
-      tickValues: xLabels,
-      tickSize: 5,
-      tickPadding: 5,
-      tickRotation: 0,
-      legend: legends.x || "",
-      legendOffset: 36,
-      legendPosition: "middle",
-      format: !!formatAxis.x
-        ? formatAxis.x
-        : function (value) {
-            return value;
-          },
-    },
-    //enableGridX={false}
-    //enableGridY={false}
-    gridXValues: [minValues.x],
-    gridYValues: [minValues.y],
-    pointSize: 6,
-    pointColor: { theme: "background" },
-    pointBorderWidth: 2,
-    enablePointLabel: true,
-    pointBorderColor: { from: "serieColor" },
-    pointLabel: pointLabel,
-    pointLabelYOffset: -24,
-    useMesh: true,
-    animate: true,
-    enableArea: enableArea,
-    enableSlices: "x",
-    sliceTooltip: toolTip,
-    defs: defsList,
-    fill: fill,
-    markers: markersList,
-    legends: defaultLegendsConfig,
+  return React.createElement(AutoSizer, { style: { width: "100%" } }, function (
+    _a
+  ) {
+    var height = _a.height,
+      width = _a.width;
+    return React.createElement(Line$1$1, {
+      height: height,
+      width: width,
+      data: chartData,
+      margin: margin,
+      xScale: {
+        type: "linear",
+        min: minValues.x,
+        max: maxValues.x,
+      },
+      yScale: {
+        type: "linear",
+        min: minValues.y,
+        max: maxValues.y,
+        stacked: false,
+        reverse: false,
+      },
+      curve: "monotoneX",
+      axisTop: null,
+      axisRight: null,
+      colors: colors,
+      axisLeft: {
+        tickValues: yLabels,
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: legends.y || "",
+        legendOffset: -45,
+        legendPosition: "middle",
+        format: !!formatAxis.y
+          ? formatAxis.y
+          : function (value) {
+              return value;
+            },
+      },
+      axisBottom: {
+        tickValues: xLabels,
+        tickSize: 5,
+        tickPadding: 5,
+        tickRotation: 0,
+        legend: legends.x || "",
+        legendOffset: 36,
+        legendPosition: "middle",
+        format: !!formatAxis.x
+          ? formatAxis.x
+          : function (value) {
+              return value;
+            },
+      },
+      //enableGridX={false}
+      //enableGridY={false}
+      gridXValues: [minValues.x],
+      gridYValues: [minValues.y],
+      pointSize: 6,
+      pointColor: { theme: "background" },
+      pointBorderWidth: 2,
+      enablePointLabel: true,
+      pointBorderColor: { from: "serieColor" },
+      pointLabel: pointLabel,
+      pointLabelYOffset: -24,
+      useMesh: true,
+      animate: true,
+      enableArea: enableArea,
+      enableSlices: "x",
+      sliceTooltip: toolTip,
+      defs: defsList,
+      fill: fill,
+      markers: markersList,
+      legends: defaultLegendsConfig,
+    });
   });
 };
 
@@ -26541,7 +26517,7 @@ export {
   H4,
   Input,
   Li,
-  Line$2 as Line,
+  LineChart as Line,
   Loading,
   Menu,
   MenuItem,
