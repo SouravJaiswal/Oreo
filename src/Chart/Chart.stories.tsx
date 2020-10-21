@@ -1,5 +1,7 @@
 import React from "react";
+import _ from "lodash";
 import { Line } from "./index";
+import { map } from "core-js/fn/array";
 
 export default {
   title: "Chart",
@@ -303,10 +305,21 @@ const LineData: LineDataProps = {
 };
 */
 
-export const LineData = {
-  minValues: { x: "2020-10-19", y: 0 },
-  maxValues: { x: "2020-10-19", y: 100 },
-  axisLabels: { x: ["2020-10-19"], y: [0, 20, 40, 60, 80, 100] },
+const LineData = {
+  minValues: { x: "2020-10-20", y: 0 },
+  maxValues: { x: "2020-10-26", y: 100 },
+  axisLabels: {
+    x: [
+      "2020-10-20",
+      "2020-10-21",
+      "2020-10-22",
+      "2020-10-23",
+      "2020-10-24",
+      "2020-10-25",
+      "2020-10-26",
+    ],
+    y: [0, 20, 40, 60, 80, 100],
+  },
   markers: [
     {
       x: null,
@@ -318,9 +331,24 @@ export const LineData = {
     },
   ],
   chartData: [
-    { id: "Preparation", data: [{ x: "2020-10-19", y: 5.94 }] },
-    { id: "Accuracy", data: [{ x: "2020-10-19", y: 0 }] },
-    { id: "Efficiency", data: [{ x: "2020-10-19", y: 0 }] },
+    {
+      id: "Preparation",
+      data: [
+        { x: "2020-10-20", y: 0 },
+        { x: "2020-10-21", y: 5.94 },
+      ],
+    },
+    {
+      id: "Future",
+      data: [
+        { x: "2020-10-21", y: 5.94 },
+        { x: "2020-10-22", y: 9.51 },
+        { x: "2020-10-23", y: 13.13 },
+        { x: "2020-10-24", y: 15.36 },
+        { x: "2020-10-25", y: 17.98 },
+        { x: "2020-10-26", y: 21.49 },
+      ],
+    },
   ],
   noOfLabels: { x: 1, y: 1 },
 };
@@ -338,46 +366,62 @@ export const LineChart = () => {
     return "";
   };
 
+  let accuracy = [
+    { x: "2020-10-20", y: 0.0 },
+    { x: "2020-10-21", y: 0.0 },
+    { x: "2020-10-22", y: 3.01 },
+    { x: "2020-10-23", y: 5.87 },
+    { x: "2020-10-24", y: 9.48 },
+    { x: "2020-10-25", y: 12.99 },
+    { x: "2020-10-26", y: 16.09 },
+  ];
+  let efficiency = [
+    { x: "2020-10-20", y: 0.0 },
+    { x: "2020-10-21", y: 0.0 },
+    { x: "2020-10-22", y: 2.08 },
+    { x: "2020-10-23", y: 4.82 },
+    { x: "2020-10-24", y: 8.21 },
+    { x: "2020-10-25", y: 11.46 },
+    { x: "2020-10-26", y: 14.66 },
+  ];
+
+  let accuracyTmp = {};
+  let efficiencyTmp = {};
+
+  _.map(accuracy, ({ x, y }) => {
+    accuracyTmp[x] = y;
+  });
+
+  _.map(efficiency, ({ x, y }) => {
+    efficiencyTmp[x] = y;
+  });
+
   const toolTip = ({ slice }) => {
     return (
       <div>
-        {/*
-          console.log(slice);
-          let label = "";
-          for (let i = 0; i < markers.length; i++) {
-            if (markers[i].x === point.data.x && !!markers[i].pointLabel) {
-              label = markers[i].pointLabel;
-            }
-          }
-          if (!label) {
-            label = `${defaultHoverLabel}: ${point.data.x}`;
-          }*/}
-
         <div className="chart__box">
           <div className="chart__box-heading">
             <span>Your Stats</span>
-            <span>
-              29<sup>th</sup> July 2020
-            </span>
+            <span>{slice.points[0].data.x}</span>
           </div>
           <div className="chart__box-body">
             <div>
               <div>
-                <span>43%</span>
+                <span>{accuracyTmp[slice.points[0].data.x]} %</span>
                 <span className="chart__text">Accuracy</span>
               </div>
               <div>
-                <span>32%</span>
+                <span>{slice.points[0].data.y} %</span>
                 <span className="chart__text">Goal Reached</span>
               </div>
               <div>
-                <span>37%</span>
+                <span>{efficiencyTmp[slice.points[0].data.x]} %</span>
                 <span className="chart__text">Efficiency</span>
               </div>
             </div>
-            <div className="chart__box-date">
+            {/*<div className="chart__box-date">
               <span>&uarr; 4.8% than last week</span>
-            </div>
+        </div>*/}
           </div>
         </div>
       </div>
@@ -436,6 +480,16 @@ export const LineChart = () => {
         ]}
         fill={[{ match: "*", id: "gradientA" }]}
         margin={{ top: 50, right: 50, bottom: 100, left: 60 }}
+        scale={{
+          x: { type: "point" },
+          y: {
+            type: "linear",
+            stacked: false,
+            reversed: false,
+            min: 0,
+            max: 100,
+          },
+        }}
       />
     </div>
   );

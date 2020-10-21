@@ -27006,21 +27006,29 @@ var LineChart = function (_a) {
     _f = _a.enableArea,
     enableArea = _f === void 0 ? false : _f,
     _g = _a.formatAxis,
-    formatAxis = _g === void 0 ? { x: null, y: null } : _g;
+    formatAxis = _g === void 0 ? { x: null, y: null } : _g,
+    _h = _a.scale,
+    scale =
+      _h === void 0
+        ? {
+            x: undefined,
+            y: undefined,
+          }
+        : _h;
   var chartData = meta.chartData,
-    _h = meta.markers,
-    markers = _h === void 0 ? [] : _h,
+    _j = meta.markers,
+    markers = _j === void 0 ? [] : _j,
     minValues = meta.minValues,
     maxValues = meta.maxValues,
     axisLabels = meta.axisLabels,
-    _j = meta.noOfLabels,
+    _k = meta.noOfLabels,
     noOfLabels =
-      _j === void 0
+      _k === void 0
         ? {
             x: 1,
             y: 1,
           }
-        : _j;
+        : _k;
   /**
    * Marker formatting with Default values
    */
@@ -27111,17 +27119,20 @@ var LineChart = function (_a) {
       width: width,
       data: chartData,
       margin: margin,
-      xScale: {
+      xScale: __assign({}, scale.x) || {
         type: "linear",
         min: minValues.x,
         max: maxValues.x,
       },
-      yScale: {
+      yScale: __assign(__assign({}, scale.y), {
+        min: minValues.y,
+        max: maxValues.y,
+      }) || {
         type: "linear",
         min: minValues.y,
         max: maxValues.y,
         stacked: false,
-        reverse: false,
+        reversed: false,
       },
       curve: "monotoneX",
       axisTop: null,
@@ -27158,7 +27169,6 @@ var LineChart = function (_a) {
       //enableGridX={false}
       //enableGridY={false}
       gridXValues: [minValues.x],
-      gridYValues: [minValues.y],
       pointSize: 6,
       pointColor: { theme: "background" },
       pointBorderWidth: 2,

@@ -78,6 +78,10 @@ export const LineChart = ({
   fill,
   enableArea = false,
   formatAxis = { x: null, y: null },
+  scale = {
+    x: undefined,
+    y: undefined,
+  },
 }: LineProps) => {
   const {
     chartData,
@@ -184,18 +188,22 @@ export const LineChart = ({
           width={width}
           data={chartData}
           margin={margin}
-          xScale={{
-            type: "linear",
-            min: minValues.x,
-            max: maxValues.x,
-          }}
-          yScale={{
-            type: "linear",
-            min: minValues.y,
-            max: maxValues.y,
-            stacked: false,
-            reverse: false,
-          }}
+          xScale={
+            { ...scale.x } || {
+              type: "linear",
+              min: minValues.x,
+              max: maxValues.x,
+            }
+          }
+          yScale={
+            { ...scale.y, min: minValues.y, max: maxValues.y } || {
+              type: "linear",
+              min: minValues.y,
+              max: maxValues.y,
+              stacked: false,
+              reversed: false,
+            }
+          }
           curve="monotoneX"
           axisTop={null}
           axisRight={null}
@@ -231,7 +239,6 @@ export const LineChart = ({
           //enableGridX={false}
           //enableGridY={false}
           gridXValues={[minValues.x]}
-          gridYValues={[minValues.y]}
           pointSize={6}
           pointColor={{ theme: "background" }}
           pointBorderWidth={2}

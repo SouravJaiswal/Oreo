@@ -98,4 +98,8 @@ export interface LineProps {
     x: any | null;
     y: any | null;
   };
+  scale: {
+    x: any;
+    y: any;
+  };
 }
