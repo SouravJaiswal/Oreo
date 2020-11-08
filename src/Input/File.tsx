@@ -17,7 +17,7 @@ export const File = (props: InputProps) => {
   let [errMsg, setErrMsg]: [Array<string>, Function] = useState([]);
   const { name, rules, accept, label, value } = props;
   let fileReader: FileReader = new FileReader();
-  let [imageBlob, setImageBlob]: [any, Function] = useState(value);
+  let [imageBlob, setImageBlob]: [any, Function] = useState("");
   let [image, setImage]: [any, Function] = useState({});
   let fileInputElement = useRef<HTMLInputElement>(null);
 

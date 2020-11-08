@@ -1,8 +1,8 @@
-import React from 'react';
-import { Button } from './index';
+import React from "react";
+import { Button } from "./index";
 
 export default {
-  title: 'Button',
+  title: "Button",
 };
 
 export const Default = () => {
@@ -25,6 +25,14 @@ export const Primary = () => {
       <Button type="primary" loading={true}>
         Read More
       </Button>
+    </>
+  );
+};
+
+export const Bordered = () => {
+  return (
+    <>
+      <Button type="bordered">Bordered</Button>
     </>
   );
 };

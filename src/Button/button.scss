@@ -1,4 +1,4 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .button {
   align-items: center;
@@ -90,6 +90,18 @@
     border-top-color: $color-grey-light-2;
   }
 
+  &--bordered {
+    border: 1px solid $color-grey-dark-3;
+    color: $color-grey-dark-3;
+    background: transparent;
+
+    &:hover {
+      background-color: $color-primary;
+      border: $color-primary;
+      color: $color-white;
+    }
+  }
+
   &--text {
     background-color: transparent;
     color: $color-grey-dark-3;
@@ -98,7 +110,7 @@
 
     &::after {
       background: $color-grey-dark-3;
-      content: ' ';
+      content: " ";
       height: 2px;
       opacity: 0;
       width: 100%;

@@ -1,6 +1,6 @@
-import React from 'react';
-import './button.scss';
-import { Loading } from '../Loading';
+import React from "react";
+import "./button.scss";
+import { Loading } from "../Loading";
 
 export const Button = ({
   type,
@@ -15,9 +15,9 @@ export const Button = ({
   className?: string;
   /**
   state could be 'default', 'primary', 
-  'success', 'danger', 'grey', 'text'
+  'success', 'danger', 'grey', 'text', 'bordered'
   **/
-  type: string;
+  type: "primary" | "success" | "danger" | "grey" | "text" | "bordered";
   onClick?: Function;
   loading?: boolean;
 }) => {
@@ -33,7 +33,8 @@ export const Button = ({
     <button
       disabled={disabled}
       onClick={onButtonClick}
-      className={`button button--${type} ${className}`}>
+      className={`button button--${type} ${className}`}
+    >
       {loading ? (
         <span className="button__animation">
           <Loading type="default" className="button__loading" />
