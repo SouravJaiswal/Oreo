@@ -19,6 +19,7 @@ select:-webkit-autofill:focus {
   color: $color-tertiary;
   font-size: 1.3rem;
   padding: 1rem 1rem 0.5rem;
+  line-height: 1.4;
 }
 
 .input {
@@ -206,6 +207,8 @@ select:-webkit-autofill:focus {
   border: 1px solid $color-primary-light;
   border-radius: 1rem;
   padding: 1.5rem 1rem 1rem;
+  width: 100%;
+  overflow: hidden;
 
   &__main {
   }
@@ -219,10 +222,16 @@ select:-webkit-autofill:focus {
   &__button {
     position: relative;
     overflow: hidden;
+    svg {
+      fill: $color-white;
+    }
   }
 
   &__buttons {
     display: flex;
+    & > *:not(:last-child) {
+      margin-right: 2rem;
+    }
   }
 
   &__input {
@@ -240,11 +249,12 @@ select:-webkit-autofill:focus {
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid $color-primary-light;
+    max-width: 100%;
 
     img {
-      width: 100%;
+      max-width: 100%;
       height: 20rem;
-      object-fit: cover;
+      object-fit: contain;
       margin-bottom: 1rem;
       border-radius: 1rem;
     }

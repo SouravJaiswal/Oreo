@@ -200,3 +200,29 @@ export const Checkbox = () => {
     />
   );
 };
+
+export const File = () => {
+  let [image, setImage] = useState<onChangeParams>({
+    value: "",
+    isValid: false,
+  });
+
+  return (
+    <Input
+      type="file"
+      value={typeof image.value === "string" ? image.value : ""}
+      onChange={(value: onChangeParams) => {
+        setImage(value);
+      }}
+      name="radio"
+      accept="image/*"
+      rules={[
+        {
+          type: "maxSize",
+          errMsg: "File size should be less than 1mb",
+          maxSize: 1024,
+        },
+      ]}
+    />
+  );
+};
