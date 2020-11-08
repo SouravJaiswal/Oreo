@@ -50,7 +50,7 @@ export const Text = (props: InputProps) => {
 
   // On first load, if value is provided, set the error
   useEffect(() => {
-    if (typeof value === "string" || typeof value === "number") {
+    if ((typeof value === "string" || typeof value === "number") && !!value) {
       props.onChange({
         value,
         isValid: checkErrors(value, setErrMsg, rules),

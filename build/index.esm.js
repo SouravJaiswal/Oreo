@@ -825,7 +825,7 @@ var Text = function (props) {
     value = props.value;
   // On first load, if value is provided, set the error
   useEffect(function () {
-    if (typeof value === "string" || typeof value === "number") {
+    if ((typeof value === "string" || typeof value === "number") && !!value) {
       props.onChange({
         value: value,
         isValid: checkErrors(value, setErrMsg, rules),
