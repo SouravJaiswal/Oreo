@@ -1,8 +1,8 @@
-import { RulesProps } from './Input.types';
+import { RulesProps } from "./Input.types";
 
 // All utilities functions
 export const checkErrors = (
-  value: string | File,
+  value: string | File | number,
   setErrMsg: Function,
   rules?: Array<RulesProps>
 ) => {
@@ -17,15 +17,15 @@ export const checkErrors = (
   for (let i = 0; i < rules.length && errors.length === 0; i++) {
     const { limiter, errMsg, type, min, max, maxSize, matchValue } = rules[i];
     switch (type) {
-      case 'required':
-        if (typeof value === 'string' && value.length === 0) {
+      case "required":
+        if (typeof value === "string" && value.length === 0) {
           errors.push(errMsg);
         }
         break;
-      case 'min':
+      case "min":
         if (
-          typeof value !== 'string' ||
-          typeof min !== 'number' ||
+          typeof value !== "string" ||
+          typeof min !== "number" ||
           min === undefined
         )
           break;
@@ -33,10 +33,10 @@ export const checkErrors = (
           errors.push(errMsg);
         }
         break;
-      case 'max':
+      case "max":
         if (
-          typeof value !== 'string' ||
-          typeof max !== 'number' ||
+          typeof value !== "string" ||
+          typeof max !== "number" ||
           max === undefined
         )
           break;
@@ -44,27 +44,29 @@ export const checkErrors = (
           errors.push(errMsg);
         }
         break;
-      case 'regex':
-        if (!limiter || typeof value !== 'string') return;
+      case "regex":
+        if (!limiter || typeof value !== "string") return;
         let regex = new RegExp(limiter);
 
         if (!regex.test(value)) {
           errors.push(errMsg);
         }
         break;
-      case 'maxSize':
-        if (!maxSize || typeof value === 'string') return;
+      case "maxSize":
+        // For file
+        if (!maxSize || typeof value === "string" || typeof value === "number")
+          return;
         if (value.size / 1024 > maxSize) {
           errors.push(errMsg);
         }
         break;
-      case 'match':
-        if (!matchValue || typeof value !== 'string') return;
+      case "match":
+        if (!matchValue || typeof value !== "string") return;
         if (matchValue !== value) {
           errors.push(errMsg);
         }
         break;
-      case 'fileType':
+      case "fileType":
         break;
       default:
         break;

@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useState, useRef } from 'react';
-import { InputProps } from './Input.types';
-import { ErrMsg } from './ErrMsg';
-import { checkErrors } from './util';
+import React, { ChangeEvent, useState, useRef, useEffect } from "react";
+import { InputProps } from "./Input.types";
+import { ErrMsg } from "./ErrMsg";
+import { checkErrors } from "./util";
 
 /*
   Usage:
@@ -48,6 +48,16 @@ export const Text = (props: InputProps) => {
   let [touched, setTouched]: [boolean, Function] = useState(false);
   const { rules, label, icon, name, className, type, autoFocus, value } = props;
 
+  // On first load, if value is provided, set the error
+  useEffect(() => {
+    if (typeof value === "string" || typeof value === "number") {
+      props.onChange({
+        value,
+        isValid: checkErrors(value, setErrMsg, rules),
+      });
+    }
+  }, []);
+
   let onChange = (e: ChangeEvent<HTMLInputElement>) => {
     const {
       target: { value },
@@ -67,9 +77,9 @@ export const Text = (props: InputProps) => {
   // If touched and error show the error border, else success border
   const showErrState = touched
     ? errMsg.length > 0
-      ? 'input--error'
-      : 'input--success'
-    : '';
+      ? "input--error"
+      : "input--success"
+    : "";
 
   // If icon is provided, show the icon text
   if (!!icon) {

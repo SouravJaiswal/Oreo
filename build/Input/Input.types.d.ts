@@ -34,6 +34,6 @@ export interface InputProps {
     disabled?: boolean;
 }
 export interface onChangeParams {
-    value: string | Array<string> | File;
+    value: string | Array<string> | File | number;
     isValid: boolean;
 }

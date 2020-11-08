@@ -37,6 +37,6 @@ export interface InputProps {
 }
 
 export interface onChangeParams {
-  value: string | Array<string> | File;
+  value: string | Array<string> | File | number;
   isValid: boolean;
 }
