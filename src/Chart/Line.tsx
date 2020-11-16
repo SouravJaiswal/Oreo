@@ -163,11 +163,7 @@ export const LineChart = ({
    * Transform axisLabels
    */
   let xLabels = [];
-  for (
-    let i = 0;
-    i < axisLabels.x.length;
-    i = i + axisLabels.x.length * Math.floor(axisLabels.x.length / noOfLabels.x)
-  ) {
+  for (let i = 0; i < axisLabels.x.length; i = i + noOfLabels.x) {
     xLabels.push(axisLabels.x[i]);
   }
   // If the last item is not already added, add it
@@ -176,11 +172,7 @@ export const LineChart = ({
   }
 
   let yLabels = [];
-  for (
-    let i = 0;
-    i < axisLabels.y.length;
-    i = i + axisLabels.y.length * Math.floor(axisLabels.y.length / noOfLabels.y)
-  ) {
+  for (let i = 0; i < axisLabels.y.length; i = i + noOfLabels.y) {
     yLabels.push(axisLabels.y[i]);
   }
   // If the last item is not already added, add it

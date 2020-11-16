@@ -27134,11 +27134,7 @@ var LineChart = function (_a) {
    * Transform axisLabels
    */
   var xLabels = [];
-  for (
-    var i = 0;
-    i < axisLabels.x.length;
-    i = i + axisLabels.x.length * Math.floor(axisLabels.x.length / noOfLabels.x)
-  ) {
+  for (var i = 0; i < axisLabels.x.length; i = i + noOfLabels.x) {
     xLabels.push(axisLabels.x[i]);
   }
   // If the last item is not already added, add it
@@ -27146,11 +27142,7 @@ var LineChart = function (_a) {
     xLabels.push(axisLabels.x[axisLabels.x[axisLabels.x.length - 1]]);
   }
   var yLabels = [];
-  for (
-    var i = 0;
-    i < axisLabels.y.length;
-    i = i + axisLabels.y.length * Math.floor(axisLabels.y.length / noOfLabels.y)
-  ) {
+  for (var i = 0; i < axisLabels.y.length; i = i + noOfLabels.y) {
     yLabels.push(axisLabels.y[i]);
   }
   // If the last item is not already added, add it
@@ -27251,6 +27243,9 @@ var Slider = /** @class */ (function (_super) {
     var _this = _super.call(this, props) || this;
     _this.onTransitionEnd = function (direction) {
       var slider = sliderRef.current;
+      if (!slider) {
+        return;
+      }
       if (direction === "right") {
         slider.appendChild(slider.firstElementChild);
       } else if (direction === "left") {
@@ -27267,6 +27262,9 @@ var Slider = /** @class */ (function (_super) {
     _this.slide = function (direction) {
       var slider = sliderRef.current;
       if (_this.state.sliding === true) {
+        return;
+      }
+      if (!slider) {
         return;
       }
       _this.setState({ sliding: true });

@@ -40,6 +40,9 @@ export class Slider extends React.Component<SliderProps, SliderState> {
 
   onTransitionEnd = (direction) => {
     const { current: slider } = sliderRef;
+    if (!slider) {
+      return;
+    }
     if (direction === "right") {
       slider.appendChild(slider.firstElementChild);
     } else if (direction === "left") {
@@ -57,6 +60,9 @@ export class Slider extends React.Component<SliderProps, SliderState> {
   slide = (direction) => {
     const { current: slider } = sliderRef;
     if (this.state.sliding === true) {
+      return;
+    }
+    if (!slider) {
       return;
     }
 
