@@ -4,6 +4,7 @@ import { SliderProps } from "./Slider.types";
 import "./slider.scss";
 
 let sliderRef = null;
+let slideTimer = null;
 
 interface SliderState {
   sliding: boolean;
@@ -34,6 +35,7 @@ export class Slider extends React.Component<SliderProps, SliderState> {
 
   componentWillUnmount() {
     clearInterval(this.state.timer);
+    clearTimeout(slideTimer);
   }
 
   onTransitionEnd = (direction) => {
@@ -43,12 +45,10 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     } else if (direction === "left") {
       slider.prepend(slider.lastElementChild);
     }
-
     slider.style.transition = "none";
-
     slider.classList.remove("translate--left");
     slider.classList.remove("translate--right");
-    setTimeout(() => {
+    slideTimer = setTimeout(() => {
       slider.style.transition = "all 0.5s";
       this.setState({ sliding: false });
     }, 100);
@@ -63,15 +63,16 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     this.setState({ sliding: true });
     if (direction === "right") {
       slider.classList.add("translate--right");
-      setTimeout(() => this.onTransitionEnd(direction), 600);
+      slideTimer = setTimeout(() => this.onTransitionEnd(direction), 600);
     } else if (direction === "left") {
       slider.style.transition = "none";
       slider.classList.add("translate--right");
       slider.prepend(slider.lastElementChild);
-      setTimeout(() => {
+      // Clean Up
+      slideTimer = setTimeout(() => {
         slider.style.transition = "all 0.5s";
         slider.classList.remove("translate--right");
-        setTimeout(() => {
+        slideTimer = setTimeout(() => {
           this.setState({ sliding: false });
         }, 600);
       });
