@@ -1,8 +1,14 @@
+/// <reference types="node" />
 import React from "react";
 import { SliderProps } from "./Slider.types";
 import "./slider.scss";
-export declare class Slider extends React.Component {
-    constructor(props: SliderProps);
+interface SliderState {
+    sliding: boolean;
+    timer: NodeJS.Timeout;
+    data: SliderProps["data"];
+}
+export declare class Slider extends React.Component<SliderProps, SliderState> {
+    constructor(props: any);
     componentDidMount(): void;
     onTransitionEnd: (direction: any) => void;
     slide: (direction: any) => void;
@@ -10,3 +16,4 @@ export declare class Slider extends React.Component {
     onLeave: () => void;
     render(): JSX.Element;
 }
+export {};

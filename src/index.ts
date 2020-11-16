@@ -11,3 +11,4 @@ export { Notification } from "./Notification";
 export { Table } from "./Table";
 export { Dimmer } from "./Dimmer";
 export { Line, Area } from "./Chart";
+export { Slider } from "./Slider";

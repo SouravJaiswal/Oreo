@@ -3,15 +3,24 @@ import _ from "lodash";
 import { SliderProps } from "./Slider.types";
 import "./slider.scss";
 
-export class Slider extends React.Component {
-  constructor(props: SliderProps) {
+let sliderRef = null;
+
+interface SliderState {
+  sliding: boolean;
+  timer: NodeJS.Timeout;
+  data: SliderProps["data"];
+}
+
+export class Slider extends React.Component<SliderProps, SliderState> {
+  constructor(props) {
     super(props);
 
-    this.sliderRef = React.createRef();
+    sliderRef = React.createRef();
 
     this.state = {
       sliding: false,
       timer: null,
+      data: props.data,
     };
   }
 
@@ -24,7 +33,7 @@ export class Slider extends React.Component {
   }
 
   onTransitionEnd = (direction) => {
-    const { current: slider } = this.sliderRef;
+    const { current: slider } = sliderRef;
     if (direction === "right") {
       slider.appendChild(slider.firstElementChild);
     } else if (direction === "left") {
@@ -42,7 +51,7 @@ export class Slider extends React.Component {
   };
 
   slide = (direction) => {
-    const { current: slider } = this.sliderRef;
+    const { current: slider } = sliderRef;
     if (this.state.sliding === true) {
       return;
     }
@@ -80,8 +89,8 @@ export class Slider extends React.Component {
   render() {
     return (
       <div className="slider">
-        <div className="slider__main row" ref={this.sliderRef}>
-          {_.map(this.props.data, (element, idx) => {
+        <div className="slider__main row" ref={sliderRef}>
+          {_.map(this.state.data, (element, idx) => {
             return (
               <div
                 className="slider__single"

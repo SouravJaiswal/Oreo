@@ -96,6 +96,29 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function (d, b) {
+  extendStatics =
+    Object.setPrototypeOf ||
+    ({ __proto__: [] } instanceof Array &&
+      function (d, b) {
+        d.__proto__ = b;
+      }) ||
+    function (d, b) {
+      for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    };
+  return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+  extendStatics(d, b);
+  function __() {
+    this.constructor = d;
+  }
+  d.prototype =
+    b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
+}
 
 var __assign = function () {
   __assign =
@@ -27208,6 +27231,158 @@ var LineChart = function (_a) {
 
 var Area = function () {};
 
+var css_248z$c =
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@keyframes rotate {\n  0% {\n    transform: rotateZ(0); }\n  50% {\n    transform: rotateZ(45deg); }\n  100% {\n    transform: rotateZ(360deg); } }\n\n.slider {\n  overflow: hidden;\n  display: flex;\n  flex-wrap: nowrap;\n  flex-direction: column;\n  justify-content: flex-start;\n  max-width: 50rem;\n  width: 100%;\n  height: 50rem; }\n  .slider img {\n    width: 100%;\n    height: 100%;\n    object-fit: contain; }\n  .slider__buttons {\n    display: flex;\n    justify-content: center; }\n    .slider__buttons > * {\n      cursor: pointer;\n      transition: all 0.2s;\n      width: 2.4rem;\n      height: 2.4rem;\n      border: 1px solid #0e63f4;\n      background-color: #0e63f4;\n      border-radius: 50%;\n      display: flex;\n      justify-content: center;\n      align-items: center; }\n      .slider__buttons > * svg {\n        width: 1.2rem;\n        height: 1.2rem;\n        fill: #fff; }\n        @media only screen and (max-width: 37.5em) {\n          .slider__buttons > * svg {\n            width: 1.6rem;\n            height: 1.6rem; } }\n      @media only screen and (max-width: 37.5em) {\n        .slider__buttons > * {\n          width: 3rem;\n          height: 3rem; } }\n      @media (hover: hover) {\n        .slider__buttons > *:hover, .slider__buttons > *:active, .slider__buttons > *:focus {\n          background-color: #f8faff; }\n          .slider__buttons > *:hover svg, .slider__buttons > *:active svg, .slider__buttons > *:focus svg {\n            fill: #0e63f4; } }\n    .slider__buttons > *:first-child {\n      margin-right: 1rem; }\n  .slider__main {\n    display: flex;\n    flex-wrap: nowrap;\n    transition: all 0.5s;\n    transform: translate(0);\n    width: 100%;\n    max-width: 50rem;\n    height: 35rem;\n    overflow: hidden; }\n    .slider__main > * {\n      flex-shrink: 0;\n      width: 100%;\n      height: 100%;\n      display: flex;\n      justify-content: center;\n      align-items: center;\n      flex-direction: column;\n      text-align: center;\n      line-height: 1.6; }\n      .slider__main > * img {\n        width: 20rem;\n        height: 20rem;\n        object-fit: contain; }\n      .slider__main > * > *:not(:last-child) {\n        margin-bottom: 1rem; }\n    @media only screen and (max-width: 56.25em) {\n      .slider__main.row [class^="col-"]:not(:last-child) {\n        margin-bottom: 0; } }\n  .slider .translate--left {\n    transform: translate(100%); }\n    @media only screen and (max-width: 56.25em) {\n      .slider .translate--left {\n        transform: translateX(100%); } }\n  .slider .translate--right {\n    transform: translate(100%); }\n    @media only screen and (max-width: 56.25em) {\n      .slider .translate--right {\n        transform: translateX(-100%); } }\n';
+styleInject(css_248z$c);
+
+var sliderRef = null;
+var Slider = /** @class */ (function (_super) {
+  __extends(Slider, _super);
+  function Slider(props) {
+    var _this = _super.call(this, props) || this;
+    _this.onTransitionEnd = function (direction) {
+      var slider = sliderRef.current;
+      if (direction === "right") {
+        slider.appendChild(slider.firstElementChild);
+      } else if (direction === "left") {
+        slider.prepend(slider.lastElementChild);
+      }
+      slider.style.transition = "none";
+      slider.classList.remove("translate--left");
+      slider.classList.remove("translate--right");
+      setTimeout(function () {
+        slider.style.transition = "all 0.5s";
+        _this.setState({ sliding: false });
+      }, 100);
+    };
+    _this.slide = function (direction) {
+      var slider = sliderRef.current;
+      if (_this.state.sliding === true) {
+        return;
+      }
+      _this.setState({ sliding: true });
+      if (direction === "right") {
+        slider.classList.add("translate--right");
+        setTimeout(function () {
+          return _this.onTransitionEnd(direction);
+        }, 600);
+      } else if (direction === "left") {
+        slider.style.transition = "none";
+        slider.classList.add("translate--right");
+        slider.prepend(slider.lastElementChild);
+        setTimeout(function () {
+          slider.style.transition = "all 0.5s";
+          slider.classList.remove("translate--right");
+          setTimeout(function () {
+            _this.setState({ sliding: false });
+          }, 600);
+        });
+      }
+    };
+    _this.onHover = function () {
+      clearInterval(_this.state.timer);
+    };
+    _this.onLeave = function () {
+      _this.setState({
+        timer: setInterval(function () {
+          _this.slide("right");
+        }, 3000),
+      });
+    };
+    sliderRef = React__default["default"].createRef();
+    _this.state = {
+      sliding: false,
+      timer: null,
+      data: props.data,
+    };
+    return _this;
+  }
+  Slider.prototype.componentDidMount = function () {
+    var _this = this;
+    this.setState({
+      timer: setInterval(function () {
+        _this.slide("right");
+      }, 3000),
+    });
+  };
+  Slider.prototype.render = function () {
+    var _this = this;
+    return React__default["default"].createElement(
+      "div",
+      { className: "slider" },
+      React__default["default"].createElement(
+        "div",
+        { className: "slider__main row", ref: sliderRef },
+        ___default["default"].map(this.state.data, function (element, idx) {
+          return React__default["default"].createElement(
+            "div",
+            {
+              className: "slider__single",
+              onMouseOver: _this.onHover,
+              onMouseOut: _this.onLeave,
+            },
+            React__default["default"].createElement(
+              "div",
+              null,
+              React__default["default"].createElement("img", {
+                src: element.img,
+              })
+            ),
+            React__default["default"].createElement(
+              "div",
+              null,
+              element.heading
+            ),
+            React__default["default"].createElement("div", null, element.desc)
+          );
+        })
+      ),
+      React__default["default"].createElement(
+        "div",
+        { className: "slider__buttons" },
+        React__default["default"].createElement(
+          "div",
+          {
+            className: "slider__left",
+            onClick: function (e) {
+              return _this.slide("left");
+            },
+            onMouseOver: this.onHover,
+            onMouseOut: this.onLeave,
+          },
+          React__default["default"].createElement(
+            "svg",
+            { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+            React__default["default"].createElement("path", {
+              d:
+                "M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z",
+            })
+          )
+        ),
+        React__default["default"].createElement(
+          "div",
+          {
+            className: "slider__right",
+            onClick: function (e) {
+              return _this.slide("right");
+            },
+            onMouseOver: this.onHover,
+            onMouseOut: this.onLeave,
+          },
+          React__default["default"].createElement(
+            "svg",
+            { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24" },
+            React__default["default"].createElement("path", {
+              d: "M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z",
+            })
+          )
+        )
+      )
+    );
+  };
+  return Slider;
+})(React__default["default"].Component);
+
 exports.Area = Area;
 exports.Button = Button;
 exports.Card = Card;
@@ -27235,6 +27410,7 @@ exports.Paragraph = Paragraph;
 exports.Radio = Radio;
 exports.Row = Row;
 exports.Sidebar = Sidebar;
+exports.Slider = Slider;
 exports.Table = Table;
 exports.Text = Text;
 exports.UList = UList;
