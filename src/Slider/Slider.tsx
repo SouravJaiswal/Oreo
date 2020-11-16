@@ -32,6 +32,10 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     });
   }
 
+  componentWillUnmount() {
+    clearInterval(this.state.timer);
+  }
+
   onTransitionEnd = (direction) => {
     const { current: slider } = sliderRef;
     if (direction === "right") {

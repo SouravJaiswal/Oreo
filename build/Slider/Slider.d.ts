@@ -10,6 +10,7 @@ interface SliderState {
 export declare class Slider extends React.Component<SliderProps, SliderState> {
     constructor(props: any);
     componentDidMount(): void;
+    componentWillUnmount(): void;
     onTransitionEnd: (direction: any) => void;
     slide: (direction: any) => void;
     onHover: () => void;
