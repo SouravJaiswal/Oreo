@@ -1,7 +1,7 @@
 export interface SliderProps {
   className?: string;
   data: Array<{
-    img: string;
+    img: JSX.Element;
     desc: string;
     heading: string;
   }>;

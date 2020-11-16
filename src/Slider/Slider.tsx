@@ -28,7 +28,7 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     this.setState({
       timer: setInterval(() => {
         this.slide("right");
-      }, 3000),
+      }, 5000),
     });
   }
 
@@ -82,7 +82,7 @@ export class Slider extends React.Component<SliderProps, SliderState> {
     this.setState({
       timer: setInterval(() => {
         this.slide("right");
-      }, 3000),
+      }, 5000),
     });
   };
 
@@ -97,11 +97,9 @@ export class Slider extends React.Component<SliderProps, SliderState> {
                 onMouseOver={this.onHover}
                 onMouseOut={this.onLeave}
               >
-                <div>
-                  <img src={element.img} />
-                </div>
-                <div>{element.heading}</div>
-                <div>{element.desc}</div>
+                <div className="slider__img">{element.img}</div>
+                <div className="slider__heading">{element.heading}</div>
+                <div className="slider__desc">{element.desc}</div>
               </div>
             );
           })}
