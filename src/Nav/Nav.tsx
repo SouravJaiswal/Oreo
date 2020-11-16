@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { FiMenu } from 'react-icons/fi';
-import { AiOutlineClose } from 'react-icons/ai';
+import React, { useState } from "react";
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface Nav {
   logo: React.ReactNode;
@@ -11,16 +11,17 @@ interface Nav {
 
 export const NavContext = React.createContext(false);
 
-export const Nav = ({ logo, children, className, type = 'side' }: Nav) => {
+export const Nav = ({ logo, children, className, type = "side" }: Nav) => {
   let [menu, toggleMenu] = useState(false);
 
-  const menuClassName = menu ? 'nav__open' : 'nav__close';
+  const menuClassName = menu ? "nav__open" : "nav__close";
 
   return (
     <NavContext.Provider value={menu}>
       <div
         className={`nav nav--${type} ${className} ${menuClassName}`}
-        onClick={() => toggleMenu(false)}>
+        onClick={() => toggleMenu(false)}
+      >
         <div className="nav__logo">{logo}</div>
         {children}
         <div className="nav__icon">
@@ -32,12 +33,14 @@ export const Nav = ({ logo, children, className, type = 'side' }: Nav) => {
               }}
             />
           ) : (
-            <FiMenu
+            <span
               onClick={(e) => {
                 e.stopPropagation();
                 return toggleMenu(true);
               }}
-            />
+            >
+              <FiMenu /> <span>Menu</span>
+            </span>
           )}
         </div>
       </div>

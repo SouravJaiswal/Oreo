@@ -91,7 +91,7 @@
   }
 
   &--bordered {
-    border: 1px solid $color-grey-dark-3;
+    border: 1px solid rgba($color-primary, 0.5);
     color: $color-grey-dark-3;
     background: transparent;
 

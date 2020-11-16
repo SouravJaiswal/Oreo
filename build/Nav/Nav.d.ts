@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 interface Nav {
     logo: React.ReactNode;
     children: React.ReactNode;
