@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
 import postcss from "rollup-plugin-postcss";
 import copy from "rollup-plugin-copy";
+import autoprefixer from "autoprefixer";
 
 const packageJson = require("./package.json");
 
@@ -26,7 +27,7 @@ export default {
     resolve(),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true, allowNonTsExtensions: true }),
-    postcss(),
+    postcss({ plugins: [autoprefixer] }),
     copy({
       targets: [
         {
