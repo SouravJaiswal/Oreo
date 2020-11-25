@@ -31,3 +31,18 @@ export const Block = () => {
     />
   );
 };
+
+export const SmallBlock = () => {
+  return (
+    <Progress
+      type="block"
+      currentLevel={3}
+      progressPercentage={2}
+      pointsType="point"
+      title="Clean and Jerk"
+      radius={40}
+      strokeWidth={5}
+      flavour="small"
+    />
+  );
+};

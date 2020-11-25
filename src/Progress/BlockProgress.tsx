@@ -9,6 +9,7 @@ export const BlockProgress = (props: ProgressProps) => {
     title = "",
     pointsType = "point",
     currentLevel,
+    flavour = "default",
   } = props;
   const normalizedRadius = radius - strokeWidth * 2;
   let circumference = normalizedRadius * 2 * Math.PI;
@@ -17,7 +18,7 @@ export const BlockProgress = (props: ProgressProps) => {
     circumference - (progressPercentage / 100) * circumference;
 
   return (
-    <div className="progress-block">
+    <div className={`progress-block progress-block--${flavour}`}>
       <div
         className="progress-block__circle"
         style={{ height: `${radius * 2}px` }}
@@ -51,16 +52,22 @@ export const BlockProgress = (props: ProgressProps) => {
         </svg>
         <span className="progress-block__circle-text">
           <span>{progressPercentage} %</span>
-          <span>Level {currentLevel}</span>
+          {flavour !== "small" ? <span>Level {currentLevel}</span> : <></>}
         </span>
       </div>
       <div className="progress-block__meta">
         <div className="progress-block__title">{title}</div>
-        <div className="progress-block__next-level">
-          {100 - progressPercentage} more
-          {progressPercentage >= 99 ? ` ${pointsType} ` : ` ${pointsType}s `} to
-          Level {currentLevel + 1}
-        </div>
+        {flavour !== "small" ? (
+          <div className="progress-block__next-level">
+            {100 - progressPercentage} more
+            {progressPercentage >= 99
+              ? ` ${pointsType} `
+              : ` ${pointsType}s `}{" "}
+            to Level {currentLevel + 1}
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

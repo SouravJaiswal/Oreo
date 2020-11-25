@@ -7,4 +7,5 @@ export interface ProgressProps {
   type: "line" | "block";
   radius?: number;
   strokeWidth?: number;
+  flavour?: "small" | "medium" | "default";
 }
