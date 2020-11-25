@@ -1,0 +1,133 @@
+@import "../main.scss";
+
+.progress-line {
+  max-width: 50rem;
+  max-height: 13rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 1.2rem;
+  color: #545454;
+  padding: 0 4rem;
+
+  &__heading {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  &__bar {
+    width: 100%;
+    height: 1.2rem;
+    display: flex;
+    margin-bottom: 1rem;
+  }
+
+  &__bar-left {
+    background: $color-primary;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+  }
+
+  &__bar-right {
+    border: 1px solid rgba($color-primary, 0.1);
+    background: rgba($color-primary, 0.1);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+
+  &__meta {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__currentLevel,
+  &__nextLevel {
+    font-weight: 600;
+  }
+
+  &__nextLevel {
+    margin-left: 5px;
+  }
+}
+
+.progress-block {
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 24rem;
+  max-height: 30rem;
+  padding: 4rem;
+  min-width: 24rem;
+  width: 100%;
+  max-width: 32rem;
+  position: relative;
+  color: #545454;
+  text-align: center;
+
+  circle {
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    stroke: $color-primary;
+    fill: transparent;
+  }
+
+  &__inner-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    circle {
+      transition: stroke-dashoffset 0.35s;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      stroke: rgba($color-primary, 0.2);
+      fill: transparent;
+    }
+  }
+
+  &__circle {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+
+  &__circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    span:first-child {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    span:last-child {
+      font-weight: 100;
+      font-size: 1.2rem;
+    }
+  }
+
+  &__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__next-level {
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
+}

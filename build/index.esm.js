@@ -27236,6 +27236,157 @@ var Slider = /** @class */ (function (_super) {
   return Slider;
 })(React.Component);
 
+var BlockProgress = function (props) {
+  var _a = props.radius,
+    radius = _a === void 0 ? 120 : _a,
+    _b = props.strokeWidth,
+    strokeWidth = _b === void 0 ? 4 : _b,
+    progressPercentage = props.progressPercentage,
+    _c = props.title,
+    title = _c === void 0 ? "" : _c,
+    _d = props.pointsType,
+    pointsType = _d === void 0 ? "point" : _d,
+    currentLevel = props.currentLevel;
+  var normalizedRadius = radius - strokeWidth * 2;
+  var circumference = normalizedRadius * 2 * Math.PI;
+  var strokeDashoffset =
+    circumference - (progressPercentage / 100) * circumference;
+  return React.createElement(
+    "div",
+    { className: "progress-block" },
+    React.createElement(
+      "div",
+      {
+        className: "progress-block__circle",
+        style: { height: radius * 2 + "px" },
+      },
+      React.createElement(
+        "svg",
+        { height: radius * 2, width: radius * 2 },
+        React.createElement("circle", {
+          fill: "transparent",
+          strokeWidth: strokeWidth,
+          strokeDasharray: circumference + " " + circumference,
+          style: { strokeDashoffset: strokeDashoffset },
+          "stroke-width": strokeWidth,
+          r: normalizedRadius,
+          cx: radius,
+          cy: radius,
+        })
+      ),
+      React.createElement(
+        "svg",
+        {
+          height: radius * 2,
+          width: radius * 2,
+          className: "progress-block__inner-circle",
+        },
+        React.createElement("circle", {
+          fill: "transparent",
+          strokeWidth: strokeWidth,
+          style: { strokeDashoffset: strokeDashoffset },
+          "stroke-width": strokeWidth,
+          r: normalizedRadius,
+          cx: radius,
+          cy: radius,
+        })
+      ),
+      React.createElement(
+        "span",
+        { className: "progress-block__circle-text" },
+        React.createElement("span", null, progressPercentage, " %"),
+        React.createElement("span", null, "Level ", currentLevel)
+      )
+    ),
+    React.createElement(
+      "div",
+      { className: "progress-block__meta" },
+      React.createElement("div", { className: "progress-block__title" }, title),
+      React.createElement(
+        "div",
+        { className: "progress-block__next-level" },
+        100 - progressPercentage,
+        " more",
+        progressPercentage >= 99
+          ? " " + pointsType + " "
+          : " " + pointsType + "s ",
+        " to Level ",
+        currentLevel + 1
+      )
+    )
+  );
+};
+
+var css_248z$d =
+  '@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500;700&family=Roboto:wght@300;400;500&display=swap");\n/*\n0 - 400px:    Mini - phone\n400 - 600px:    Phone\n600 - 900px:    Tablet portrait\n900 - 1200px:   Tablet landscape\n[1200 - 1800] is where our normal styles apply\n1800px + :      Big desktop\n$breakpoint arguement choices:\n- mini-phone\n- phone\n- tab-port\n- tab-land\n- big-desktop\nORDER: Base + typography > general layout + grid > page layout > components\n1em = 16px\n*/\n*,\n*::after,\n*::before {\n  margin: 0;\n  padding: 0;\n  -webkit-box-sizing: inherit;\n          box-sizing: inherit;\n  position: relative; }\n\nol,\nul,\ndl {\n  margin: 0; }\n\nhtml {\n  font-size: 62.5%;\n  scroll-behavior: smooth; }\n  @media only screen and (max-width: 75em) {\n    html {\n      font-size: 56.25%; } }\n  @media only screen and (max-width: 56.25em) {\n    html {\n      font-size: 50%; } }\n  @media only screen and (max-width: 25em) {\n    html {\n      font-size: 37.5%; } }\n  @media only screen and (min-width: 112.5em) {\n    html {\n      font-size: 75%; } }\n\nbody {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  overflow-x: hidden !important;\n  -webkit-font-smoothing: antialiased;\n  color: #333;\n  font-family: "Roboto", sans-serif;\n  font-size: 1.6rem; }\n  @media only screen and (max-width: 56.25em) {\n    body {\n      padding: 0; } }\n\nimg {\n  width: 100%; }\n\nfigure {\n  margin: 0; }\n\nbutton,\ninput,\noptgroup,\nselect,\ntextarea {\n  margin: 0;\n  color: inherit;\n  font-size: inherit;\n  font-family: inherit;\n  line-height: inherit; }\n\ntextarea {\n  -ms-touch-action: manipulation;\n      touch-action: manipulation;\n  -webkit-appearance: none;\n  overflow: auto;\n  resize: vertical; }\n\na {\n  text-decoration: none;\n  color: #333; }\n\np {\n  margin: 0; }\n\n.u-center-text {\n  text-align: center !important; }\n\n.u-center-right {\n  text-align: right !important; }\n\n.u-center-flex-cross {\n  -ms-flex-item-align: center;\n      align-self: center; }\n\n.u-margin-bottom-nano {\n  margin-bottom: 1rem !important; }\n\n.u-margin-bottom-small {\n  margin-bottom: 1.5rem !important; }\n\n.u-margin-bottom-medium {\n  margin-bottom: 3rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-medium {\n      margin-bottom: 3rem !important; } }\n\n.u-margin-bottom-large {\n  margin-bottom: 6rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-large {\n      margin-bottom: 6rem !important; } }\n\n.u-margin-bottom-big {\n  margin-bottom: 8rem !important; }\n  @media only screen and (max-width: 56.25em) {\n    .u-margin-bottom-big {\n      margin-bottom: 8rem !important; } }\n\n.u-margin-bottom-huge {\n  margin-bottom: 10rem !important; }\n\n.u-margin-top-big {\n  margin-top: 8rem !important; }\n\n.u-margin-top-huge {\n  margin-top: 10rem !important; }\n\n/*\n* Text utilities\n*/\n.bold {\n  font-weight: 700; }\n\n.regular {\n  font-weight: 400; }\n\n@-webkit-keyframes rotate {\n  0% {\n    -webkit-transform: rotateZ(0);\n            transform: rotateZ(0); }\n  50% {\n    -webkit-transform: rotateZ(45deg);\n            transform: rotateZ(45deg); }\n  100% {\n    -webkit-transform: rotateZ(360deg);\n            transform: rotateZ(360deg); } }\n\n@keyframes rotate {\n  0% {\n    -webkit-transform: rotateZ(0);\n            transform: rotateZ(0); }\n  50% {\n    -webkit-transform: rotateZ(45deg);\n            transform: rotateZ(45deg); }\n  100% {\n    -webkit-transform: rotateZ(360deg);\n            transform: rotateZ(360deg); } }\n\n.progress-line {\n  max-width: 50rem;\n  max-height: 13rem;\n  height: 100%;\n  width: 100%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: start;\n      -ms-flex-align: start;\n          align-items: flex-start;\n  font-size: 1.2rem;\n  color: #545454;\n  padding: 0 4rem; }\n  .progress-line__heading {\n    font-size: 1.6rem;\n    margin-bottom: 1rem; }\n  .progress-line__bar {\n    width: 100%;\n    height: 1.2rem;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    margin-bottom: 1rem; }\n  .progress-line__bar-left {\n    background: #0e63f4;\n    border-top-left-radius: 1rem;\n    border-bottom-left-radius: 1rem; }\n  .progress-line__bar-right {\n    border: 1px solid rgba(14, 99, 244, 0.1);\n    background: rgba(14, 99, 244, 0.1);\n    border-top-right-radius: 1rem;\n    border-bottom-right-radius: 1rem; }\n  .progress-line__meta {\n    width: 100%;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  .progress-line__currentLevel, .progress-line__nextLevel {\n    font-weight: 600; }\n  .progress-line__nextLevel {\n    margin-left: 5px; }\n\n.progress-block {\n  background-color: #fafafa;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  min-height: 24rem;\n  max-height: 30rem;\n  padding: 4rem;\n  min-width: 24rem;\n  width: 100%;\n  max-width: 32rem;\n  position: relative;\n  color: #545454;\n  text-align: center; }\n  .progress-block circle {\n    -webkit-transition: stroke-dashoffset 0.35s;\n    transition: stroke-dashoffset 0.35s;\n    -webkit-transform: rotate(-90deg);\n            transform: rotate(-90deg);\n    -webkit-transform-origin: 50% 50%;\n            transform-origin: 50% 50%;\n    stroke: #0e63f4;\n    fill: transparent; }\n  .progress-block__inner-circle {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%); }\n    .progress-block__inner-circle circle {\n      -webkit-transition: stroke-dashoffset 0.35s;\n      transition: stroke-dashoffset 0.35s;\n      -webkit-transform: rotate(-90deg);\n              transform: rotate(-90deg);\n      -webkit-transform-origin: 50% 50%;\n              transform-origin: 50% 50%;\n      stroke: rgba(14, 99, 244, 0.2);\n      fill: transparent; }\n  .progress-block__circle {\n    position: relative;\n    margin-bottom: 1rem; }\n  .progress-block__circle-text {\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    font-size: 1.6rem;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n    .progress-block__circle-text span:first-child {\n      font-weight: 600;\n      margin-bottom: 5px; }\n    .progress-block__circle-text span:last-child {\n      font-weight: 100;\n      font-size: 1.2rem; }\n  .progress-block__title {\n    font-size: 2rem;\n    margin-bottom: 1rem; }\n  .progress-block__next-level {\n    font-size: 1.2rem;\n    font-weight: 100; }\n';
+styleInject(css_248z$d);
+
+var LineProgress = function (_a) {
+  var _b = _a.currentLevel,
+    currentLevel = _b === void 0 ? 0 : _b,
+    progressPercentage = _a.progressPercentage,
+    pointsType = _a.pointsType,
+    title = _a.title;
+  var pointsToNextLevel = 100 - progressPercentage;
+  return React.createElement(
+    "div",
+    { className: "progress-line" },
+    React.createElement("div", { className: "progress-line__heading" }, title),
+    React.createElement(
+      "div",
+      { className: "progress-line__bar" },
+      React.createElement("span", {
+        style: { width: progressPercentage + "%" },
+        className: "progress-line__bar-left",
+      }),
+      React.createElement("span", {
+        style: { width: pointsToNextLevel + "%" },
+        className: "progress-line__bar-right",
+      })
+    ),
+    React.createElement(
+      "div",
+      { className: "progress-line__meta" },
+      React.createElement(
+        "span",
+        { className: "progress-line__currentLevel" },
+        "Level ",
+        currentLevel
+      ),
+      " ",
+      React.createElement(
+        "div",
+        null,
+        React.createElement(
+          "span",
+          null,
+          pointsToNextLevel,
+          " more ",
+          pointsType,
+          pointsToNextLevel === 1 ? "" : "s",
+          " to"
+        ),
+        React.createElement(
+          "span",
+          { className: "progress-line__nextLevel" },
+          "Level ",
+          currentLevel + 1
+        )
+      )
+    )
+  );
+};
+
+var Progress = function (props) {
+  switch (props.type) {
+    case "block":
+      return React.createElement(BlockProgress, __assign({}, props));
+    case "line":
+    default:
+      return React.createElement(LineProgress, __assign({}, props));
+  }
+};
+
 export {
   Area,
   Button,
@@ -27261,6 +27412,7 @@ export {
   Notification,
   OList,
   Paragraph,
+  Progress,
   Radio,
   Row,
   Sidebar,
