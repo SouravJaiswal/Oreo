@@ -1,78 +1,197 @@
-@import '../main.scss';
+@import "../main.scss";
 
 .row {
-  display: flex;
-  margin: 0 auto;
-  max-width: $grid-width;
-  position: relative;
-  width: 100%;
-  max-height: fit-content;
-  flex-wrap: wrap;
+    display: flex;
+    margin: 0 auto;
+    max-width: $grid-width;
+    position: relative;
+    width: 100%;
+    max-height: fit-content;
+    flex-wrap: wrap;
 
-  &:not(:last-child) {
-    margin-bottom: $gutter-vertical;
-  }
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+    }
 }
 
 .col {
-  align-items: stretch;
-  &:not(:last-child) {
-    margin-right: $gutter-horizontal;
-  }
+    align-items: stretch;
+    &:not(:last-child) {
+        margin-right: $gutter-horizontal;
 
-  &-1-of-1 {
-    flex-basis: 100%;
-  }
+        @include respond(phone) {
+            margin: 0;
+        }
+    }
 
-  &-1-of-2 {
-    flex-basis: calc((100% - #{$gutter-horizontal}) / 2);
-  }
+    // Deprecated: Do not use this in newer code.
+    &-1-of-1 {
+        flex-basis: 100%;
+    }
 
-  &-1-of-3 {
-    flex-basis: calc((100% - 2 * #{$gutter-horizontal}) / 3);
-  }
+    &-1-of-2 {
+        flex-basis: calc((100% - #{$gutter-horizontal}) / 2);
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-2-of-3 {
-    flex-basis: calc(
-      2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
-    );
-  }
+    &-1-of-3 {
+        flex-basis: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-1-of-4 {
-    flex-basis: calc((100% - 3 * #{$gutter-horizontal}) / 4);
-  }
+    &-2-of-3 {
+        flex-basis: calc(
+            2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-2-of-4 {
-    flex-basis: calc(
-      2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
-    );
-  }
+    &-1-of-4 {
+        flex-basis: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-3-of-4 {
-    flex-basis: calc(
-      3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
-    );
-  }
+    &-2-of-4 {
+        flex-basis: calc(
+            2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-1-of-5 {
-    flex-basis: calc((100% - 4 * #{$gutter-horizontal}) / 5);
-  }
+    &-3-of-4 {
+        flex-basis: calc(
+            3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-2-of-5 {
-    flex-basis: calc(
-      2 * calc((100% - 4 * #{$gutter-horizontal}) / 5) + #{$gutter-horizontal}
-    );
-  }
+    &-1-of-5 {
+        flex-basis: calc((100% - 4 * #{$gutter-horizontal}) / 5);
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  &-3-of-5 {
-    flex-basis: calc(
-      3 * calc((100% - 4 * #{$gutter-horizontal}) / 5) + 2 * #{$gutter-horizontal}
-    );
-  }
+    &-2-of-5 {
+        flex-basis: calc(
+            2 * calc((100% - 4 * #{$gutter-horizontal}) / 5) + #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
 
-  .col-4-of-5 {
-    flex-basis: calc(
-      4 * ((100% - 4 * #{$gutter-horizontal}) / 5) + 3 * #{$gutter-horizontal}
-    );
-  }
+    &-3-of-5 {
+        flex-basis: calc(
+            3 * calc((100% - 4 * #{$gutter-horizontal}) / 5) + 2 * #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
+
+    &-4-of-5 {
+        flex-basis: calc(
+            4 * ((100% - 4 * #{$gutter-horizontal}) / 5) + 3 * #{$gutter-horizontal}
+        );
+        @include respond(phone) {
+            flex-basis: 100%;
+        }
+    }
+}
+
+/*
+ *  Based on 12 column Grid system.
+ */
+.col {
+    &-12-layout {
+        overflow: hidden;
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+        }
+    }
+}
+
+@for $i from 1 through $columns {
+    .col-xs-#{$i} {
+        @media only screen and (min-width: 25em) {
+            width: calc(
+                (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
+            );
+        }
+        @include respond(mini-phone) {
+            margin-right: 0 !important;
+            width: 100%;
+        }
+    }
+}
+
+@for $i from 1 through $columns {
+    .col-sm-#{$i} {
+        @media only screen and (min-width: 37.5em) {
+            width: calc(
+                (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
+            );
+        }
+
+        @media only screen and (max-width: 37.5em) and (min-width: 25em) {
+            margin-right: 0 !important;
+            width: 100%;
+        }
+    }
+}
+
+@for $i from 1 through $columns {
+    .col-md-#{$i} {
+        @media only screen and (min-width: 56.25em) {
+            width: calc(
+                (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
+            );
+        }
+
+        @media only screen and (max-width: 56.25em) and (min-width: 37.5em) {
+            margin-right: 0 !important;
+            width: 100%;
+        }
+    }
+}
+
+@for $i from 1 through $columns {
+    .col-lg-#{$i} {
+        @media only screen and (min-width: 75em) {
+            width: calc(
+                (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
+            );
+        }
+
+        @media only screen and (max-width: 75em) and (min-width: 56.25em) {
+            margin-right: 0 !important;
+            width: 100%;
+        }
+    }
+}
+
+@for $i from 1 through $columns {
+    .col-xl-#{$i} {
+        width: calc(
+            (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
+        );
+
+        @media only screen and (max-width: 112.5em) {
+            margin-right: 0 !important;
+            width: 100%;
+        }
+    }
 }
