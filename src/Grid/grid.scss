@@ -118,9 +118,7 @@
 .col {
     &-12-layout {
         overflow: hidden;
-        &:not(:last-child) {
-            margin-right: $gutter-horizontal;
-        }
+        width: 100%;
     }
 }
 
@@ -130,10 +128,12 @@
             width: calc(
                 (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
             );
-        }
-        @include respond(mini-phone) {
-            margin-right: 0 !important;
-            width: 100%;
+
+            @if $i < 12 {
+                &:not(:last-child) {
+                    margin-right: $gutter-horizontal;
+                }
+            }
         }
     }
 }
@@ -144,11 +144,12 @@
             width: calc(
                 (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
             );
-        }
 
-        @media only screen and (max-width: 37.5em) and (min-width: 25em) {
-            margin-right: 0 !important;
-            width: 100%;
+            @if $i < 12 {
+                &:not(:last-child) {
+                    margin-right: $gutter-horizontal;
+                }
+            }
         }
     }
 }
@@ -159,11 +160,12 @@
             width: calc(
                 (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
             );
-        }
 
-        @media only screen and (max-width: 56.25em) and (min-width: 37.5em) {
-            margin-right: 0 !important;
-            width: 100%;
+            @if $i < 12 {
+                &:not(:last-child) {
+                    margin-right: $gutter-horizontal;
+                }
+            }
         }
     }
 }
@@ -174,11 +176,12 @@
             width: calc(
                 (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
             );
-        }
 
-        @media only screen and (max-width: 75em) and (min-width: 56.25em) {
-            margin-right: 0 !important;
-            width: 100%;
+            @if $i < 12 {
+                &:not(:last-child) {
+                    margin-right: $gutter-horizontal;
+                }
+            }
         }
     }
 }
@@ -189,9 +192,10 @@
             (#{$cell-width} * #{$i}) + (#{$gutter-horizontal} * (#{$i} - 1))
         );
 
-        @media only screen and (max-width: 112.5em) {
-            margin-right: 0 !important;
-            width: 100%;
+        @if $i < 12 {
+            &:not(:last-child) {
+                margin-right: $gutter-horizontal;
+            }
         }
     }
 }

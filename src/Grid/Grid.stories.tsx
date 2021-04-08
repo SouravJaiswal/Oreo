@@ -41,16 +41,16 @@ export const RowGrid = () => {
 export const Grid12Layout = () => {
     return (
         <Row>
-            <Col xs={3}>
+            <Col xs={6} sm={4} md={6}>
                 <div className="item">Hello World</div>
             </Col>
-            <Col xs={3}>
+            <Col xs={1} sm={2} md={1}>
                 <div className="item">Hello World</div>
             </Col>
-            <Col xs={3}>
+            <Col xs={3} sm={3} md={3}>
                 <div className="item">Hello World</div>
             </Col>
-            <Col xs={3}>
+            <Col xs={2} sm={3} md={2}>
                 <div className="item">Hello World</div>
             </Col>
         </Row>
