@@ -44,88 +44,103 @@ import { checkErrors } from "./util";
 */
 
 export const Text = (props: InputProps) => {
-  let [errMsg, setErrMsg]: [Array<string>, Function] = useState([]);
-  let [touched, setTouched]: [boolean, Function] = useState(false);
-  const { rules, label, icon, name, className, type, autoFocus, value } = props;
-
-  // On first load, if value is provided, set the error
-  useEffect(() => {
-    if ((typeof value === "string" || typeof value === "number") && !!value) {
-      props.onChange({
-        value,
-        isValid: checkErrors(value, setErrMsg, rules),
-      });
-    }
-  }, []);
-
-  let onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    let [errMsg, setErrMsg]: [Array<string>, Function] = useState([]);
+    let [touched, setTouched]: [boolean, Function] = useState(false);
     const {
-      target: { value },
-    } = e;
+        rules,
+        label,
+        icon,
+        name,
+        className,
+        type,
+        autoFocus,
+        value,
+        disabled,
+    } = props;
 
-    // Handle all the rules
-    const isValid = checkErrors(value, setErrMsg, rules);
-    // Touched state
-    setTouched(true);
+    // On first load, if value is provided, set the error
+    useEffect(() => {
+        if (
+            (typeof value === "string" || typeof value === "number") &&
+            !!value
+        ) {
+            props.onChange({
+                value,
+                isValid: checkErrors(value, setErrMsg, rules),
+            });
+        }
+    }, []);
 
-    return props.onChange({
-      value,
-      isValid,
-    });
-  };
+    let onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const {
+            target: { value },
+        } = e;
 
-  // If touched and error show the error border, else success border
-  const showErrState = touched
-    ? errMsg.length > 0
-      ? "input--error"
-      : "input--success"
-    : "";
+        // Handle all the rules
+        const isValid = checkErrors(value, setErrMsg, rules);
+        // Touched state
+        setTouched(true);
 
-  // If icon is provided, show the icon text
-  if (!!icon) {
+        return props.onChange({
+            value,
+            isValid,
+        });
+    };
+
+    // If touched and error show the error border, else success border
+    const showErrState = touched
+        ? errMsg.length > 0
+            ? "input--error"
+            : "input--success"
+        : "";
+
+    // If icon is provided, show the icon text
+    if (!!icon) {
+        return (
+            <div className="input__group">
+                <div className="input__main">
+                    <input
+                        autoFocus={autoFocus}
+                        value={value}
+                        type={type}
+                        name={name}
+                        className={`input  input--text input__with-icon ${showErrState} ${className}`}
+                        onChange={onChange}
+                        placeholder={label}
+                        required
+                        disabled={disabled}
+                    />
+                    <span className="input__icon">{icon}</span>
+                </div>
+                <div className="input__err">
+                    {errMsg.map((msg) => (
+                        <ErrMsg key={msg} msg={msg} />
+                    ))}
+                </div>
+            </div>
+        );
+    }
+
+    // show the label format
     return (
-      <div className="input__group">
-        <div className="input__main">
-          <input
-            autoFocus={autoFocus}
-            value={value}
-            type={type}
-            name={name}
-            className={`input  input--text input__with-icon ${showErrState} ${className}`}
-            onChange={onChange}
-            placeholder={label}
-            required
-          />
-          <span className="input__icon">{icon}</span>
+        <div className="input__group">
+            <div className="input__main">
+                <input
+                    type={type}
+                    name={name}
+                    value={value}
+                    className={`input input--${type} input__with-label ${showErrState} ${className}`}
+                    onChange={onChange}
+                    required
+                    disabled={disabled}
+                />
+                <span className="input__label">{label}</span>
+            </div>
+            <div className="input__err">
+                {errMsg.map((msg) => (
+                    <ErrMsg key={msg} msg={msg} />
+                ))}
+            </div>
         </div>
-        <div className="input__err">
-          {errMsg.map((msg) => (
-            <ErrMsg key={msg} msg={msg} />
-          ))}
-        </div>
-      </div>
     );
-  }
-
-  // show the label format
-  return (
-    <div className="input__group">
-      <div className="input__main">
-        <input
-          type={type}
-          name={name}
-          value={value}
-          className={`input input--${type} input__with-label ${showErrState} ${className}`}
-          onChange={onChange}
-          required
-        />
-        <span className="input__label">{label}</span>
-      </div>
-      <div className="input__err">
-        {errMsg.map((msg) => (
-          <ErrMsg key={msg} msg={msg} />
-        ))}
-      </div>
-    </div>
-  );
 };
