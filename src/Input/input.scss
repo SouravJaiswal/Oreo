@@ -104,6 +104,10 @@ select:-webkit-autofill:focus {
         z-index: 0;
         cursor: not-allowed;
     }
+
+    &--textarea {
+        line-height: 2.1rem;
+    }
 }
 
 /* 

@@ -40,6 +40,26 @@ export const Text = () => {
     );
 };
 
+export const Textarea = () => {
+    let [description, setDescription] = useState("");
+
+    return (
+        <Input
+            autoFocus={true}
+            type="textarea"
+            value={description}
+            onChange={({ value, isValid }: onChangeParams) =>
+                typeof value === "string" ? setDescription(value) : ""
+            }
+            disabled={false}
+            name="Description"
+            label=""
+            placeholder="Description"
+            rules={[{ type: "required", errMsg: "Description is required" }]}
+        />
+    );
+};
+
 export const Email = () => {
     let [email, setEmail] = useState("");
 
