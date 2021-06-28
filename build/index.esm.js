@@ -1443,13 +1443,15 @@ var Table = function (_a) {
     className = _a.className;
   var headingJsx = [];
   var bodyJsx = [];
-  _.map(headings, function (heading, index) {
-    headingJsx.push(React.createElement("th", null, heading));
+  headings.forEach(function (heading) {
+    return headingJsx.push(React.createElement("th", null, heading));
+  });
+  values.forEach(function (row) {
     bodyJsx.push(
       React.createElement(
         "tr",
         null,
-        _.map(values[index], function (data) {
+        _.map(row, function (data) {
           return !!data.render
             ? React.createElement(
                 "td",

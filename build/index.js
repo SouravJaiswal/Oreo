@@ -1543,15 +1543,17 @@ var Table = function (_a) {
     className = _a.className;
   var headingJsx = [];
   var bodyJsx = [];
-  ___default["default"].map(headings, function (heading, index) {
-    headingJsx.push(
+  headings.forEach(function (heading) {
+    return headingJsx.push(
       React__default["default"].createElement("th", null, heading)
     );
+  });
+  values.forEach(function (row) {
     bodyJsx.push(
       React__default["default"].createElement(
         "tr",
         null,
-        ___default["default"].map(values[index], function (data) {
+        ___default["default"].map(row, function (data) {
           return !!data.render
             ? React__default["default"].createElement(
                 "td",
