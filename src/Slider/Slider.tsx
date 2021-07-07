@@ -104,6 +104,7 @@ export class Slider extends React.Component<SliderProps, SliderState> {
           {_.map(this.state.data, (element, idx) => {
             return (
               <div
+                key={element.heading + idx}
                 className="slider__single"
                 onMouseOver={this.onHover}
                 onMouseOut={this.onLeave}

@@ -27499,6 +27499,7 @@ var Slider = /** @class */ (function (_super) {
           return React__default["default"].createElement(
             "div",
             {
+              key: element.heading + idx,
               className: "slider__single",
               onMouseOver: _this.onHover,
               onMouseOut: _this.onLeave,
